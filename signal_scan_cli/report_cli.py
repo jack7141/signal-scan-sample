@@ -929,16 +929,46 @@ def score_report(cards: List[EvidenceCard]) -> Dict[str, Any]:
             "stats": {},
         }
 
-    total = len(cards)
-    pain_hits = sum(1 for c in cards if c.pain_tags)
-    wtp1 = sum(1 for c in cards if c.wtp >= 1)
-    wtp2 = sum(1 for c in cards if c.wtp >= 2)
-    workaround_hits = sum(1 for c in cards if c.workaround_tags)
+    def source_weight(src: str) -> float:
+        s = (src or "").lower()
+        if s.startswith("naver") or s.startswith("apify-naver"):
+            return 1.25
+        if s.startswith("youtube") or s.startswith("apify-youtube"):
+            return 1.2
+        if s in {"reddit", "reddit-web"} or s.startswith("apify-reddit"):
+            return 0.75
+        if s == "hackernews":
+            return 0.9
+        if s == "duckduckgo":
+            return 0.85
+        return 1.0
+
+    def recency_weight(meta: Dict[str, Any]) -> float:
+        raw = str((meta or {}).get("publishedAt") or (meta or {}).get("pubDate") or (meta or {}).get("created_at") or "")
+        m = re.search(r"(20\d{2})", raw)
+        if not m:
+            return 0.9
+        y = int(m.group(1))
+        if y >= 2025:
+            return 1.05
+        if y >= 2023:
+            return 1.0
+        if y >= 2020:
+            return 0.9
+        return 0.75
+
+    weights = [max(0.3, source_weight(c.source) * recency_weight(c.meta)) for c in cards]
+    w_total = sum(weights)
+
+    pain_w = sum(w for c, w in zip(cards, weights) if c.pain_tags)
+    wtp1_w = sum(w for c, w in zip(cards, weights) if c.wtp >= 1)
+    wtp2_w = sum(w for c, w in zip(cards, weights) if c.wtp >= 2)
+    workaround_w = sum(w for c, w in zip(cards, weights) if c.workaround_tags)
     sources = len(set(c.source for c in cards))
 
-    pain_ratio = pain_hits / total
-    wtp_ratio = (wtp1 + 2 * wtp2) / (2 * total)
-    workaround_ratio = workaround_hits / total
+    pain_ratio = pain_w / max(1e-9, w_total)
+    wtp_ratio = (wtp1_w + 2 * wtp2_w) / max(1e-9, (2 * w_total))
+    workaround_ratio = workaround_w / max(1e-9, w_total)
     source_bonus = min(0.15, sources * 0.05)
 
     score = (
@@ -949,6 +979,7 @@ def score_report(cards: List[EvidenceCard]) -> Dict[str, Any]:
     )
     score = max(0, min(100, round(score, 1)))
 
+    total = len(cards)
     if total >= 30 and sources >= 3:
         conf = "high"
     elif total >= 12 and sources >= 2:
@@ -969,11 +1000,16 @@ def score_report(cards: List[EvidenceCard]) -> Dict[str, Any]:
         "decision": decision,
         "stats": {
             "evidence_count": total,
-            "pain_hits": pain_hits,
-            "wtp_level1_plus": wtp1,
-            "wtp_level2": wtp2,
-            "workaround_hits": workaround_hits,
+            "pain_hits": sum(1 for c in cards if c.pain_tags),
+            "wtp_level1_plus": sum(1 for c in cards if c.wtp >= 1),
+            "wtp_level2": sum(1 for c in cards if c.wtp >= 2),
+            "workaround_hits": sum(1 for c in cards if c.workaround_tags),
             "source_count": sources,
+            "weighted_total": round(w_total, 2),
+            "weighted_pain": round(pain_w, 2),
+            "weighted_wtp1_plus": round(wtp1_w, 2),
+            "weighted_wtp2": round(wtp2_w, 2),
+            "weighted_workaround": round(workaround_w, 2),
         },
     }
 
