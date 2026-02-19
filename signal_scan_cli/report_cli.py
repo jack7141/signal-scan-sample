@@ -87,6 +87,8 @@ RELEVANCE_TERMS = [
     "매매일지", "매매 일지", "트레이딩일지", "트레이딩 일지", "트레이더 저널",
     "trading journal", "trade journal", "trade log", "trading log", "journaling",
     "매매기록", "매매 기록", "trading notes", "거래기록",
+    "trading performance", "trading review", "pnl tracker", "rule violation",
+    "review my trades", "journal app", "trading mistakes",
 ]
 
 PROBLEM_TERMS = [
@@ -96,6 +98,10 @@ PROBLEM_TERMS = [
 
 BAD_URL_KEYWORDS = [
     "lotto", "arclink", "games-cn", "meme", "horror", "/r/ssss", "clickbait",
+]
+
+REDDIT_ALLOWED_SUBS = [
+    "trading", "daytrading", "stocks", "stockmarket", "investing", "options", "forex", "crypto", "cryptocurrency", "algotrading",
 ]
 
 PREFERRED_DOMAIN_HINTS = [
@@ -195,11 +201,13 @@ def build_reddit_english_queries(intake: Dict[str, Any], plan: Dict[str, Any]) -
     seed.extend([str(intake.get("target") or ""), str(intake.get("problem") or "")])
 
     english = [
-        "trading journal",
+        "trading journal app",
         "trade log app",
         "trading performance tracker",
         "trading review workflow",
         "willingness to pay trading app",
+        "how traders track mistakes",
+        "best trading journal app",
     ]
 
     for s in seed:
@@ -218,6 +226,8 @@ def build_reddit_english_queries(intake: Dict[str, Any], plan: Dict[str, Any]) -
                 english.append(en)
                 english.append(f"{en} app")
                 english.append(f"{en} review")
+                english.append(f"best {en} app")
+                english.append(f"{en} alternatives")
                 english.append(f"{en} willingness to pay")
 
     out = []
@@ -225,6 +235,11 @@ def build_reddit_english_queries(intake: Dict[str, Any], plan: Dict[str, Any]) -
     for q in english:
         qq = re.sub(r"\s+", " ", q).strip()
         if len(qq) < 3:
+            continue
+        # avoid overly generic one-word queries
+        if len(qq.split()) == 1:
+            continue
+        if not any(k in qq for k in ["trading", "trade", "journal", "log", "review", "tracker"]):
             continue
         if qq in seen:
             continue
@@ -1432,20 +1447,24 @@ def rejudge_sprint(intake: Dict[str, Any], base_decision: str) -> Dict[str, Any]
     apply_rate = (applications / visits) if visits else 0.0
 
     checks = [
-        {"name": "CTA 클릭률>=3%", "pass": cta_rate >= 0.03, "value": round(cta_rate, 4)},
-        {"name": "저장/좋아요>=20", "pass": saves >= 20, "value": saves},
-        {"name": "DM/댓글>=10", "pass": dm_comments >= 10, "value": dm_comments},
-        {"name": "인터뷰>=5", "pass": interviews >= 5, "value": interviews},
-        {"name": "가격 언급>=3", "pass": price_mentions >= 3, "value": price_mentions},
-        {"name": "신청률>=2%(신청/랜딩방문)", "pass": apply_rate >= 0.02, "value": round(apply_rate, 4)},
-        {"name": "반복 Pain>=3", "pass": repeated_pain_count >= 3, "value": repeated_pain_count},
-        {"name": "WTP 문장>=3", "pass": wtp_sentences >= 3, "value": wtp_sentences},
+        {"name": "CTA 클릭률>=3%", "pass": cta_rate >= 0.03, "value": round(cta_rate, 4), "weight": 1.2},
+        {"name": "저장/좋아요>=20", "pass": saves >= 20, "value": saves, "weight": 0.8},
+        {"name": "DM/댓글>=10", "pass": dm_comments >= 10, "value": dm_comments, "weight": 1.0},
+        {"name": "인터뷰>=5", "pass": interviews >= 5, "value": interviews, "weight": 1.0},
+        {"name": "가격 언급>=3", "pass": price_mentions >= 3, "value": price_mentions, "weight": 1.3},
+        {"name": "신청률>=2%(신청/랜딩방문)", "pass": apply_rate >= 0.02, "value": round(apply_rate, 4), "weight": 1.6},
+        {"name": "반복 Pain>=3", "pass": repeated_pain_count >= 3, "value": repeated_pain_count, "weight": 0.9},
+        {"name": "WTP 문장>=3", "pass": wtp_sentences >= 3, "value": wtp_sentences, "weight": 1.5},
     ]
     pass_count = sum(1 for c in checks if c["pass"])
+    weighted_total = sum(c["weight"] for c in checks)
+    weighted_pass = sum(c["weight"] for c in checks if c["pass"])
+    weighted_ratio = round(weighted_pass / weighted_total, 4) if weighted_total else 0.0
 
-    if pass_count >= 6 and apply_rate >= 0.02 and wtp_sentences >= 3:
+    hard_go = (apply_rate >= 0.02 and wtp_sentences >= 3 and interviews >= 5)
+    if weighted_ratio >= 0.72 and hard_go:
         decision = "go"
-    elif pass_count >= 3:
+    elif weighted_ratio >= 0.45:
         decision = "iterate"
     else:
         decision = "pivot"
@@ -1455,6 +1474,12 @@ def rejudge_sprint(intake: Dict[str, Any], base_decision: str) -> Dict[str, Any]
         "rejudged_decision": decision,
         "pass_count": pass_count,
         "total_checks": len(checks),
+        "weighted_pass_ratio": weighted_ratio,
+        "hard_go_conditions": {
+            "apply_rate_ge_2pct": apply_rate >= 0.02,
+            "wtp_sentences_ge_3": wtp_sentences >= 3,
+            "interviews_ge_5": interviews >= 5,
+        },
         "metrics": {
             "landing_visits": visits,
             "cta_clicks": cta_clicks,
@@ -1470,6 +1495,49 @@ def rejudge_sprint(intake: Dict[str, Any], base_decision: str) -> Dict[str, Any]
             "repeated_pain_count": repeated_pain_count,
         },
         "checks": checks,
+    }
+
+
+def build_execution_pack(intake: Dict[str, Any], score: Dict[str, Any], insight: Dict[str, Any], sprint_rejudge: Dict[str, Any], top_pains: List[Tuple[str, int]]) -> Dict[str, Any]:
+    target = intake.get("target") or "핵심 타겟"
+    top_pain = top_pains[0][0] if top_pains else "기록/복기"
+    decision = sprint_rejudge.get("rejudged_decision") or score.get("decision", "iterate")
+    apply_rate = (sprint_rejudge.get("metrics") or {}).get("application_rate", 0.0)
+    wtp_ratio = insight.get("wtp_direct_ratio", 0.0)
+
+    if decision == "go":
+        tone = "검증 통과. 전환 실험을 확장합니다."
+    elif decision == "iterate":
+        tone = "핵심 가설 유지, 오퍼 문구/세그먼트 조정이 필요합니다."
+    else:
+        tone = "오퍼 피벗 권장. 결과물 중심 패키지로 재실험합니다."
+
+    post = (
+        f"[{target}] 지금 {top_pain} 문제를 해결할 '자동기록+주간리포트' 유료베타를 검증 중입니다. "
+        f"신청률 {apply_rate:.2%}, WTP비율 {wtp_ratio:.2%}. 관심 있으면 DM에 BETA 남겨주세요."
+    )
+    dm_script = [
+        "문의 감사합니다. 15분만 인터뷰하고 베타 우선 초대 드릴게요.",
+        "현재 기록 도구(엑셀/노션/앱)와 가장 큰 불편 1가지를 알려주세요.",
+        "자동기록+주간리포트가 해결된다면 월 얼마가 적정한지 알려주세요.",
+    ]
+    tweak_rule = "신청률<2%면 혜택문구 2줄 교체, WTP문장<3이면 가격 질문 문구를 전면에 배치"
+
+    return {
+        "status_tone": tone,
+        "today_action": {
+            "channel": "threads",
+            "target": target,
+            "timebox_minutes": 60,
+            "post_copy": post,
+            "kpi": {
+                "apply_rate_target": 0.02,
+                "dm_target": 10,
+                "wtp_sentence_target": 3,
+            },
+            "failure_rule": tweak_rule,
+        },
+        "dm_script": dm_script,
     }
 
 
@@ -1523,6 +1591,7 @@ def build_report(intake: Dict[str, Any], cards: List[EvidenceCard], score: Dict[
     segment_posts = build_segment_posts(intake)
     interview_tagging = tag_interview_answers(intake)
     sprint_rejudge = rejudge_sprint(intake, score.get("decision", "iterate"))
+    execution_pack = build_execution_pack(intake, score, insight_metrics, sprint_rejudge, top_pains)
 
     return {
         "generated_at": datetime.now(timezone.utc).isoformat(),
@@ -1542,6 +1611,7 @@ def build_report(intake: Dict[str, Any], cards: List[EvidenceCard], score: Dict[
         "segment_posts": segment_posts,
         "interview_tagging": interview_tagging,
         "sprint_rejudge": sprint_rejudge,
+        "execution_pack": execution_pack,
         "top_pains": [{"tag": t, "count": c} for t, c in top_pains],
         "top_workarounds": [{"tag": t, "count": c} for t, c in top_workarounds],
         "wtp_quotes": top_wtp_quotes,
@@ -1655,6 +1725,20 @@ def render_markdown(report: Dict[str, Any]) -> str:
     lines.append("\n## 7) 스프린트 자동 재판정")
     lines.append(f"- 기존 판정: {sr.get('base_decision','iterate')} -> 재판정: **{sr.get('rejudged_decision','iterate')}**")
     lines.append(f"- 체크 통과: {sr.get('pass_count',0)}/{sr.get('total_checks',0)}")
+    if sr:
+        lines.append(f"- 가중 통과율: {sr.get('weighted_pass_ratio',0)}")
+
+    ep = report.get("execution_pack", {})
+    if ep:
+        lines.append("\n## 7-1) 실행 산출물 자동 제안")
+        lines.append(f"- 상태 요약: {ep.get('status_tone','')}")
+        ta = ep.get("today_action", {})
+        if ta:
+            lines.append(f"- 오늘 액션: {ta.get('channel','threads')} / 타겟: {ta.get('target','')}")
+            lines.append(f"- 복붙 포스트: {ta.get('post_copy','')}")
+            k = ta.get("kpi", {})
+            lines.append(f"- KPI: 신청률>={k.get('apply_rate_target',0)} / DM>={k.get('dm_target',0)} / WTP문장>={k.get('wtp_sentence_target',0)}")
+            lines.append(f"- 실패 규칙: {ta.get('failure_rule','')}")
 
     # Replacement map
     rep = report.get("replacement_map", {})
@@ -1844,8 +1928,9 @@ def main() -> int:
             ("naver", os.getenv("APIFY_TASK_NAVER")),
             ("youtube", os.getenv("APIFY_TASK_YOUTUBE")),
         ]
+        use_actor_reddit = os.getenv("APIFY_USE_ACTOR_REDDIT", "0") == "1"
         apify_actor_map = [
-            ("reddit", os.getenv("APIFY_ACTOR_REDDIT")),
+            ("reddit", os.getenv("APIFY_ACTOR_REDDIT") if use_actor_reddit else None),
             ("naver", os.getenv("APIFY_ACTOR_NAVER")),
             ("youtube", os.getenv("APIFY_ACTOR_YOUTUBE")),
         ]
@@ -1964,9 +2049,16 @@ def main() -> int:
         if c.source in {"duckduckgo", "reddit-web", "threads"}:
             th = 3
 
+        # reddit source quality filter
+        if c.source.startswith("apify-reddit") or c.source in {"reddit", "reddit-web"}:
+            u = (c.source_url or "").lower()
+            if "/r/" in u and not any(f"/r/{sub}" in u for sub in REDDIT_ALLOWED_SUBS):
+                dropped += 1
+                continue
+
         # relax threshold slightly when dynamic terms exist (generic ideas)
         if dynamic_terms and c.source.startswith("apify-"):
-            th = max(2, th - 1)
+            th = max(1, th - 1)
 
         if is_relevant_text(blob, threshold=th, extra_terms=dynamic_terms):
             filtered.append(c)
