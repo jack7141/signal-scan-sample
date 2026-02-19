@@ -1400,6 +1400,86 @@ def build_self_checklist(insight: Dict[str, Any]) -> Dict[str, Any]:
     }
 
 
+def build_decision_evidence(cards: List[EvidenceCard], limit: int = 10) -> List[Dict[str, Any]]:
+    def recency_bonus(meta: Dict[str, Any]) -> float:
+        raw = str((meta or {}).get("publishedAt") or (meta or {}).get("pubDate") or (meta or {}).get("created_at") or "")
+        m = re.search(r"(20\d{2})", raw)
+        if not m:
+            return 0.0
+        y = int(m.group(1))
+        if y >= 2025:
+            return 1.0
+        if y >= 2023:
+            return 0.5
+        return 0.0
+
+    scored: List[Tuple[float, EvidenceCard]] = []
+    for c in cards:
+        text = f"{c.title} {c.quote}".lower()
+        score = 0.0
+        # decision contribution: WTP > workaround-gap > pain > momentum
+        if c.wtp >= 2:
+            score += 5.0
+        elif c.wtp == 1:
+            score += 3.0
+        if c.workaround_tags:
+            score += 2.0
+        if c.pain_tags:
+            score += 1.5
+        if c.source in {"naver-news", "naver-blog", "youtube-comment", "youtube-video", "appstore-review", "googleplay-review"}:
+            score += 1.2
+        if any(k in text for k in ["가격", "유료", "결제", "구독", "price", "pay", "pricing"]):
+            score += 1.5
+        if any(k in text for k in ["엑셀", "노션", "hts", "excel", "notion", "manual"]):
+            score += 0.8
+        score += recency_bonus(c.meta)
+
+        if len((c.quote or "").strip()) < 40:
+            score -= 1.0
+        scored.append((score, c))
+
+    scored.sort(key=lambda x: x[0], reverse=True)
+
+    out: List[Dict[str, Any]] = []
+    seen_urls = set()
+    wtp_count = 0
+    workaround_count = 0
+
+    for score, c in scored:
+        if c.source_url in seen_urls:
+            continue
+        # force composition quality for top section
+        if len(out) < limit:
+            if c.wtp > 0 and wtp_count < 3:
+                wtp_count += 1
+            elif c.workaround_tags and workaround_count < 3:
+                workaround_count += 1
+            elif len(out) < 6:
+                pass
+
+            seen_urls.add(c.source_url)
+            so_what = "문제 공감 신호"
+            if c.wtp > 0:
+                so_what = "결제 의향 신호"
+            elif c.workaround_tags:
+                so_what = "기존 대안 한계 신호"
+
+            out.append({
+                "score": round(score, 2),
+                "quote": compact_text(c.quote, 260),
+                "source": c.source,
+                "url": c.source_url,
+                "pain_tags": c.pain_tags,
+                "workaround_tags": c.workaround_tags,
+                "wtp": c.wtp,
+                "signal": so_what,
+            })
+        if len(out) >= limit:
+            break
+
+    return out
+
+
 def build_segment_posts(intake: Dict[str, Any]) -> Dict[str, Any]:
     segments = intake.get("segments") or [
         "전업/고빈도 트레이더",
@@ -1628,6 +1708,7 @@ def build_report(intake: Dict[str, Any], cards: List[EvidenceCard], score: Dict[
     interview_tagging = tag_interview_answers(intake)
     sprint_rejudge = rejudge_sprint(intake, score.get("decision", "iterate"))
     execution_pack = build_execution_pack(intake, score, insight_metrics, sprint_rejudge, top_pains)
+    decision_evidence = build_decision_evidence(cards, limit=10)
 
     return {
         "generated_at": datetime.now(timezone.utc).isoformat(),
@@ -1648,6 +1729,7 @@ def build_report(intake: Dict[str, Any], cards: List[EvidenceCard], score: Dict[
         "interview_tagging": interview_tagging,
         "sprint_rejudge": sprint_rejudge,
         "execution_pack": execution_pack,
+        "decision_evidence": decision_evidence,
         "top_pains": [{"tag": t, "count": c} for t, c in top_pains],
         "top_workarounds": [{"tag": t, "count": c} for t, c in top_workarounds],
         "wtp_quotes": top_wtp_quotes,
