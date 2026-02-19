@@ -1,0 +1,14 @@
+{
+  "target": "트레이더",
+  "problem": "트레이더들이 매매일지를 각자 노션, 엑셀 등으로 분산 관리하고 있다",
+  "current_alternative": "엑셀, 노션 템플릿",
+  "promised_outcome": "엑셀이 아니라 웹서비스로 동기화되고 대시보드로 한눈에 보기 쉬운 매매일지",
+  "market_lang": "KR",
+  "keywords": [
+    "매매일지",
+    "매매일지기록",
+    "트레이딩공부"
+  ],
+  "thread_links": [],
+  "reddit_links": []
+}

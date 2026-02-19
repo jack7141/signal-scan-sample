@@ -1,0 +1,7 @@
+requests>=2.31.0
+ddgs>=8.1.1
+openai>=1.51.0
+python-dotenv>=1.0.1
+google-play-scraper>=1.2.7
+# Optional (dependency conflict-prone with modern requests):
+# app-store-scraper>=0.3.5
