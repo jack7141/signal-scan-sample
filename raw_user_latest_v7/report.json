@@ -1,0 +1,433 @@
+{
+  "generated_at": "2026-02-20T03:58:34.306908+00:00",
+  "intake": {
+    "target": "1인사업가, 1인기업가, 스타트업대표, 초기스타트업대표",
+    "problem": "내 아이디어가 시장에서 수요가 있을지 시장분석이 어렵다",
+    "current_alternative": "지인에게 물어봐서 사용할래? 말래? 판단",
+    "promised_outcome": "시장 수요와 WTP 신호 기반 의사결정 지원",
+    "market_lang": "KR",
+    "keywords": [
+      "시장조사",
+      "스타트업아이디어",
+      "시장분석",
+      "WTP"
+    ],
+    "thread_links": [],
+    "reddit_links": []
+  },
+  "summary": {
+    "demand_score": 28.1,
+    "confidence": "low",
+    "decision": "pivot",
+    "one_liner": "수요 신호 약 / confidence low",
+    "why_this_score": "",
+    "actionable_next_step": ""
+  },
+  "stats": {
+    "evidence_count": 4,
+    "pain_hits": 1,
+    "wtp_level1_plus": 1,
+    "wtp_level2": 0,
+    "workaround_hits": 2,
+    "source_count": 1,
+    "weighted_total": 4.5,
+    "weighted_pain": 1.12,
+    "weighted_wtp1_plus": 1.12,
+    "weighted_wtp2": 0,
+    "weighted_workaround": 2.25
+  },
+  "score_breakdown": {
+    "pain": 11.2,
+    "wallet": 4.4,
+    "workaround": 7.5,
+    "momentum": 1.2,
+    "total": 24.3,
+    "unlock_conditions": [
+      "WTP 강신호(유료/가격) 증거를 추가 확보",
+      "예약금/유료베타 전환 지표 확보",
+      "핵심 세그먼트 1개에서 반복 반응 확인"
+    ]
+  },
+  "insight_metrics": {
+    "evidence_count": 4,
+    "unique_sources": 1,
+    "unique_urls": 4,
+    "duplicate_ratio": 0.0,
+    "wtp_direct_count": 1,
+    "wtp_strong_count": 0,
+    "wtp_direct_ratio": 0.25,
+    "raw_score": 24.3,
+    "adjusted_score": 28.1,
+    "score_gap": 3.8
+  },
+  "self_checklist": {
+    "checks": [
+      {
+        "name": "증거 수 30건 이상",
+        "pass": false,
+        "value": 4,
+        "threshold": ">=30"
+      },
+      {
+        "name": "소스 다양성 4개 이상",
+        "pass": false,
+        "value": 1,
+        "threshold": ">=4"
+      },
+      {
+        "name": "중복률 35% 이하",
+        "pass": true,
+        "value": 0.0,
+        "threshold": "<=0.35"
+      },
+      {
+        "name": "WTP 직접 문장 비율 5% 이상",
+        "pass": true,
+        "value": 0.25,
+        "threshold": ">=0.05"
+      },
+      {
+        "name": "점수 일관성(raw<=adjusted)",
+        "pass": true,
+        "value": "raw=24.3, adjusted=28.1",
+        "threshold": "raw<=adjusted"
+      }
+    ],
+    "fail_count": 2,
+    "status": "fail"
+  },
+  "segment_posts": {
+    "segments": [
+      {
+        "segment": "전업/고빈도 트레이더",
+        "posts": [
+          {
+            "type": "공감형",
+            "text": "전업/고빈도 트레이더분들, 매매일지 기록은 하는데 주간 복기에서 가장 시간을 잡아먹는 구간이 어디인가요? (입력/정리/패턴분석 중 1개)"
+          },
+          {
+            "type": "인사이트형",
+            "text": "전업/고빈도 트레이더 기준으로 보면 문제 체감은 높은데 지불 의향은 낮습니다. '자동기록+주간리포트'에서 꼭 필요한 지표 3개만 알려주세요."
+          },
+          {
+            "type": "모집형",
+            "text": "전업/고빈도 트레이더 대상 유료베타 10명 모집: 자동기록+주간 성과리포트 테스트. 관심 있으면 DM에 BETA 남겨주세요."
+          }
+        ]
+      },
+      {
+        "segment": "직장인 겸업 트레이더",
+        "posts": [
+          {
+            "type": "공감형",
+            "text": "직장인 겸업 트레이더분들, 매매일지 기록은 하는데 주간 복기에서 가장 시간을 잡아먹는 구간이 어디인가요? (입력/정리/패턴분석 중 1개)"
+          },
+          {
+            "type": "인사이트형",
+            "text": "직장인 겸업 트레이더 기준으로 보면 문제 체감은 높은데 지불 의향은 낮습니다. '자동기록+주간리포트'에서 꼭 필요한 지표 3개만 알려주세요."
+          },
+          {
+            "type": "모집형",
+            "text": "직장인 겸업 트레이더 대상 유료베타 10명 모집: 자동기록+주간 성과리포트 테스트. 관심 있으면 DM에 BETA 남겨주세요."
+          }
+        ]
+      },
+      {
+        "segment": "초보 트레이더",
+        "posts": [
+          {
+            "type": "공감형",
+            "text": "초보 트레이더분들, 매매일지 기록은 하는데 주간 복기에서 가장 시간을 잡아먹는 구간이 어디인가요? (입력/정리/패턴분석 중 1개)"
+          },
+          {
+            "type": "인사이트형",
+            "text": "초보 트레이더 기준으로 보면 문제 체감은 높은데 지불 의향은 낮습니다. '자동기록+주간리포트'에서 꼭 필요한 지표 3개만 알려주세요."
+          },
+          {
+            "type": "모집형",
+            "text": "초보 트레이더 대상 유료베타 10명 모집: 자동기록+주간 성과리포트 테스트. 관심 있으면 DM에 BETA 남겨주세요."
+          }
+        ]
+      }
+    ]
+  },
+  "interview_tagging": {
+    "count": 0,
+    "tag_counts": {
+      "pain": 0,
+      "wtp": 0,
+      "workaround": 0
+    },
+    "wtp_ratio": 0.0,
+    "items": []
+  },
+  "sprint_rejudge": {
+    "base_decision": "pivot",
+    "rejudged_decision": "pivot",
+    "pass_count": 0,
+    "total_checks": 8,
+    "weighted_pass_ratio": 0.0,
+    "hard_go_conditions": {
+      "apply_rate_ge_2pct": false,
+      "wtp_sentences_ge_3": false,
+      "interviews_ge_5": false
+    },
+    "metrics": {
+      "landing_visits": 0,
+      "cta_clicks": 0,
+      "cta_rate": 0.0,
+      "saves_likes": 0,
+      "dm_comments": 0,
+      "interviews": 0,
+      "price_mentions": 0,
+      "reservation_clicks": 0,
+      "applications": 0,
+      "application_rate": 0.0,
+      "wtp_sentences": 0,
+      "repeated_pain_count": 0
+    },
+    "checks": [
+      {
+        "name": "CTA 클릭률>=3%",
+        "pass": false,
+        "value": 0.0,
+        "weight": 1.2
+      },
+      {
+        "name": "저장/좋아요>=20",
+        "pass": false,
+        "value": 0,
+        "weight": 0.8
+      },
+      {
+        "name": "DM/댓글>=10",
+        "pass": false,
+        "value": 0,
+        "weight": 1.0
+      },
+      {
+        "name": "인터뷰>=5",
+        "pass": false,
+        "value": 0,
+        "weight": 1.0
+      },
+      {
+        "name": "가격 언급>=3",
+        "pass": false,
+        "value": 0,
+        "weight": 1.3
+      },
+      {
+        "name": "신청률>=2%(신청/랜딩방문)",
+        "pass": false,
+        "value": 0.0,
+        "weight": 1.6
+      },
+      {
+        "name": "반복 Pain>=3",
+        "pass": false,
+        "value": 0,
+        "weight": 0.9
+      },
+      {
+        "name": "WTP 문장>=3",
+        "pass": false,
+        "value": 0,
+        "weight": 1.5
+      }
+    ]
+  },
+  "execution_pack": {
+    "status_tone": "오퍼 피벗 권장. 결과물 중심 패키지로 재실험합니다.",
+    "today_action": {
+      "channel": "threads",
+      "target": "1인사업가, 1인기업가, 스타트업대표, 초기스타트업대표",
+      "timebox_minutes": 60,
+      "post_copy": "[1인사업가, 1인기업가, 스타트업대표, 초기스타트업대표] 지금 repeat 문제를 해결할 '자동기록+주간리포트' 유료베타를 검증 중입니다. 신청률 0.00%, WTP비율 25.00%. 관심 있으면 DM에 BETA 남겨주세요.",
+      "kpi": {
+        "apply_rate_target": 0.02,
+        "dm_target": 10,
+        "wtp_sentence_target": 3
+      },
+      "failure_rule": "신청률<2%면 혜택문구 2줄 교체, WTP문장<3이면 가격 질문 문구를 전면에 배치"
+    },
+    "dm_script": [
+      "문의 감사합니다. 15분만 인터뷰하고 베타 우선 초대 드릴게요.",
+      "현재 기록 도구(엑셀/노션/앱)와 가장 큰 불편 1가지를 알려주세요.",
+      "자동기록+주간리포트가 해결된다면 월 얼마가 적정한지 알려주세요."
+    ]
+  },
+  "decision_evidence": [
+    {
+      "score": 6.6,
+      "quote": "유니콘기업이란? 뜻 기준부터 IT 스타트업 창업 준비 방법까지 처음에는 창업 전반에 필요한 생성형 AI 활용 방법을 학습하고 시장과 경쟁사, 고객들을 분석하는 방법을 배웁니다. 상상만 했었던 내 아이디어들이 시장에서 얼마만큼의 수요가 있을지 가설 검증 기법을...",
+      "source": "naver-blog",
+      "url": "https://blog.naver.com/surfingtaiji/224115273127",
+      "pain_tags": [],
+      "workaround_tags": [],
+      "wtp": 1,
+      "signal": "결제 의향 신호"
+    }
+  ],
+  "global_signals": [],
+  "top_pains": [
+    {
+      "tag": "repeat",
+      "count": 1
+    }
+  ],
+  "top_workarounds": [
+    {
+      "tag": "outsource",
+      "count": 1
+    },
+    {
+      "tag": "excel",
+      "count": 1
+    }
+  ],
+  "wtp_quotes": [
+    "유니콘기업이란? 뜻 기준부터 IT 스타트업 창업 준비 방법까지 처음에는 창업 전반에 필요한 생성형 AI 활용 방법을 학습하고 시장과 경쟁사, 고객들을 분석하는 방법을 배웁니다. 상상만 했었던 내 아이디어들이 시장에서 얼마만큼의 수요가 있을지 가설 검증 기법을..."
+  ],
+  "next_experiment": "핵심 문제 가설 재정의 후 다른 세그먼트(타겟)로 쿼리 재수집",
+  "replacement_map": {
+    "confidence": "low",
+    "replacement_map": [],
+    "more_evidence_needed": [
+      "대안 근거 부족"
+    ]
+  },
+  "offers": {
+    "confidence": "low",
+    "offers": [],
+    "risk_reversal": [],
+    "pricing_experiments": []
+  },
+  "plan_7d": {
+    "confidence": "low",
+    "experiment_goal": "",
+    "kpi_cutlines": [],
+    "day_by_day_plan": [],
+    "pivot_rules": [],
+    "templates": {}
+  },
+  "quality": {
+    "confidence": "medium",
+    "quality_score": 62.5,
+    "breakdown": [
+      {
+        "metric": "source_diversity",
+        "value": 1,
+        "why_it_matters": "소스 다양성이 높을수록 결론 신뢰도 상승"
+      }
+    ],
+    "conclusion_guardrail": {
+      "allow_strong_conclusion": true,
+      "reason": "품질점수 기반"
+    },
+    "more_evidence_needed": [
+      {
+        "goal": "WTP 신호 보강",
+        "how_to_collect": "가격/유료 언급 키워드 중심 추가 수집"
+      }
+    ]
+  },
+  "template_pack": {
+    "confidence": "low",
+    "threads_posts": [],
+    "reddit_posts": [],
+    "landing_copy": [],
+    "faqs": []
+  },
+  "pivot_map": {
+    "confidence": "low",
+    "why_not_now": [],
+    "pivot_candidates": [],
+    "keep_doing": [],
+    "stop_doing": []
+  },
+  "llm_usage": {
+    "model": "gpt-4o-mini",
+    "calls": 0,
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0,
+    "rates": {
+      "input_per_1m": 0.0,
+      "output_per_1m": 0.0
+    },
+    "cost_usd": {
+      "input": 0.0,
+      "output": 0.0,
+      "total": 0.0
+    }
+  },
+  "evidence": [
+    {
+      "source": "naver-blog",
+      "source_url": "https://blog.naver.com/ronisize/223626898810",
+      "title": "[ 투자일지 ] 24.10.14~ 24.10.18 주식시장, 매매복기",
+      "quote": "[ 투자일지 ] 24.10.14~ 24.10.18 주식시장, 매매복기 이러저러한 여러일로 시장 및 종목 분석이 미흡했다. 내가 충분히 매매에 준비되지 않은 상태임에도... 하루라도 매매를 하지 않으면 안되는 심리 작용을 끊어내기가 매우 어렵다. 다시금 반복하는 잘못된...",
+      "pain_tags": [
+        "repeat"
+      ],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "내 아이디어가 시장에서 수요가 있을지 시장분석이 어렵다 매매일지",
+        "kind": "blog",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-blog",
+      "source_url": "https://blog.naver.com/shaeron12/224173881902",
+      "title": "해외주식선물 수익률 높이는 매매 타이밍 전략",
+      "quote": "해외주식선물 수익률 높이는 매매 타이밍 전략 이러한 이벤트 대응 경험은 개인 기록만으로 축적하기 어렵다. 동학개미마을에서는 실제 참여자들이 겪은 급등락 사례와 대응 과정을 공유하며 복기 자료로 활용하는 문화가 형성돼 있다. 매매 일지와 체결...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [
+        "outsource"
+      ],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "내 아이디어가 시장에서 수요가 있을지 시장분석이 어렵다 매매일지",
+        "kind": "blog",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-blog",
+      "source_url": "https://blog.naver.com/surfingtaiji/224115273127",
+      "title": "유니콘기업이란? 뜻 기준부터 IT 스타트업 창업 준비 방법까지",
+      "quote": "유니콘기업이란? 뜻 기준부터 IT 스타트업 창업 준비 방법까지 처음에는 창업 전반에 필요한 생성형 AI 활용 방법을 학습하고 시장과 경쟁사, 고객들을 분석하는 방법을 배웁니다. 상상만 했었던 내 아이디어들이 시장에서 얼마만큼의 수요가 있을지 가설 검증 기법을...",
+      "pain_tags": [],
+      "wtp": 1,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "내 아이디어가 시장에서 수요가 있을지 시장분석이 어렵다 엑셀 노션",
+        "kind": "blog",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-blog",
+      "source_url": "https://blog.naver.com/betterong75/224158394159",
+      "title": "숨겨진 기업가치를 찾아서: LO 현황과 중국 시장 가치",
+      "quote": "숨겨진 기업가치를 찾아서: LO 현황과 중국 시장 가치 6조 원의 근거 서울대 주식 동아리(SMIC)의 분석 자료를 바탕으로, 제가 직접 엑셀을 통해 중국 시장의... 그때가 되면 지금의 시총은 과거의 추억이 되어 있을지도 모릅니다. 저는 여전히 TG-C의 가치를 믿으며...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [
+        "excel"
+      ],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "내 아이디어가 시장에서 수요가 있을지 시장분석이 어렵다 엑셀 노션",
+        "kind": "blog",
+        "pubDate": null
+      }
+    }
+  ]
+}
