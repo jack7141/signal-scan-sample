@@ -1,0 +1,1245 @@
+{
+  "generated_at": "2026-02-22T09:02:27.651887+00:00",
+  "project_id": "66e143751ff9",
+  "intake": {
+    "target": "1인사업가, 1인기업가, 스타트업대표, 초기스타트업대표",
+    "problem": "내 아이디어가 시장에서 수요가 있을지 시장분석이 어렵다",
+    "current_alternative": "지인에게 물어봐서 사용할래? 말래? 판단",
+    "promised_outcome": "시장 수요와 WTP 신호 기반 의사결정 지원",
+    "market_lang": "KR",
+    "keywords": [
+      "시장조사",
+      "스타트업아이디어",
+      "시장분석",
+      "WTP"
+    ],
+    "thread_links": [],
+    "reddit_links": []
+  },
+  "summary": {
+    "demand_score": 23.5,
+    "confidence": "high",
+    "decision": "pivot",
+    "one_liner": "수요 신호 약 / confidence high",
+    "why_this_score": "",
+    "actionable_next_step": ""
+  },
+  "stats": {
+    "evidence_count": 44,
+    "pain_hits": 5,
+    "wtp_level1_plus": 3,
+    "wtp_level2": 0,
+    "workaround_hits": 2,
+    "source_count": 5,
+    "weighted_total": 46.67,
+    "weighted_pain": 5.44,
+    "weighted_wtp1_only": 3.38,
+    "weighted_wtp2": 0,
+    "weighted_workaround": 2.25
+  },
+  "score_breakdown": {
+    "pain": 5.1,
+    "wallet": 1.2,
+    "workaround": 0.7,
+    "momentum": 5.0,
+    "total": 12.0,
+    "unlock_conditions": [
+      "돈 낼 의사 강신호(유료/가격) 증거를 추가 확보",
+      "예약금/유료베타 전환 지표 확보",
+      "핵심 세그먼트 1개에서 반복 반응 확인"
+    ]
+  },
+  "insight_metrics": {
+    "evidence_count": 44,
+    "unique_sources": 5,
+    "unique_urls": 40,
+    "duplicate_ratio": 0.0909,
+    "wtp_direct_count": 3,
+    "wtp_strong_count": 0,
+    "wtp_direct_ratio": 0.0682,
+    "raw_score": 12.0,
+    "adjusted_score": 23.5,
+    "score_gap": 11.5
+  },
+  "self_checklist": {
+    "checks": [
+      {
+        "name": "증거 수 30건 이상",
+        "pass": true,
+        "value": 44,
+        "threshold": ">=30"
+      },
+      {
+        "name": "소스 다양성 4개 이상",
+        "pass": true,
+        "value": 5,
+        "threshold": ">=4"
+      },
+      {
+        "name": "중복률 35% 이하",
+        "pass": true,
+        "value": 0.0909,
+        "threshold": "<=0.35"
+      },
+      {
+        "name": "돈 낼 의사 직접 문장 비율 5% 이상",
+        "pass": true,
+        "value": 0.0682,
+        "threshold": ">=0.05"
+      },
+      {
+        "name": "점수 일관성(raw<=adjusted)",
+        "pass": true,
+        "value": "raw=12.0, adjusted=23.5",
+        "threshold": "raw<=adjusted"
+      }
+    ],
+    "fail_count": 0,
+    "status": "pass"
+  },
+  "segment_posts": {
+    "segments": [
+      {
+        "segment": "1인사업가",
+        "posts": [
+          {
+            "type": "공감형",
+            "text": "1인사업가분들, 아이디어 시장성을 지금 어떻게 검증하고 계신가요? 가장 막히는 1가지만 알려주세요."
+          },
+          {
+            "type": "인사이트형",
+            "text": "1인사업가 기준으로 문제 공감은 높은데 돈 낼 의사 문장은 부족합니다. 지금 당장 유료 검증에 필요한 질문 3개를 댓글로 받을게요."
+          },
+          {
+            "type": "모집형",
+            "text": "1인사업가 대상 유료베타 검증 10명 모집: 48시간 내 Go/Iterate/Pivot 판단 리포트. 관심 있으면 DM에 BETA 남겨주세요."
+          }
+        ]
+      },
+      {
+        "segment": "초기 스타트업 대표",
+        "posts": [
+          {
+            "type": "공감형",
+            "text": "초기 스타트업 대표분들, 아이디어 시장성을 지금 어떻게 검증하고 계신가요? 가장 막히는 1가지만 알려주세요."
+          },
+          {
+            "type": "인사이트형",
+            "text": "초기 스타트업 대표 기준으로 문제 공감은 높은데 돈 낼 의사 문장은 부족합니다. 지금 당장 유료 검증에 필요한 질문 3개를 댓글로 받을게요."
+          },
+          {
+            "type": "모집형",
+            "text": "초기 스타트업 대표 대상 유료베타 검증 10명 모집: 48시간 내 Go/Iterate/Pivot 판단 리포트. 관심 있으면 DM에 BETA 남겨주세요."
+          }
+        ]
+      },
+      {
+        "segment": "예비창업자",
+        "posts": [
+          {
+            "type": "공감형",
+            "text": "예비창업자분들, 아이디어 시장성을 지금 어떻게 검증하고 계신가요? 가장 막히는 1가지만 알려주세요."
+          },
+          {
+            "type": "인사이트형",
+            "text": "예비창업자 기준으로 문제 공감은 높은데 돈 낼 의사 문장은 부족합니다. 지금 당장 유료 검증에 필요한 질문 3개를 댓글로 받을게요."
+          },
+          {
+            "type": "모집형",
+            "text": "예비창업자 대상 유료베타 검증 10명 모집: 48시간 내 Go/Iterate/Pivot 판단 리포트. 관심 있으면 DM에 BETA 남겨주세요."
+          }
+        ]
+      }
+    ]
+  },
+  "interview_tagging": {
+    "count": 0,
+    "tag_counts": {
+      "pain": 0,
+      "wtp": 0,
+      "workaround": 0
+    },
+    "wtp_ratio": 0.0,
+    "items": []
+  },
+  "sprint_rejudge": {
+    "base_decision": "pivot",
+    "rejudged_decision": "pivot",
+    "pass_count": 0,
+    "total_checks": 8,
+    "weighted_pass_ratio": 0.0,
+    "hard_go_conditions": {
+      "apply_rate_ge_2pct": false,
+      "wtp_sentences_ge_3": false,
+      "interviews_ge_5": false
+    },
+    "metrics": {
+      "landing_visits": 0,
+      "cta_clicks": 0,
+      "cta_rate": 0.0,
+      "saves_likes": 0,
+      "dm_comments": 0,
+      "interviews": 0,
+      "price_mentions": 0,
+      "reservation_clicks": 0,
+      "applications": 0,
+      "application_rate": 0.0,
+      "wtp_sentences": 0,
+      "repeated_pain_count": 0
+    },
+    "checks": [
+      {
+        "name": "CTA 클릭률>=3%",
+        "pass": false,
+        "value": 0.0,
+        "weight": 1.2
+      },
+      {
+        "name": "저장/좋아요>=20",
+        "pass": false,
+        "value": 0,
+        "weight": 0.8
+      },
+      {
+        "name": "DM/댓글>=10",
+        "pass": false,
+        "value": 0,
+        "weight": 1.0
+      },
+      {
+        "name": "인터뷰>=5",
+        "pass": false,
+        "value": 0,
+        "weight": 1.0
+      },
+      {
+        "name": "가격 언급>=3",
+        "pass": false,
+        "value": 0,
+        "weight": 1.3
+      },
+      {
+        "name": "신청률>=2%(신청/랜딩방문)",
+        "pass": false,
+        "value": 0.0,
+        "weight": 1.6
+      },
+      {
+        "name": "반복 Pain>=3",
+        "pass": false,
+        "value": 0,
+        "weight": 0.9
+      },
+      {
+        "name": "돈 낼 의사 문장>=3",
+        "pass": false,
+        "value": 0,
+        "weight": 1.5
+      }
+    ]
+  },
+  "execution_pack": {
+    "status_tone": "오퍼 피벗 권장. 결과물 중심 패키지로 재실험합니다.",
+    "today_action": {
+      "channel": "threads",
+      "target": "1인사업가, 1인기업가, 스타트업대표, 초기스타트업대표",
+      "timebox_minutes": 60,
+      "post_copy": "[1인사업가, 1인기업가, 스타트업대표, 초기스타트업대표] 지금 'risk' 관련 사용자 인터뷰를 모집 중입니다. 실제 불편/대안/가격 인식 확인을 위해 DM 참여 부탁드려요.",
+      "kpi": {
+        "apply_rate_target": 0.02,
+        "dm_target": 10,
+        "wtp_sentence_target": 3
+      },
+      "failure_rule": "신청률<2%면 타겟 문구를 더 좁히고, 돈 낼 의사 문장<3이면 가격 질문을 첫 문장으로 이동"
+    },
+    "dm_script": [
+      "문의 감사합니다. 15분만 인터뷰하고 베타 우선 초대 드릴게요.",
+      "지금 아이디어 검증에서 가장 막히는 1가지를 알려주세요.",
+      "이 문제가 해결된다면 실제로 지불 가능한 가격대를 알려주세요."
+    ]
+  },
+  "decision_evidence": [
+    {
+      "score": 4.3,
+      "quote": "[2018 베스트 애널리스트] 신규 2~3위 애널리스트 26人 | 80년대생 ‘질... 보고서를 낼 당시 시장 반응은 썩 좋지 않았다. 당시 글로벌 시장에서 한창 스마트폰 수요가 둔화되고 있었기 때문. 하지만 시간이 지나며 이 애널리스트의 보고서를 다시 찾아보는 이가 많아졌다. 시나리오별 분석 등...",
+      "source": "naver-news",
+      "url": "http://news.mk.co.kr/v2/economy/view.php?year=2019&no=22598",
+      "pain_tags": [
+        "time"
+      ],
+      "workaround_tags": [],
+      "wtp": 0,
+      "signal": "문제 공감 신호"
+    },
+    {
+      "score": 4.3,
+      "quote": "수민이가 궁금해요 국내 시장에서 가파른 상승세를 타며 월간 이용자 10만 명선을 처음 돌파했다. 챗GPT 독주에 제미나이가... 실수요 30이상+ 12월 16일 23:56코로나19 백신, 입원·조산 위험 낮춘다? 캐나다 임신 데이터 분석 결과, 백신...",
+      "source": "naver-cafearticle",
+      "url": "http://cafe.naver.com/greenb0k6k/173266",
+      "pain_tags": [
+        "risk"
+      ],
+      "workaround_tags": [
+        "chatgpt"
+      ],
+      "wtp": 0,
+      "signal": "기존 대안 한계 신호"
+    },
+    {
+      "score": 3.5,
+      "quote": "미국의 관세 압박, 이대로 좋은가? 다소간의 지역감정은 있을지 몰라도 폭력이 난무하고 감정이 우선하는 분쟁 없이 5,160만 9,121명이... 고부가 시장 확대 자율주행·엣지컴퓨팅 수요 증가 리스크 요인 메모리 업황 사이클 변동성 중국 업체...",
+      "source": "naver-blog",
+      "url": "https://blog.naver.com/kthigh11/224191558900",
+      "pain_tags": [
+        "risk"
+      ],
+      "workaround_tags": [],
+      "wtp": 0,
+      "signal": "문제 공감 신호"
+    },
+    {
+      "score": 3.0,
+      "quote": "신현진 목암생명과학연구소장 &quot;인공지능 신약개발은 제약회사라면 무조... 그렇다고 해서 한 제약회사 내 모든 AI 기술 수요를 내부인력으로 충당하려는 것은 현명하다고 볼 수 없다.... 좋은 아이디어가 잘 연결돼서 꽃을 피우고 신약개발의 열매를 맺는데 함께 기여하고 싶다. - 마지막으로...",
+      "source": "naver-news",
+      "url": "https://www.medigatenews.com/news/2185093759",
+      "pain_tags": [],
+      "workaround_tags": [],
+      "wtp": 0,
+      "signal": "문제 공감 신호"
+    }
+  ],
+  "global_signals": [
+    {
+      "source": "duckduckgo",
+      "url": "https://www.slideshare.net/slideshow/1-5-1-63624992/63624992",
+      "quote_en": "나는 1인기업가다 매거진 5호 - 1인기업이 되기 위한 조직 내 준비전략 나는 1인기업가다 매거진 7호 - 1 인기업가 어디에서 일할까? by@hongss.10인 10색- 1 인기업가 생존기>에서 나만의 직업을 찾은 1인기 업가들의 생생한 이야기를 들어보세요.",
+      "quote_ko": "나는 1인기업가다 매거진 5호 - 1인기업이 되기 위한 조직 내 준비전략 나는 1인기업가다 매거진 7호 - 1 인기업가 어디에서 일할까? by@hongss.10인 10색- 1 인기업가 생존기>에서 나만의 직업을 찾은 1인기 업가들의 생생한 이야기를 들어보세요.",
+      "signal": "문제 공감"
+    },
+    {
+      "source": "duckduckgo",
+      "url": "https://www.mobiinside.co.kr/tag/스타트업대표/",
+      "quote_en": "스타트업대표 Archives - 모비인사이드 MOBIINSIDE 국내외 IT, 마케팅, 비즈니스 소식을 전하는 스타트업 미디어.",
+      "quote_ko": "스타트업대표 Archives - 모비인사이드 MOBIINSIDE 국내외 IT, 마케팅, 비즈니스 소식을 전하는 스타트업 미디어.",
+      "signal": "문제 공감"
+    },
+    {
+      "source": "duckduckgo",
+      "url": "https://www.slideshare.net/slideshow/1-7-1-63625094/63625094",
+      "quote_en": "나는 1인기업가다 매거진 7호 - 1 인기업가 어디에서 일할까? | PDF [ 1 인기업가 포럼] (2)김보경 - 남치니마스크팩(NAMCHINI PACK).PDF. 1 인기업가 , 꼭 필요한 SNS 생존전략. by@hongss.",
+      "quote_ko": "나는 1인기업가다 매거진 7호 - 1 인기업가 어디에서 일할까? | PDF [ 1 인기업가 포럼] (2)김보경 - 남치니마스크팩(NAMCHINI PACK).PDF. 1 인기업가 , 꼭 필요한 SNS 생존전략. by@hongss.",
+      "signal": "문제 공감"
+    },
+    {
+      "source": "duckduckgo",
+      "url": "https://www.tiktok.com/tag/1인사업가",
+      "quote_en": "# 1 인사업가 | TikTok 1 인사업가 |TikTok (틱톡) 에서 #1인사업가에 대한 최신 동영상을 시청하세요.",
+      "quote_ko": "# 1 인사업가 | TikTok 1 인사업가 |TikTok (틱톡) 에서 #1인사업가에 대한 최신 동영상을 시청하세요.",
+      "signal": "문제 공감"
+    }
+  ],
+  "top_pains": [
+    {
+      "tag": "risk",
+      "count": 2
+    },
+    {
+      "tag": "time",
+      "count": 1
+    },
+    {
+      "tag": "repeat",
+      "count": 1
+    }
+  ],
+  "top_workarounds": [
+    {
+      "tag": "chatgpt",
+      "count": 2
+    }
+  ],
+  "wtp_quotes": [
+    "20260221 주간 경제전망 금 가격은 약 25% 상승은 미국 대표 자산의 매력 둔화와 금이 대체 안전자산으로 부상하고 있다고... AI 기업 가치는 지나치게 낙관적인 가정들이 적용된 것으로 판단하지만, 최근 중국에서 AI 기업 Zhipu(시가총액...",
+    "2차전지 - 양극재 수출량 5년만에 최저치 또한, 리튬 가격이 올라도 몇 개월 뒤에 반영되기 때문에그래서 단기 실적 개선이 어렵다. why? 이미... 미국에서 EV 수요 감소가 관찰되고 있으며 연방 세액공제 종료 후 수요가 크게 떨어졌다. 시장조사업체 콕스...",
+    "광주 전세아파트 가격으로 신축 입주 가능한 광주 남구 데시앙 모델하우스 분양조건 피트니스 / GX룸 실내 골프연습장(GDR) 카페형 도서관 그리고 눈에 띄는 포인트 ✔ 단지 내 캠핑존 + 카라반 설치 가족 단위 실사용 가능 물놀이터 구성 3040 실거주 수요층 만족도가 높은 구조 향후 매매·전세 시장에서도..."
+  ],
+  "next_experiment": "핵심 문제 가설 재정의 후 다른 세그먼트(타겟)로 쿼리 재수집",
+  "replacement_map": {
+    "confidence": "low",
+    "replacement_map": [],
+    "more_evidence_needed": [
+      "대안 근거 부족"
+    ]
+  },
+  "offers": {
+    "confidence": "low",
+    "offers": [],
+    "risk_reversal": [],
+    "pricing_experiments": []
+  },
+  "plan_7d": {
+    "confidence": "low",
+    "experiment_goal": "",
+    "kpi_cutlines": [],
+    "day_by_day_plan": [],
+    "pivot_rules": [],
+    "templates": {}
+  },
+  "quality": {
+    "confidence": "medium",
+    "quality_score": 100.0,
+    "breakdown": [
+      {
+        "metric": "source_diversity",
+        "value": 5,
+        "why_it_matters": "소스 다양성이 높을수록 결론 신뢰도 상승"
+      }
+    ],
+    "conclusion_guardrail": {
+      "allow_strong_conclusion": true,
+      "reason": "품질점수 기반"
+    },
+    "more_evidence_needed": [
+      {
+        "goal": "돈 낼 의사 신호 보강",
+        "how_to_collect": "가격/유료 언급 키워드 중심 추가 수집"
+      }
+    ]
+  },
+  "template_pack": {
+    "confidence": "low",
+    "threads_posts": [
+      {
+        "type": "save",
+        "text": "[1인사업가, 1인기업가, 스타트업대표, 초기스타트업대표] 내 아이디어가 시장에서 수요가 있을지 시장분석이 어렵다 해결하려고 할 때 가장 불편한 점 1가지만 알려주세요."
+      },
+      {
+        "type": "repost",
+        "text": "지인에게 물어봐서 사용할래? 말래? 판단 대신 시장 수요와 WTP 신호 기반 의사결정 지원 할 수 있다면 어떤 기능이 가장 우선일까요?"
+      },
+      {
+        "type": "recruit",
+        "text": "1인사업가, 1인기업가, 스타트업대표, 초기스타트업대표 대상 유료베타 10명 모집합니다. 가장 필요한 기능 댓글로 주세요."
+      }
+    ],
+    "reddit_posts": [
+      {
+        "type": "question",
+        "title": "내 아이디어가 시장에서 수요가 있을지 시장분석이 어렵다 - 어떻게 해결하고 계신가요?",
+        "body": "지인에게 물어봐서 사용할래? 말래? 판단 외에 더 좋은 방법이 있는지 의견 부탁드립니다."
+      },
+      {
+        "type": "feedback",
+        "title": "시장 수요와 WTP 신호 기반 의사결정 지원 유료베타 피드백 부탁드립니다",
+        "body": "실제로 결제할 가치가 있는지 의견 부탁드립니다."
+      }
+    ],
+    "landing_copy": [
+      {
+        "variant": "short",
+        "headline": "내 아이디어가 시장에서 수요가 있을지 시장분석이 어렵다 해결",
+        "subheadline": "지인에게 물어봐서 사용할래? 말래? 판단 대신 더 쉽게",
+        "bullets": [
+          "자동화",
+          "대시보드",
+          "퍼포먼스 추적"
+        ],
+        "cta": "유료베타 신청"
+      },
+      {
+        "variant": "medium",
+        "headline": "1인사업가, 1인기업가, 스타트업대표, 초기스타트업대표을 위한 실행형 솔루션",
+        "subheadline": "시장 수요와 WTP 신호 기반 의사결정 지원",
+        "bullets": [
+          "데이터 기반 분석",
+          "인사이트 자동화",
+          "시간 절감"
+        ],
+        "cta": "지금 검증하기"
+      },
+      {
+        "variant": "strong",
+        "headline": "시장 수요와 WTP 신호 기반 의사결정 지원",
+        "subheadline": "기록이 아니라 의사결정을 돕는 서비스",
+        "bullets": [
+          "원인 분석",
+          "패턴 감지",
+          "다음 액션 추천"
+        ],
+        "cta": "48시간 리포트 받기"
+      }
+    ],
+    "faqs": [
+      {
+        "q": "기존 방법(지인에게 물어봐서 사용할래? 말래? 판단)과 뭐가 다른가요?",
+        "a": "자동화와 인사이트로 내 아이디어가 시장에서 수요가 있을지 시장분석이 어렵다 해결 시간을 줄입니다.",
+        "citations": []
+      },
+      {
+        "q": "누구에게 맞나요?",
+        "a": "1인사업가, 1인기업가, 스타트업대표, 초기스타트업대표에게 적합합니다.",
+        "citations": []
+      },
+      {
+        "q": "유료 전환 기준은요?",
+        "a": "시간 절감/성과 개선 체감이 명확할 때 전환 가능성이 높습니다.",
+        "citations": []
+      },
+      {
+        "q": "데이터는 안전한가요?",
+        "a": "민감정보 최소 수집과 접근제어를 적용합니다.",
+        "citations": []
+      },
+      {
+        "q": "모바일도 되나요?",
+        "a": "핵심 기능은 모바일에서도 확인 가능하도록 설계합니다.",
+        "citations": []
+      },
+      {
+        "q": "초보자도 쓸 수 있나요?",
+        "a": "템플릿 기반 입력으로 시작 장벽을 낮춥니다.",
+        "citations": []
+      },
+      {
+        "q": "기존 도구와 병행 가능한가요?",
+        "a": "초기에는 병행 사용 후 점진 전환을 권장합니다.",
+        "citations": []
+      },
+      {
+        "q": "리포트는 얼마나 자주 받나요?",
+        "a": "주간 리포트 기본, 필요시 일간 요약 확장 가능합니다.",
+        "citations": []
+      },
+      {
+        "q": "환불/보장 정책은?",
+        "a": "유료베타는 재분석 1회 제공 같은 리스크 완화 정책을 권장합니다.",
+        "citations": []
+      },
+      {
+        "q": "지금 바로 뭘 해야 하나요?",
+        "a": "타겟 1개 세그먼트로 랜딩/게시글 실험을 7일 실행하세요.",
+        "citations": []
+      }
+    ]
+  },
+  "pivot_map": {
+    "confidence": "medium",
+    "why_not_now": [
+      {
+        "reason": "돈 낼 의사 강신호 부족",
+        "citations": []
+      }
+    ],
+    "pivot_candidates": [
+      {
+        "pivot_title": "문제 피봇",
+        "what_changes": "problem",
+        "new_angle": "현재 문제 정의를 더 구체적인 페인 포인트로 재설정",
+        "why_this_might_work": "구체적 문제일수록 결제 의향 높음",
+        "supporting_evidence": [],
+        "next_test": "재정의된 문제 기반 오퍼 게시"
+      },
+      {
+        "pivot_title": "타겟 피봇",
+        "what_changes": "target",
+        "new_angle": "타겟 세그먼트를 더 좋첨",
+        "why_this_might_work": "좋은 세그먼트일수록 전환률 높음",
+        "supporting_evidence": [],
+        "next_test": "좋은 세그먼트 전용 랜딩"
+      },
+      {
+        "pivot_title": "오퍼 피봇",
+        "what_changes": "offer",
+        "new_angle": "지속 구독 대신 1회성 결과물 중심 패키지",
+        "why_this_might_work": "돈/시간 절감 가치 명확",
+        "supporting_evidence": [],
+        "next_test": "1회성 결과물 결제 실험"
+      }
+    ],
+    "keep_doing": [
+      "증거 기반 의사결정"
+    ],
+    "stop_doing": [
+      "근거 없는 강한 결론"
+    ]
+  },
+  "llm_usage": {
+    "model": "gpt-4o-mini",
+    "calls": 0,
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0,
+    "rates": {
+      "input_per_1m": 0.0,
+      "output_per_1m": 0.0
+    },
+    "cost_usd": {
+      "input": 0.0,
+      "output": 0.0,
+      "total": 0.0
+    }
+  },
+  "evidence": [
+    {
+      "source": "duckduckgo",
+      "source_url": "https://www.slideshare.net/slideshow/1-5-1-63624992/63624992",
+      "title": "나는 1인기업가다 매거진 5호 - 1인기업이 되기 위한 조직 내 준비전략",
+      "quote": "나는 1인기업가다 매거진 5호 - 1인기업이 되기 위한 조직 내 준비전략 나는 1인기업가다 매거진 7호 - 1 인기업가 어디에서 일할까? by@hongss.10인 10색- 1 인기업가 생존기>에서 나만의 직업을 찾은 1인기 업가들의 생생한 이야기를 들어보세요.",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "duckduckgo-search",
+        "query": "1인사업가, 1인기업가, 스타트업대표, 초기스타트업대표 불편"
+      }
+    },
+    {
+      "source": "duckduckgo",
+      "source_url": "https://www.mobiinside.co.kr/tag/스타트업대표/",
+      "title": "스타트업대표 Archives - 모비인사이드 MOBIINSIDE",
+      "quote": "스타트업대표 Archives - 모비인사이드 MOBIINSIDE 국내외 IT, 마케팅, 비즈니스 소식을 전하는 스타트업 미디어.",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "duckduckgo-search",
+        "query": "1인사업가, 1인기업가, 스타트업대표, 초기스타트업대표 불편"
+      }
+    },
+    {
+      "source": "duckduckgo",
+      "source_url": "http://ebook.cku.ac.kr:8080/ebook/detail/?goods_id=37109030",
+      "title": "가톨릭관동대학교 전자책도서관",
+      "quote": "가톨릭관동대학교 전자책도서관 1인 기업에 도전하는 것은 쉬워도 생존 경쟁에서 오랫동안 살아남기는 결코 만만치 않다. 그런 점에서 10년을 버틴 홍순성 대표는 성공적인 케이스다. 게다가 그는 [나는 1인기업가다]라는 팟캐스트를 운영하며, 1 인기업가 협동조합 이사장까지 맡고 있다. ‘1인 기업 전문가’라고 불릴 정도다.",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "duckduckgo-search",
+        "query": "1인사업가, 1인기업가, 스타트업대표, 초기스타트업대표 불편"
+      }
+    },
+    {
+      "source": "duckduckgo",
+      "source_url": "https://www.slideshare.net/slideshow/1-7-1-63625094/63625094",
+      "title": "나는 1인기업가다 매거진 7호 - 1 인기업가 어디에서 일할까? | PDF",
+      "quote": "나는 1인기업가다 매거진 7호 - 1 인기업가 어디에서 일할까? | PDF [ 1 인기업가 포럼] (2)김보경 - 남치니마스크팩(NAMCHINI PACK).PDF. 1 인기업가 , 꼭 필요한 SNS 생존전략. by@hongss.",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "duckduckgo-search",
+        "query": "1인사업가, 1인기업가, 스타트업대표, 초기스타트업대표 alternatives"
+      }
+    },
+    {
+      "source": "duckduckgo",
+      "source_url": "https://www.tiktok.com/tag/1인사업가",
+      "title": "# 1 인사업가 | TikTok",
+      "quote": "# 1 인사업가 | TikTok 1 인사업가 |TikTok (틱톡) 에서 #1인사업가에 대한 최신 동영상을 시청하세요.",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "duckduckgo-search",
+        "query": "1인사업가, 1인기업가, 스타트업대표, 초기스타트업대표 alternatives"
+      }
+    },
+    {
+      "source": "duckduckgo",
+      "source_url": "https://www.slideshare.net/slideshow/1-5-1-63624992/63624992",
+      "title": "나는 1인기업가다 매거진 5호 - 1인기업이 되기 위한 조직 내 준비전략",
+      "quote": "나는 1인기업가다 매거진 5호 - 1인기업이 되기 위한 조직 내 준비전략 나는 1인기업가다 매거진 7호 - 1 인기업가 어디에서 일할까? by@hongss.",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "duckduckgo-search",
+        "query": "1인사업가, 1인기업가, 스타트업대표, 초기스타트업대표 workflow"
+      }
+    },
+    {
+      "source": "naver-blog",
+      "source_url": "https://dramapd.tistory.com/1309",
+      "title": "영등포구 양평동 개인회생 중소사업자 회생 전략 소개",
+      "quote": "영등포구 양평동 개인회생 중소사업자 회생 전략 소개 특수 목적 사용자 관점: 예를 들어, 기술 기반 스타트업의 경우, 지적 재산권이나 기술력을 담보로 추가... ✅ 사업 개선 및 수익성 확보 지원: 시장 조사, 경쟁 분석, 그리고 마케팅 전략 수립 등을 통해 사업...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "1인사업가, 1인기업가, 스타트업대표, 초기스타트업대표 시장조사",
+        "kind": "blog",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-blog",
+      "source_url": "https://blog.naver.com/suha0630/224162728908",
+      "title": "변리사비용, 탄탄한 기술을 확보하고 싶다면 꼭 확인해보세요.",
+      "quote": "변리사비용, 탄탄한 기술을 확보하고 싶다면 꼭 확인해보세요. 초기 스타트업이나 중소기업 대표님들을 만나보면 가장 큰 고민은 역시 '자금'입니다. 기술 개발에... 당장의 비용보다 중요한 것은 &quot;이 비용으로 만들어진 권리가 실제 시장에서 경쟁사를 제압할 힘이 있는가...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "1인사업가, 1인기업가, 스타트업대표, 초기스타트업대표 시장조사",
+        "kind": "blog",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-cafearticle",
+      "source_url": "http://cafe.naver.com/williamzzang/68739",
+      "title": "20260221 주간 경제전망",
+      "quote": "20260221 주간 경제전망 AI 기업 가치는 지나치게 낙관적인 가정들이 적용된 것으로 판단하지만, 최근 중국에서 AI 기업 Zhipu... 소상공인, 스타트업, 중소기업 등의 경영활동에 영향을 미칠 것으로 예상되는 주요 이슈를 선제적으로 검토하여...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "1인사업가, 1인기업가, 스타트업대표, 초기스타트업대표 시장성 검증",
+        "kind": "cafearticle",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-blog",
+      "source_url": "https://blog.naver.com/rudwpdhkdhedge/224191055625",
+      "title": "26.02.22(원금 2,344만원 --&gt; 1억 2,954만원, 투자 총액...",
+      "quote": "26.02.22(원금 2,344만원 --&gt; 1억 2,954만원, 투자 총액... 장비 고객사와의 납품 및 협력 현황 (c) 글로벌 통신 시장에서의 기술 경쟁력 및 점유율 변화 (3)... 어떻게 기업 가치의 근본적인 리레이팅(Re-rating)을 이끌어내고 있는지 종합적으로 규명한다. RFHIC는...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "1인사업가, 1인기업가, 스타트업대표, 초기스타트업대표 고객 인터뷰",
+        "kind": "blog",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-cafearticle",
+      "source_url": "http://cafe.naver.com/williamzzang/68739",
+      "title": "20260221 주간 경제전망",
+      "quote": "20260221 주간 경제전망 금 가격은 약 25% 상승은 미국 대표 자산의 매력 둔화와 금이 대체 안전자산으로 부상하고 있다고... AI 기업 가치는 지나치게 낙관적인 가정들이 적용된 것으로 판단하지만, 최근 중국에서 AI 기업 Zhipu(시가총액...",
+      "pain_tags": [],
+      "wtp": 1,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "1인사업가, 1인기업가, 스타트업대표, 초기스타트업대표 가격 실험",
+        "kind": "cafearticle",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-cafearticle",
+      "source_url": "http://cafe.naver.com/futuresci/9149",
+      "title": "앤스로픽 CEO 다리오 아모데이 인터뷰: 확장, 비즈니스, 지정학",
+      "quote": "앤스로픽 CEO 다리오 아모데이 인터뷰: 확장, 비즈니스, 지정학 그때는 약 10억 개 정도의 단어를 사용했을 텐데, 세상에서 볼 수 있는 것들 중 아주 좁은 범위만 대표하는... 수천 명의 사람들이 각자 다른 방식으로 모델을 실험해보려는 수요가 항상 있을 테니까요. 그중 100개는 스타트...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "1인사업가, 1인기업가, 스타트업대표, 초기스타트업대표 가격 실험",
+        "kind": "cafearticle",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-news",
+      "source_url": "http://www.segye.com/content/html/2023/07/31/20230731513425.html?OutUrl=naver",
+      "title": "“의료 연구 중 ‘여성 몸 주제’ 4% 그쳐… 정부 펀딩지원 시급” [심층...",
+      "quote": "“의료 연구 중 ‘여성 몸 주제’ 4% 그쳐… 정부 펀딩지원 시급” [심층... 글로벌 시장조사기관 포춘비즈니스인사이트(FBI)는 전 세계 펨테크 시장 규모가 올해 67달러(약 8조5000억원)... 아이디어를 낸 게 남동생이어서 ‘생리도 안 해본 남자가 어떻게 월경컵을 파냐’는 시선도 있었다. 현재...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "내 아이디어가 시장에서 수요가 있을지 시장분석이 어렵다 시장조사",
+        "kind": "news",
+        "pubDate": "Mon, 31 Jul 2023 19:17:00 +0900"
+      }
+    },
+    {
+      "source": "naver-news",
+      "source_url": "http://news.mt.co.kr/mtview.php?no=2021012718060671195",
+      "title": "포스트 코로나 시대 '일'의 미래는?…&quot;하이브리드 워커 돼야&quot;",
+      "quote": "포스트 코로나 시대 '일'의 미래는?…&quot;하이브리드 워커 돼야&quot; (IT 시장조사 기관 CITO Research) ▪ 응답자 67% &quot;모든 앱의 중요한 정보가 단일한 창에 표시되는 경우... 10년 후에 보면 2020~2021년에 새로운 아이디어나 발명, 혁신적 제품이나 특허에 구멍이 나 있을 것이다....",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "내 아이디어가 시장에서 수요가 있을지 시장분석이 어렵다 시장조사",
+        "kind": "news",
+        "pubDate": "Thu, 28 Jan 2021 06:00:00 +0900"
+      }
+    },
+    {
+      "source": "naver-news",
+      "source_url": "http://www.fortunekorea.co.kr/news/articleView.html?idxno=11851",
+      "title": "[포춘US]대형 할인점의 반등: 타깃은 어떻게 회생했을까",
+      "quote": "[포춘US]대형 할인점의 반등: 타깃은 어떻게 회생했을까 특히 이 회사들이 매장 내 경험을 소홀히 할 때 더욱 그렇다. 시장조사업체 칸타의 애널리스트 로라 케네디... 불과한 아이디어를 제시했다. 반면 코넬이 이끄는 팀은 보다 즉각적인 성과를 거두는 프로젝트에 초점을...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "내 아이디어가 시장에서 수요가 있을지 시장분석이 어렵다 시장조사",
+        "kind": "news",
+        "pubDate": "Wed, 27 Nov 2019 10:22:00 +0900"
+      }
+    },
+    {
+      "source": "naver-news",
+      "source_url": "http://news.mk.co.kr/v2/economy/view.php?year=2019&no=22598",
+      "title": "[2018 베스트 애널리스트] 신규 2~3위 애널리스트 26人 | 80년대생 ‘질...",
+      "quote": "[2018 베스트 애널리스트] 신규 2~3위 애널리스트 26人 | 80년대생 ‘질... 보고서를 낼 당시 시장 반응은 썩 좋지 않았다. 당시 글로벌 시장에서 한창 스마트폰 수요가 둔화되고 있었기 때문. 하지만 시간이 지나며 이 애널리스트의 보고서를 다시 찾아보는 이가 많아졌다. 시나리오별 분석 등...",
+      "pain_tags": [
+        "time"
+      ],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "내 아이디어가 시장에서 수요가 있을지 시장분석이 어렵다 시장조사",
+        "kind": "news",
+        "pubDate": "Fri, 11 Jan 2019 09:43:00 +0900"
+      }
+    },
+    {
+      "source": "naver-news",
+      "source_url": "http://www.inews24.com/php/news_view.php?g_serial=1062387&g_menu=050300&rrf=nv",
+      "title": "[브리핑] '안전사회 열자', 사회적 참사법 통과",
+      "quote": "[브리핑] '안전사회 열자', 사회적 참사법 통과 시장조사업체 IDC의 자료에 따르면 삼성전자도 동일한 23.5% 점유율을 기록했습니다. 반면 샤오미는 2분기... 이 제품은 롯데백화점 상품본부 직원을 대상으로 제품의 콘셉트 아이디어를 모아 만들어진 것으로, 롯데 측이...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "내 아이디어가 시장에서 수요가 있을지 시장분석이 어렵다 시장조사",
+        "kind": "news",
+        "pubDate": "Sat, 25 Nov 2017 09:36:00 +0900"
+      }
+    },
+    {
+      "source": "naver-blog",
+      "source_url": "https://blog.naver.com/blueglobal_company/224191694630",
+      "title": "캐나다 저출산 정책 해외연수 패키지로 운영하는 모델을 배우다",
+      "quote": "캐나다 저출산 정책 해외연수 패키지로 운영하는 모델을 배우다 이는 국내 저출산 정책에서도 유아휴직·급여가 '제도는 있는데 사용이 어렵다'는 문제를 줄이기 위한... 수요 변화, 정책 효과 저하)에 대비할 수 있습니다. 캐나다 해외연수는 저출산 정책의 '아이디어'가...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "내 아이디어가 시장에서 수요가 있을지 시장분석이 어렵다 시장조사",
+        "kind": "blog",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-blog",
+      "source_url": "https://blog.naver.com/csbmfdvnqynj8/224191690984",
+      "title": "광고대행과 마케팅대행, 실제 사용 후기로 알아보는 효과적인...",
+      "quote": "광고대행과 마케팅대행, 실제 사용 후기로 알아보는 효과적인... 처음에는 마케팅 대행을 맡기는 것이 과연 효과가 있을지 고민이 많았어요### 하지만 실제로 서비스를... 시장 조사부터 경쟁사 분석, 타깃 세분화 작업까지 모든 과정을 투명하게 공유하며 신뢰 기반의...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "내 아이디어가 시장에서 수요가 있을지 시장분석이 어렵다 시장조사",
+        "kind": "blog",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-blog",
+      "source_url": "https://blog.naver.com/2o5epqr0xnh3o/224191689811",
+      "title": "블로그 대량포스팅, 전환 중심 플랜으로 효과적인 마케팅...",
+      "quote": "블로그 대량포스팅, 전환 중심 플랜으로 효과적인 마케팅... 타깃 시장 분석이에요. 어떤 키워드가 효과적인지, 경쟁사들은 어떤 방식으로 운영하고 있는지... 예전처럼 단순 반복 작업에 그치지 않고, 데이터 기반 인사이트와 크리에이티브한 아이디어가 결합된 차별화된...",
+      "pain_tags": [
+        "repeat"
+      ],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "내 아이디어가 시장에서 수요가 있을지 시장분석이 어렵다 시장조사",
+        "kind": "blog",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-blog",
+      "source_url": "https://blog.naver.com/forest__girl/224191687608",
+      "title": "[미래 직업 칼럼] 논문기자",
+      "quote": "[미래 직업 칼럼] 논문기자 들어가기는 어렵다. 반대로 학술 논문은 문제의 원인을 정교하게 분석하지만, 그 언어는 학계 내부에... 그 결과 취업 시장의 문법도 조금씩 달라진다. 언론사와 전문 매체는 더 이상 조회수만으로 사람을 뽑지...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "내 아이디어가 시장에서 수요가 있을지 시장분석이 어렵다 시장조사",
+        "kind": "blog",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-blog",
+      "source_url": "https://blog.naver.com/traveler80_/224191688119",
+      "title": "금리 인하 꿈 멀어지나…6회 연속 동결 유력에 환율·집값...",
+      "quote": "금리 인하 꿈 멀어지나…6회 연속 동결 유력에 환율·집값... 조사됐다. 이는 고금리로 인해 신규 대출을 통한 진입이 막히자, 자산가 계층이 증여를 통해 자녀의 주택 마련을 돕는 '부모 찬스'가 시장의 주류가 되었음을 보여준다. 이러한 현상은 실질적인 주택 수요가...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "내 아이디어가 시장에서 수요가 있을지 시장분석이 어렵다 시장조사",
+        "kind": "blog",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-cafearticle",
+      "source_url": "http://cafe.naver.com/chemistories/181",
+      "title": "2차전지 - 양극재 수출량 5년만에 최저치",
+      "quote": "2차전지 - 양극재 수출량 5년만에 최저치 또한, 리튬 가격이 올라도 몇 개월 뒤에 반영되기 때문에그래서 단기 실적 개선이 어렵다. why? 이미... 미국에서 EV 수요 감소가 관찰되고 있으며 연방 세액공제 종료 후 수요가 크게 떨어졌다. 시장조사업체 콕스...",
+      "pain_tags": [],
+      "wtp": 1,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "내 아이디어가 시장에서 수요가 있을지 시장분석이 어렵다 시장조사",
+        "kind": "cafearticle",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-cafearticle",
+      "source_url": "http://cafe.naver.com/glanzriverpark/1539",
+      "title": "작은 도서관 필라테스 시설 활용에 대한 제언",
+      "quote": "작은 도서관 필라테스 시설 활용에 대한 제언 수 있을지에 대한 검토가 필요하다고 생각합니다. 특히 필라테스 기구는 특성상 전문가의 지도 없이 개인이... 이에 앞서 현재 단지 내 휘트니스 시설의 이용률과 상주 트레이너 수업 수요를 객관적으로 분석한 후, 실제...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "내 아이디어가 시장에서 수요가 있을지 시장분석이 어렵다 시장조사",
+        "kind": "cafearticle",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-cafearticle",
+      "source_url": "http://cafe.naver.com/greenb0k6k/173272",
+      "title": "AI 딥다이브",
+      "quote": "AI 딥다이브 인프라 수요 폭증에 힘입어 시장 예상치를 뛰어넘는 호실적을 달성했다. 올해 자본 지출 2월 4일 11... 취업이 어렵다는 이유로 수험생들의 외면을 받아왔던 철학·언어학 등 인문계 학과의 입학 경쟁률이 다시...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "내 아이디어가 시장에서 수요가 있을지 시장분석이 어렵다 시장조사",
+        "kind": "cafearticle",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-cafearticle",
+      "source_url": "http://cafe.naver.com/greenb0k6k/173266",
+      "title": "수민이가 궁금해요",
+      "quote": "수민이가 궁금해요 국내 시장에서 가파른 상승세를 타며 월간 이용자 10만 명선을 처음 돌파했다. 챗GPT 독주에 제미나이가... 실수요 30이상+ 12월 16일 23:56코로나19 백신, 입원·조산 위험 낮춘다? 캐나다 임신 데이터 분석 결과, 백신...",
+      "pain_tags": [
+        "risk"
+      ],
+      "wtp": 0,
+      "workaround_tags": [
+        "chatgpt"
+      ],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "내 아이디어가 시장에서 수요가 있을지 시장분석이 어렵다 시장조사",
+        "kind": "cafearticle",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-cafearticle",
+      "source_url": "http://cafe.naver.com/greenb0k6k/173260",
+      "title": "푸드+",
+      "quote": "푸드+ 국민건강영양조사 데이터 분석 식이요인 암 발생…남성이 여성보다 비율↑ 한국인의 암 발생을 높이는... 부르기는 어렵다. 하지만 완전히 끊기 힘든 음식이라면, 어떻게 먹느냐에 따라 건강 부담을 줄일 수는...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "내 아이디어가 시장에서 수요가 있을지 시장분석이 어렵다 시장조사",
+        "kind": "cafearticle",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-cafearticle",
+      "source_url": "http://cafe.naver.com/handealer/2320",
+      "title": "주간 지수 전망대(02월 23일~ )",
+      "quote": "주간 지수 전망대(02월 23일~ ) 다만 조사·공청회·판정 절차가 필요해 즉각적인 관세 부과는 어렵다는 한계가 있다. 실제 관세 발효까지... 것으로 분석된다. 주식 시장에서는 미국의 높은 관세 장벽에 고전하던 스텔란티스와 BMW 등 유럽 자동차...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "내 아이디어가 시장에서 수요가 있을지 시장분석이 어렵다 시장조사",
+        "kind": "cafearticle",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-news",
+      "source_url": "https://www.medigatenews.com/news/2185093759",
+      "title": "신현진 목암생명과학연구소장 &quot;인공지능 신약개발은 제약회사라면 무조...",
+      "quote": "신현진 목암생명과학연구소장 &quot;인공지능 신약개발은 제약회사라면 무조... 그렇다고 해서 한 제약회사 내 모든 AI 기술 수요를 내부인력으로 충당하려는 것은 현명하다고 볼 수 없다.... 좋은 아이디어가 잘 연결돼서 꽃을 피우고 신약개발의 열매를 맺는데 함께 기여하고 싶다. - 마지막으로...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "내 아이디어가 시장에서 수요가 있을지 시장분석이 어렵다 시장성 검증",
+        "kind": "news",
+        "pubDate": "Wed, 28 May 2025 12:52:00 +0900"
+      }
+    },
+    {
+      "source": "naver-news",
+      "source_url": "http://www.hankookilbo.com/v/c732e8dc506a4ee4bf93446bf56921a6",
+      "title": "고객에 의한… 고객을 위한!",
+      "quote": "고객에 의한… 고객을 위한! 거두기는 어렵다. 따라서 제품 특성에 맞는 신상품개발 프로세스를 정립해 각 단계별 소비자 중심의 상품화... 있는 아이디어, 창의성, 디자인 등이 시장의 변화를 이끌거나 새로운 시장을 창출할 수 있을지를 중요한 선정...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "내 아이디어가 시장에서 수요가 있을지 시장분석이 어렵다 시장성 검증",
+        "kind": "news",
+        "pubDate": "Tue, 08 Sep 2015 20:35:00 +0900"
+      }
+    },
+    {
+      "source": "naver-news",
+      "source_url": "http://www.hankookilbo.com/v/94bd38974a4047398fdcf9c69e4b7c5d",
+      "title": "'불황 속 호황' 맞춤전략 통했다",
+      "quote": "'불황 속 호황' 맞춤전략 통했다 거두기는 어렵다. 따라서 제품 특성에 맞는 신상품개발 프로세스를 정립해 각 단계별 소비자 중심의 상품화... 있는 아이디어, 창의성, 디자인 등이 시장의 변화를 이끌거나 새로운 시장을 창출할 수 있을지를 중요한 심사...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "내 아이디어가 시장에서 수요가 있을지 시장분석이 어렵다 시장성 검증",
+        "kind": "news",
+        "pubDate": "Sun, 14 Sep 2014 20:28:00 +0900"
+      }
+    },
+    {
+      "source": "naver-blog",
+      "source_url": "https://blog.naver.com/forest__girl/224191687608",
+      "title": "[미래 직업 칼럼] 논문기자",
+      "quote": "[미래 직업 칼럼] 논문기자 들어가기는 어렵다. 반대로 학술 논문은 문제의 원인을 정교하게 분석하지만, 그 언어는 학계 내부에... 논문 통과자는 이미 검증과 반론, 근거 제시의 과정을 통과한 사람들이다. 여기에 디지털 환경에서의 정보...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "내 아이디어가 시장에서 수요가 있을지 시장분석이 어렵다 시장성 검증",
+        "kind": "blog",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-blog",
+      "source_url": "https://blog.naver.com/kthigh11/224191558900",
+      "title": "미국의 관세 압박, 이대로 좋은가?",
+      "quote": "미국의 관세 압박, 이대로 좋은가? 다소간의 지역감정은 있을지 몰라도 폭력이 난무하고 감정이 우선하는 분쟁 없이 5,160만 9,121명이... 고부가 시장 확대 자율주행·엣지컴퓨팅 수요 증가 리스크 요인 메모리 업황 사이클 변동성 중국 업체...",
+      "pain_tags": [
+        "risk"
+      ],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "내 아이디어가 시장에서 수요가 있을지 시장분석이 어렵다 시장성 검증",
+        "kind": "blog",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-blog",
+      "source_url": "https://blog.naver.com/mother0806/224191542108",
+      "title": "테슬라 클라쓰",
+      "quote": "테슬라 클라쓰 10월 중순부터 2달 간 AI 버블 우려가 주식시장 전반의 조정을 가져왔다. 빅테크들이 영업 현금흐름을... 일론 머스크는 xAI가 글로벌 최고의 AI 회사라고 주장하지만, 자본시장에서의 평가는 3,4위에 그치고...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "내 아이디어가 시장에서 수요가 있을지 시장분석이 어렵다 시장성 검증",
+        "kind": "blog",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-blog",
+      "source_url": "https://blog.naver.com/a_piece_of_cloud/224191499820",
+      "title": "상호관세 위법 판결 후 트럼프의 대응 등..301조, 338조 등",
+      "quote": "상호관세 위법 판결 후 트럼프의 대응 등..301조, 338조 등 형, 이제 다음 단계로 이걸 분석해볼까? &quot;122조 관세 부과 시, 실제로 혜택을 보는 미국 내 섹터가... 검사의 관점에서 이 법이 왜 무서운지, 그리고 트럼프가 이걸 정말 '우회로'로 쓸 수 있을지 가차...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "내 아이디어가 시장에서 수요가 있을지 시장분석이 어렵다 시장성 검증",
+        "kind": "blog",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-cafearticle",
+      "source_url": "http://cafe.naver.com/taeyeon7989/443404",
+      "title": "광주 전세아파트 가격으로 신축 입주 가능한 광주 남구 데시앙 모델하우스 분양조건",
+      "quote": "광주 전세아파트 가격으로 신축 입주 가능한 광주 남구 데시앙 모델하우스 분양조건 피트니스 / GX룸 실내 골프연습장(GDR) 카페형 도서관 그리고 눈에 띄는 포인트 ✔ 단지 내 캠핑존 + 카라반 설치 가족 단위 실사용 가능 물놀이터 구성 3040 실거주 수요층 만족도가 높은 구조 향후 매매·전세 시장에서도...",
+      "pain_tags": [],
+      "wtp": 1,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "내 아이디어가 시장에서 수요가 있을지 시장분석이 어렵다 시장성 검증",
+        "kind": "cafearticle",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-cafearticle",
+      "source_url": "http://cafe.naver.com/jungamironware/7683",
+      "title": "제주도보도자료20260221토요일",
+      "quote": "제주도보도자료20260221토요일 규모로는 수요를 감당하기 어렵다”며 “최소 54홀 수준으로 확장하면 국제대회 유치도 가능하고 관광객... 개선 아이디어를 두루 청취하는 방식으로 진행된다. □ 23일, 첫 일정으로 4·3평화재단...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "내 아이디어가 시장에서 수요가 있을지 시장분석이 어렵다 시장성 검증",
+        "kind": "cafearticle",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-cafearticle",
+      "source_url": "http://cafe.naver.com/vmapenqltjqj/2240",
+      "title": "실패 없는 소자본 창업 전략",
+      "quote": "실패 없는 소자본 창업 전략 뿐 ▶ 수요가 확실하게 존재하는 시장 진입 고객이 이미 알고 있는 익숙하고 검증된 아이템으로 시작 ▶ 고객... 사업 실패의 가장 큰 원인은 아이디어가 아닌 자금 경색입니다. 신생 기업의 82퍼센트가 실패하는 이유는...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "내 아이디어가 시장에서 수요가 있을지 시장분석이 어렵다 시장성 검증",
+        "kind": "cafearticle",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-cafearticle",
+      "source_url": "http://cafe.naver.com/greenb0k6k/173131",
+      "title": "이재명 청와대",
+      "quote": "이재명 청와대 특히 박 처장이 '법 50이상+ 18:44민주당 의원 '다주택 팔기 어렵다' 중앙일보 보도…해당 의원에 물어보니... 중국이 한국 콘텐츠 수입 등을 전면 중단한 암묵적인 한한령이 해제될 수 있을지 주목된다. 강유정 청와대...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "내 아이디어가 시장에서 수요가 있을지 시장분석이 어렵다 시장성 검증",
+        "kind": "cafearticle",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-cafearticle",
+      "source_url": "http://cafe.naver.com/greenb0k6k/173128",
+      "title": "2026 한국형 AI 필승 카드",
+      "quote": "2026 한국형 AI 필승 카드 과거에는 전통적인 컴퓨터비전 기반 영상분석이 시장을 주도했으나, 딥러닝·생성형 A 1월 9일 13... 기술 검증 테스트베드 강점 서비스 로봇 수요발굴 필요 거대언어모델(LLM), 비전언어모델(VLM) 등 파운데이션...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [
+        "chatgpt"
+      ],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "내 아이디어가 시장에서 수요가 있을지 시장분석이 어렵다 시장성 검증",
+        "kind": "cafearticle",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-cafearticle",
+      "source_url": "http://cafe.naver.com/happyinvest2025/302",
+      "title": "[기업분석] 알먼티 인더스트리스 - 텅스텐 회사",
+      "quote": "[기업분석] 알먼티 인더스트리스 - 텅스텐 회사 가동되면, '미국 내 유일한 생산자'라는 독보적인 부가가치를 확보하게 될 것입니다. 경제적인 해자와 SWOT 분석 알먼티 인더스트리(Almonty Industries)는 현재 전 세계 텅스텐 시장에서 '비(非)중국산 공급망'의...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "내 아이디어가 시장에서 수요가 있을지 시장분석이 어렵다 시장성 검증",
+        "kind": "cafearticle",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-cafearticle",
+      "source_url": "http://cafe.naver.com/financialtechnology0/7667",
+      "title": "청년사업지원금 정리!",
+      "quote": "청년사업지원금 정리! 내 아이디어가 왜 성공할 수밖에 없는지, 어떻게 돈을 벌 것인지, 사회에 어떤 기여를 할 것인지를 논리적이고 설득력 있게 풀어내야 해요. 시장 분석, 경쟁사 분석, 타겟 고객, 팀 구성, 재무 계획 등을 구체적으로 제시해야...",
+      "pain_tags": [
+        "money"
+      ],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "내 아이디어가 시장에서 수요가 있을지 시장분석이 어렵다 시장성 검증",
+        "kind": "cafearticle",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-cafearticle",
+      "source_url": "http://cafe.naver.com/futuresci/9149",
+      "title": "앤스로픽 CEO 다리오 아모데이 인터뷰: 확장, 비즈니스, 지정학",
+      "quote": "앤스로픽 CEO 다리오 아모데이 인터뷰: 확장, 비즈니스, 지정학 검증 가능한 영역만 다룰 수 있다고 해도, 그런 상황에서 소프트웨어 엔지니어링을 자동화할 수 있을지는... 먼저 전체 컴퓨팅 규모를 정하고, 그다음 추론과 훈련의 목표 비율을 세우는데, 이건 우리가 아니라 시장 수요가...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "내 아이디어가 시장에서 수요가 있을지 시장분석이 어렵다 시장성 검증",
+        "kind": "cafearticle",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "youtube-comment",
+      "source_url": "https://www.youtube.com/watch?v=PSXY5OvTw8g",
+      "title": "26살 스타트업 대표의 꿈... #shorts",
+      "quote": "스타트업대표가 왜 얼굴가리고 나와요.. 회사 홍보해야지 ㅋㅋ",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "youtube-data-api",
+        "query": "1인사업가, 1인기업가, 스타트업대표, 초기스타트업대표 문제점",
+        "videoId": "PSXY5OvTw8g"
+      }
+    }
+  ]
+}
