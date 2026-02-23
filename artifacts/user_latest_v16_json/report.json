@@ -1,0 +1,2568 @@
+{
+  "generated_at": "2026-02-22T10:04:47.523016+00:00",
+  "project_id": "66e143751ff9",
+  "intake": {
+    "target": "1인사업가, 1인기업가, 스타트업대표, 초기스타트업대표",
+    "problem": "내 아이디어가 시장에서 수요가 있을지 시장분석이 어렵다",
+    "current_alternative": "지인에게 물어봐서 사용할래? 말래? 판단",
+    "promised_outcome": "시장 수요와 WTP 신호 기반 의사결정 지원",
+    "market_lang": "KR",
+    "keywords": [
+      "시장조사",
+      "스타트업아이디어",
+      "시장분석",
+      "WTP"
+    ],
+    "thread_links": [],
+    "reddit_links": []
+  },
+  "summary": {
+    "demand_score": 21.2,
+    "confidence": "low",
+    "decision": "pivot",
+    "one_liner": "현재 근거로는 피벗이 권장됩니다. 문제/타겟 재정의를 검토하세요.",
+    "why_this_score": "데이터가 충분하지 않거나 주제와 직접 관련된 근거 비율이 낮아서 결론을 강하게 내리기 어렵습니다.",
+    "actionable_next_step": "커뮤니티/리뷰/댓글에서 '문제+대안+가격'이 같이 언급된 근거를 30개 이상 모은 뒤 재판정하세요."
+  },
+  "stats": {
+    "evidence_count": 136,
+    "pain_hits": 11,
+    "wtp_level1_plus": 15,
+    "wtp_level2": 0,
+    "workaround_hits": 3,
+    "source_count": 8,
+    "fit_rate": 0.007,
+    "voice_rate": 0.037,
+    "weighted_total": 150.69,
+    "weighted_pain": 12.41,
+    "weighted_wtp1_only": 18.52,
+    "weighted_wtp2": 0,
+    "weighted_workaround": 3.52
+  },
+  "score_breakdown": {
+    "pain": 3.6,
+    "wallet": 1.9,
+    "workaround": 0.3,
+    "momentum": 5.0,
+    "total": 10.8,
+    "unlock_conditions": [
+      "돈 낼 의사 강신호(유료/가격) 증거를 추가 확보",
+      "예약금/유료베타 전환 지표 확보",
+      "핵심 세그먼트 1개에서 반복 반응 확인"
+    ]
+  },
+  "insight_metrics": {
+    "evidence_count": 136,
+    "unique_sources": 8,
+    "unique_urls": 109,
+    "duplicate_ratio": 0.1985,
+    "wtp_direct_count": 15,
+    "wtp_strong_count": 0,
+    "wtp_direct_ratio": 0.1103,
+    "raw_score": 10.8,
+    "adjusted_score": 21.2,
+    "score_gap": 10.4
+  },
+  "self_checklist": {
+    "checks": [
+      {
+        "name": "증거 수 30건 이상",
+        "pass": true,
+        "value": 136,
+        "threshold": ">=30"
+      },
+      {
+        "name": "소스 다양성 4개 이상",
+        "pass": true,
+        "value": 8,
+        "threshold": ">=4"
+      },
+      {
+        "name": "중복률 35% 이하",
+        "pass": true,
+        "value": 0.1985,
+        "threshold": "<=0.35"
+      },
+      {
+        "name": "돈 낼 의사 직접 문장 비율 5% 이상",
+        "pass": true,
+        "value": 0.1103,
+        "threshold": ">=0.05"
+      },
+      {
+        "name": "점수 일관성(raw<=adjusted)",
+        "pass": true,
+        "value": "raw=10.8, adjusted=21.2",
+        "threshold": "raw<=adjusted"
+      }
+    ],
+    "fail_count": 0,
+    "status": "pass"
+  },
+  "segment_posts": {
+    "segments": [
+      {
+        "segment": "1인사업가",
+        "posts": [
+          {
+            "type": "공감형",
+            "text": "1인사업가분들, 아이디어 시장성을 지금 어떻게 검증하고 계신가요? 가장 막히는 1가지만 알려주세요."
+          },
+          {
+            "type": "인사이트형",
+            "text": "1인사업가 기준으로 문제 공감은 높은데 돈 낼 의사 문장은 부족합니다. 지금 당장 유료 검증에 필요한 질문 3개를 댓글로 받을게요."
+          },
+          {
+            "type": "모집형",
+            "text": "1인사업가 대상 유료베타 검증 10명 모집: 48시간 내 Go/Iterate/Pivot 판단 리포트. 관심 있으면 DM에 BETA 남겨주세요."
+          }
+        ]
+      },
+      {
+        "segment": "초기 스타트업 대표",
+        "posts": [
+          {
+            "type": "공감형",
+            "text": "초기 스타트업 대표분들, 아이디어 시장성을 지금 어떻게 검증하고 계신가요? 가장 막히는 1가지만 알려주세요."
+          },
+          {
+            "type": "인사이트형",
+            "text": "초기 스타트업 대표 기준으로 문제 공감은 높은데 돈 낼 의사 문장은 부족합니다. 지금 당장 유료 검증에 필요한 질문 3개를 댓글로 받을게요."
+          },
+          {
+            "type": "모집형",
+            "text": "초기 스타트업 대표 대상 유료베타 검증 10명 모집: 48시간 내 Go/Iterate/Pivot 판단 리포트. 관심 있으면 DM에 BETA 남겨주세요."
+          }
+        ]
+      },
+      {
+        "segment": "예비창업자",
+        "posts": [
+          {
+            "type": "공감형",
+            "text": "예비창업자분들, 아이디어 시장성을 지금 어떻게 검증하고 계신가요? 가장 막히는 1가지만 알려주세요."
+          },
+          {
+            "type": "인사이트형",
+            "text": "예비창업자 기준으로 문제 공감은 높은데 돈 낼 의사 문장은 부족합니다. 지금 당장 유료 검증에 필요한 질문 3개를 댓글로 받을게요."
+          },
+          {
+            "type": "모집형",
+            "text": "예비창업자 대상 유료베타 검증 10명 모집: 48시간 내 Go/Iterate/Pivot 판단 리포트. 관심 있으면 DM에 BETA 남겨주세요."
+          }
+        ]
+      }
+    ]
+  },
+  "interview_tagging": {
+    "count": 0,
+    "tag_counts": {
+      "pain": 0,
+      "wtp": 0,
+      "workaround": 0
+    },
+    "wtp_ratio": 0.0,
+    "items": []
+  },
+  "sprint_rejudge": {
+    "base_decision": "pivot",
+    "rejudged_decision": "pivot",
+    "status": "not_run",
+    "reason": "스프린트 실험 데이터가 없어 재판정을 실행하지 않았습니다.",
+    "pass_count": 0,
+    "total_checks": 0,
+    "weighted_pass_ratio": 0.0,
+    "hard_go_conditions": {},
+    "metrics": {},
+    "checks": []
+  },
+  "execution_pack": {
+    "status_tone": "오퍼 피벗 권장. 결과물 중심 패키지로 재실험합니다.",
+    "today_action": {
+      "channel": "threads",
+      "target": "1인사업가, 1인기업가, 스타트업대표, 초기스타트업대표",
+      "timebox_minutes": 60,
+      "post_copy": "[1인사업가, 1인기업가, 스타트업대표, 초기스타트업대표] 지금 '시장성/수익화 판단' 관련 사용자 인터뷰를 모집 중입니다. 실제 불편/대안/가격 인식 확인을 위해 DM 참여 부탁드려요.",
+      "kpi": {
+        "apply_rate_target": 0.02,
+        "dm_target": 10,
+        "wtp_sentence_target": 3
+      },
+      "failure_rule": "신청률<2%면 타겟 문구를 더 좁히고, 돈 낼 의사 문장<3이면 가격 질문을 첫 문장으로 이동"
+    },
+    "dm_script": [
+      "문의 감사합니다. 15분만 인터뷰하고 베타 우선 초대 드릴게요.",
+      "지금 아이디어 검증에서 가장 막히는 1가지를 알려주세요.",
+      "이 문제가 해결된다면 실제로 지불 가능한 가격대를 알려주세요."
+    ]
+  },
+  "decision_evidence": [
+    {
+      "score": 7.8,
+      "quote": "메모리 가격 상승, SK하이닉스 vs 삼성전자 표정 차이 왜? 이런 상황에서 전체 메모리 가격 강세는 HBM 가격 협상에 긍정적 요인으로 작용할 수 있으며, 일부 시장조사 기관은 공급 부족과 AI 수요로 HBM 가격이 지속적으로 상승할 것으로 보고 있다. 둘째, 범용 DRAM을...",
+      "source": "naver-news",
+      "url": "https://www.ilovepc.co.kr/news/articleView.html?idxno=58269",
+      "pain_tags": [],
+      "workaround_tags": [],
+      "wtp": 1,
+      "signal": "결제 의향 신호"
+    },
+    {
+      "score": 5.6,
+      "quote": "경매 3월 23일 / 18평 다세대 / 감정가 대비 34% / 경기 광주시 시장성: 최근 능평동 일대 매각가율(평균 60~66%)을 고려할 때, 34% 가격은 경쟁이 치열할 수 있으므로... 시장조사, 권리분석부터 입찰 그리고 제일 어려워하시는 명도까지 진행합니다. 서울/경기도/강원도...",
+      "source": "naver-cafearticle",
+      "url": "http://cafe.naver.com/businessgateway/6434",
+      "pain_tags": [],
+      "workaround_tags": [],
+      "wtp": 1,
+      "signal": "결제 의향 신호"
+    },
+    {
+      "score": 3.0,
+      "quote": "JW중외제약, '통풍 신약' 상용화 막바지…제조소 동등성 확보 총력 시장 진출을 위한 채비를 끝냈다는 평가가 나온다. 전북대병원서 대상자 모집 돌입…&quot;제조소 간 차이 검증... 이전하며 시장성을 입증한 바 있다. 글로벌 시장조사기관 그랜드뷰리서치에 따르면 글로벌 통풍 치료제...",
+      "source": "naver-news",
+      "url": "https://www.news1.kr/bio/pharmaceutical-bio/6072232",
+      "pain_tags": [],
+      "workaround_tags": [],
+      "wtp": 0,
+      "signal": "문제 공감 신호"
+    },
+    {
+      "score": 3.0,
+      "quote": "&quot;잠수함 사줄게, 차 공장 다오&quot;… 60조 수주전, 韓 '배보다 배꼽' 딜레마 실전 검증된 한국 vs 기술 이전 약속한 독일 CPSP는 캐나다 왕립해군이 노후 빅토리아급 잠수함을 대체하기... 캐나다 현지에 생산공장을 짓기에는 시장성이 담보되지 않는다. 캐나다 시장조사업체 데로지에 따르면...",
+      "source": "naver-news",
+      "url": "https://www.econovill.com/news/articleView.html?idxno=728464",
+      "pain_tags": [],
+      "workaround_tags": [],
+      "wtp": 0,
+      "signal": "문제 공감 신호"
+    },
+    {
+      "score": 3.0,
+      "quote": "TSMC 주가, AI 데이터센터 6000억 달러 투자 최대 수혜…엔비디아도 'TSM... &quot;어느 칩이든 TSMC가 만든다&quot; 시장조사 기관 델오로 그룹은 지난 11일 보고서에서 &quot;4대 하이퍼스케일러가... 카운터포인트리서치 수석 애널리스트 제이크 라이는 최근 CNBC와의 인터뷰에서 &quot;AI 서버 수요 측면에서...",
+      "source": "naver-news",
+      "url": "https://www.g-enews.com/view.php?ud=202602220711543044fbbec65dfb_1",
+      "pain_tags": [],
+      "workaround_tags": [],
+      "wtp": 0,
+      "signal": "문제 공감 신호"
+    },
+    {
+      "score": 3.0,
+      "quote": "경상국립대-거제대, '싱가포르 글로벌시장 창업탐색 프로그램' 공동 운... 참가자들은 현지 고객 인터뷰와 시장조사를 통해 실제 수요를 검증하고, 이를 바탕으로 팀별 비즈니스모델(BM)을 보완·고도화하며 해외 시장 진출을 위한 실행 전략을 구체화했다. 특히 이번 프로그램은 Singapore...",
+      "source": "naver-news",
+      "url": "https://www.kukinews.com/article/view/kuk202602190071",
+      "pain_tags": [],
+      "workaround_tags": [],
+      "wtp": 0,
+      "signal": "문제 공감 신호"
+    },
+    {
+      "score": 3.0,
+      "quote": "AI·후기에 쏠리는 벤처투자...후기 투자 16% 뛸 때 초기 2% 가뭄 딥테크를 창업한다고 해도 특성상 초기 3년간 성과를 검증하기 어렵다보니 자연스럽게 중후기에 집중될 수밖에 없는 구조&quot;고 설명했다. 특히 AI는 지난해 국내는 물론 글로벌 벤처투자 시장의 핵심 키워드로...",
+      "source": "naver-news",
+      "url": "https://www.etoday.co.kr/news/view/2557128",
+      "pain_tags": [],
+      "workaround_tags": [],
+      "wtp": 0,
+      "signal": "문제 공감 신호"
+    },
+    {
+      "score": 3.0,
+      "quote": "한라대, 창업 아이디어 구체화 프로그램 통해 총 17개 창업 아이템 실체... 한라대(총장 김응권)는 2025년 10월부터 2026년 1월까지 추진한 딥테크(예비)기술창업 아이디어 구체화 지원... 검증/지식재산/시장조사/재료비/시제품 제작까지 아우르는 전주기 기술창업 지원을 받았다. 참여자들은...",
+      "source": "naver-news",
+      "url": "http://www.veritas-a.com/news/articleView.html?idxno=598873",
+      "pain_tags": [],
+      "workaround_tags": [],
+      "wtp": 0,
+      "signal": "문제 공감 신호"
+    },
+    {
+      "score": 3.0,
+      "quote": "2월 2주 주요 제조업 전망 부문 시장조사업체 클락슨리서치에 따르면 2026년 1월 전 세계 선박 수주량은 158척임. 조업 난이도, 공정... 포스코기술투자는 아이디어나 기술이 실제로 가능할지 미리 작은 규모로 시험해보는 과정인 사업 검증(PoC...",
+      "source": "naver-news",
+      "url": "https://www.laborplus.co.kr/news/articleView.html?idxno=40330",
+      "pain_tags": [],
+      "workaround_tags": [],
+      "wtp": 0,
+      "signal": "문제 공감 신호"
+    },
+    {
+      "score": 2.7,
+      "quote": "자료정리와 AI분석을 한 번에 끝내는 마법의 NotebookLM... [사업·전략 분석 질문] 업로드 자료를 기반으로 경영 컨설턴트 관점에서 시장 기회 리스크 요인... 시장성 평가 이 자료를 기반으로 시장성을 평가해줘. 수익 모델 도출 가능한 비즈니스 모델을 5가지...",
+      "source": "naver-blog",
+      "url": "https://blog.naver.com/kthigh11/224191332661",
+      "pain_tags": [
+        "risk"
+      ],
+      "workaround_tags": [],
+      "wtp": 0,
+      "signal": "문제 공감 신호"
+    }
+  ],
+  "global_signals": [
+    {
+      "source": "duckduckgo",
+      "url": "https://publy.co/content/6180",
+      "quote_en": "1시간 만에 끝! 딱 5단계로 끝내는 시장조사 하는 법 - PUBLY June 29, 2021 - 회사에서 실무를 하다 보면, 심심치 않게 치고 들어오는 업무가 있습니다. 바로 시장조사입니다. 팀장님은 시장조사가 굉장히 쉬운 업무인 듯, 기본으로 탑재하고 입사하는 능력인 듯 말하지만, 사실 시장조사 방법을 구체적으로 배우긴 쉽지 않습니다.",
+      "quote_ko": "1시간 만에 끝! 딱 5단계로 끝내는 시장조사 하는 법 - PUBLY June 29, 2021 - 회사에서 실무를 하다 보면, 심심치 않게 치고 들어오는 업무가 있습니다. 바로 시장조사입니다. 팀장님은 시장조사가 굉장히 쉬운 업무인 듯, 기본으로 탑재하고 입사하는 능력인 듯 말하지만, 사실 시장조사 방법을 구체적으로 배우긴 쉽지 않습니다.",
+      "signal": "문제 공감"
+    },
+    {
+      "source": "duckduckgo",
+      "url": "https://ko.wikipedia.org/wiki/시장_조사",
+      "quote_en": "시장 조사 - 위키백과, 우리 모두의 백과사전 April 7, 2025 - 시장조사에는 실로 여러 가지 조사가 포함되어 있으나 크게 나누어서 구입사용실태조사(購入使用實態調査), 판매계획조사(販賣計劃調査), 제품계획조사(製品計劃調査), 수요예측조사(需要豫測調査)의 4가지로 분류할 수 있다.",
+      "quote_ko": "시장 조사 - 위키백과, 우리 모두의 백과사전 April 7, 2025 - 시장조사에는 실로 여러 가지 조사가 포함되어 있으나 크게 나누어서 구입사용실태조사(購入使用實態調査), 판매계획조사(販賣計劃調査), 제품계획조사(製品計劃調査), 수요예측조사(需要豫測調査)의 4가지로 분류할 수 있다.",
+      "signal": "문제 공감"
+    },
+    {
+      "source": "duckduckgo",
+      "url": "https://www.data.go.kr/data/15099580/fileData.do",
+      "quote_en": "한국소비자원_시장조사 보고서_20220315 | 공공데이터포털 Mar 29, 2022 · 한국소비자원이 제공하는 시장조사 보고서는 다양한 거래 형태와 상품·서비스 분야에서 소비자 권익을 보호하기 위해 수행된 조사 결과를 담고 있습니다. 일반적인 상품과 서비스뿐 아니라 금융·보험, 정보통신과 같은 전문 서비스, 전자상거래까지 폭넓게 다루며, 부당 거래 행위나 허위·과장 ...",
+      "quote_ko": "한국소비자원_시장조사 보고서_20220315 | 공공데이터포털 Mar 29, 2022 · 한국소비자원이 제공하는 시장조사 보고서는 다양한 거래 형태와 상품·서비스 분야에서 소비자 권익을 보호하기 위해 수행된 조사 결과를 담고 있습니다. 일반적인 상품과 서비스뿐 아니라 금융·보험, 정보통신과 같은 전문 서비스, 전자상거래까지 폭넓게 다루며, 부당 거래 행위나 허위·과장 ...",
+      "signal": "문제 공감"
+    },
+    {
+      "source": "duckduckgo",
+      "url": "https://brunch.co.kr/@khushin/97",
+      "quote_en": "마케팅의 시작 - 시장조사 방법 November 25, 2023 - 사업이 어려운 이유와 시장조사를 해야 하는 이유는 같은 맥락이다. 목표로 삼은 시장을 대상으로 조사해봤더니 67퍼센트가 김치찌개보다는 핫도그를 좋아한다는 결과가 나왔다. 이때 김치찌개 대신 핫도그를 만들어서 판매하면 좋은 결과가 나올까?",
+      "quote_ko": "마케팅의 시작 - 시장조사 방법 November 25, 2023 - 사업이 어려운 이유와 시장조사를 해야 하는 이유는 같은 맥락이다. 목표로 삼은 시장을 대상으로 조사해봤더니 67퍼센트가 김치찌개보다는 핫도그를 좋아한다는 결과가 나왔다. 이때 김치찌개 대신 핫도그를 만들어서 판매하면 좋은 결과가 나올까?",
+      "signal": "문제 공감"
+    },
+    {
+      "source": "duckduckgo",
+      "url": "https://brunch.co.kr/@hyeminimi/91",
+      "quote_en": "03화 시장조사 5단계 + 프레임워크 5가지 March 17, 2024 - 본격적으로 앞서 두 편의 글을 통해 (1) 시장조사가 왜 필요한지, (2) 어떻게 접근해야 하는지, (3) 어떤 효과를 얻을 수 있는지. 세 가지에 대해 어느정도 살펴보았다. 이제 본격적으로 시장조사 프로세스를 5단계로 나누고 각 단계별로 적절한 프레임워크를 소개한다.",
+      "quote_ko": "03화 시장조사 5단계 + 프레임워크 5가지 March 17, 2024 - 본격적으로 앞서 두 편의 글을 통해 (1) 시장조사가 왜 필요한지, (2) 어떻게 접근해야 하는지, (3) 어떤 효과를 얻을 수 있는지. 세 가지에 대해 어느정도 살펴보았다. 이제 본격적으로 시장조사 프로세스를 5단계로 나누고 각 단계별로 적절한 프레임워크를 소개한다.",
+      "signal": "문제 공감"
+    }
+  ],
+  "top_pains": [
+    {
+      "tag": "time",
+      "count": 4
+    },
+    {
+      "tag": "risk",
+      "count": 4
+    },
+    {
+      "tag": "repeat",
+      "count": 2
+    }
+  ],
+  "top_workarounds": [
+    {
+      "tag": "chatgpt",
+      "count": 3
+    }
+  ],
+  "wtp_quotes": [
+    "메모리 가격 상승, SK하이닉스 vs 삼성전자 표정 차이 왜? 이런 상황에서 전체 메모리 가격 강세는 HBM 가격 협상에 긍정적 요인으로 작용할 수 있으며, 일부 시장조사 기관은 공급 부족과 AI 수요로 HBM 가격이 지속적으로 상승할 것으로 보고 있다. 둘째, 범용 DRAM을...",
+    "경매 3월 23일 / 18평 다세대 / 감정가 대비 34% / 경기 광주시 시장성: 최근 능평동 일대 매각가율(평균 60~66%)을 고려할 때, 34% 가격은 경쟁이 치열할 수 있으므로... 시장조사, 권리분석부터 입찰 그리고 제일 어려워하시는 명도까지 진행합니다. 서울/경기도/강원도...",
+    "블랙후즈 “고객 속마음까지 알아채는 ‘큐리 AI’, K-뷰티 비즈니스 도... 그렇다고 수백 명의 고객을 일일이 만나 심층 인터뷰를 진행하자니 막대한 시간과 비용이 발목을 잡는다. 스타트업 ‘블랙후즈(Blackhoods, 대표 이은호)’는 이러한 시장조사의 구조적 딜레마를 인공지능(AI)으로...",
+    "[Who Is ?] 김형태 시프트업 대표이사 글로벌 시장조사업체 센서타워에 따르면, 시프트업은 2022년 11월4일부터 2024년 1월25일까지 이 게임으로 7억... 이 가운데 '캐릭터 뽑기'는 확률 기반에 유료 재화(게임 내 획득도 가능)를 소모하는 방식으로 작동되기...",
+    "AI가 고르는 브랜드의 시대…에이전틱 커머스가 바꾸는 검색과 커뮤니케... 이는 글로벌 시장조사기관 그랜드 뷰 리서치가 발표한 2030년 글로벌 B2C 전자상거래 시장 규모 추정치... 현재는 미국의 챗GPT 유료구독 사용자들을 대상으로 핸드메이드, 빈티지 제품 등을 판매하는 플랫폼 엣시(Etsy)의..."
+  ],
+  "next_experiment": "커뮤니티/리뷰/댓글에서 '문제+대안+가격'이 같이 언급된 근거를 30개 이상 모은 뒤 재판정하세요.",
+  "replacement_map": {
+    "confidence": "low",
+    "replacement_map": [],
+    "more_evidence_needed": [
+      "대안 근거 부족"
+    ]
+  },
+  "offers": {
+    "confidence": "low",
+    "offers": [],
+    "risk_reversal": [],
+    "pricing_experiments": []
+  },
+  "plan_7d": {
+    "confidence": "low",
+    "experiment_goal": "",
+    "kpi_cutlines": [],
+    "day_by_day_plan": [],
+    "pivot_rules": [],
+    "templates": {}
+  },
+  "quality": {
+    "confidence": "medium",
+    "quality_score": 100.0,
+    "breakdown": [
+      {
+        "metric": "source_diversity",
+        "value": 8,
+        "why_it_matters": "소스 다양성이 높을수록 결론 신뢰도 상승"
+      }
+    ],
+    "conclusion_guardrail": {
+      "allow_strong_conclusion": false,
+      "reason": "증거 수/소스/돈 낼 의사 문장 기준 미달"
+    },
+    "more_evidence_needed": [
+      {
+        "goal": "돈 낼 의사 신호 보강",
+        "how_to_collect": "가격/유료 언급 키워드 중심 추가 수집"
+      }
+    ]
+  },
+  "template_pack": {
+    "confidence": "low",
+    "threads_posts": [
+      {
+        "type": "save",
+        "text": "[1인사업가, 1인기업가, 스타트업대표, 초기스타트업대표] 내 아이디어가 시장에서 수요가 있을지 시장분석이 어렵다 해결하려고 할 때 가장 불편한 점 1가지만 알려주세요."
+      },
+      {
+        "type": "repost",
+        "text": "지인에게 물어봐서 사용할래? 말래? 판단 대신 시장 수요와 WTP 신호 기반 의사결정 지원 할 수 있다면 어떤 기능이 가장 우선일까요?"
+      },
+      {
+        "type": "recruit",
+        "text": "1인사업가, 1인기업가, 스타트업대표, 초기스타트업대표 대상 유료베타 10명 모집합니다. 가장 필요한 기능 댓글로 주세요."
+      }
+    ],
+    "reddit_posts": [
+      {
+        "type": "question",
+        "title": "내 아이디어가 시장에서 수요가 있을지 시장분석이 어렵다 - 어떻게 해결하고 계신가요?",
+        "body": "지인에게 물어봐서 사용할래? 말래? 판단 외에 더 좋은 방법이 있는지 의견 부탁드립니다."
+      },
+      {
+        "type": "feedback",
+        "title": "시장 수요와 WTP 신호 기반 의사결정 지원 유료베타 피드백 부탁드립니다",
+        "body": "실제로 결제할 가치가 있는지 의견 부탁드립니다."
+      }
+    ],
+    "landing_copy": [
+      {
+        "variant": "short",
+        "headline": "내 아이디어가 시장에서 수요가 있을지 시장분석이 어렵다 해결",
+        "subheadline": "지인에게 물어봐서 사용할래? 말래? 판단 대신 더 쉽게",
+        "bullets": [
+          "자동화",
+          "대시보드",
+          "퍼포먼스 추적"
+        ],
+        "cta": "유료베타 신청"
+      },
+      {
+        "variant": "medium",
+        "headline": "1인사업가, 1인기업가, 스타트업대표, 초기스타트업대표을 위한 실행형 솔루션",
+        "subheadline": "시장 수요와 WTP 신호 기반 의사결정 지원",
+        "bullets": [
+          "데이터 기반 분석",
+          "인사이트 자동화",
+          "시간 절감"
+        ],
+        "cta": "지금 검증하기"
+      },
+      {
+        "variant": "strong",
+        "headline": "시장 수요와 WTP 신호 기반 의사결정 지원",
+        "subheadline": "기록이 아니라 의사결정을 돕는 서비스",
+        "bullets": [
+          "원인 분석",
+          "패턴 감지",
+          "다음 액션 추천"
+        ],
+        "cta": "48시간 리포트 받기"
+      }
+    ],
+    "faqs": [
+      {
+        "q": "기존 방법(지인에게 물어봐서 사용할래? 말래? 판단)과 뭐가 다른가요?",
+        "a": "자동화와 인사이트로 내 아이디어가 시장에서 수요가 있을지 시장분석이 어렵다 해결 시간을 줄입니다.",
+        "citations": []
+      },
+      {
+        "q": "누구에게 맞나요?",
+        "a": "1인사업가, 1인기업가, 스타트업대표, 초기스타트업대표에게 적합합니다.",
+        "citations": []
+      },
+      {
+        "q": "유료 전환 기준은요?",
+        "a": "시간 절감/성과 개선 체감이 명확할 때 전환 가능성이 높습니다.",
+        "citations": []
+      },
+      {
+        "q": "데이터는 안전한가요?",
+        "a": "민감정보 최소 수집과 접근제어를 적용합니다.",
+        "citations": []
+      },
+      {
+        "q": "모바일도 되나요?",
+        "a": "핵심 기능은 모바일에서도 확인 가능하도록 설계합니다.",
+        "citations": []
+      },
+      {
+        "q": "초보자도 쓸 수 있나요?",
+        "a": "템플릿 기반 입력으로 시작 장벽을 낮춥니다.",
+        "citations": []
+      },
+      {
+        "q": "기존 도구와 병행 가능한가요?",
+        "a": "초기에는 병행 사용 후 점진 전환을 권장합니다.",
+        "citations": []
+      },
+      {
+        "q": "리포트는 얼마나 자주 받나요?",
+        "a": "주간 리포트 기본, 필요시 일간 요약 확장 가능합니다.",
+        "citations": []
+      },
+      {
+        "q": "환불/보장 정책은?",
+        "a": "유료베타는 재분석 1회 제공 같은 리스크 완화 정책을 권장합니다.",
+        "citations": []
+      },
+      {
+        "q": "지금 바로 뭘 해야 하나요?",
+        "a": "타겟 1개 세그먼트로 랜딩/게시글 실험을 7일 실행하세요.",
+        "citations": []
+      }
+    ]
+  },
+  "pivot_map": {
+    "confidence": "medium",
+    "why_not_now": [
+      {
+        "reason": "돈 낼 의사 강신호 부족",
+        "citations": []
+      }
+    ],
+    "pivot_candidates": [
+      {
+        "pivot_title": "문제 피봇",
+        "what_changes": "problem",
+        "new_angle": "현재 문제 정의를 더 구체적인 페인 포인트로 재설정",
+        "why_this_might_work": "구체적 문제일수록 결제 의향 높음",
+        "supporting_evidence": [],
+        "next_test": "재정의된 문제 기반 오퍼 게시"
+      },
+      {
+        "pivot_title": "타겟 피봇",
+        "what_changes": "target",
+        "new_angle": "타겟 세그먼트를 더 좋첨",
+        "why_this_might_work": "좋은 세그먼트일수록 전환률 높음",
+        "supporting_evidence": [],
+        "next_test": "좋은 세그먼트 전용 랜딩"
+      },
+      {
+        "pivot_title": "오퍼 피봇",
+        "what_changes": "offer",
+        "new_angle": "지속 구독 대신 1회성 결과물 중심 패키지",
+        "why_this_might_work": "돈/시간 절감 가치 명확",
+        "supporting_evidence": [],
+        "next_test": "1회성 결과물 결제 실험"
+      }
+    ],
+    "keep_doing": [
+      "증거 기반 의사결정"
+    ],
+    "stop_doing": [
+      "근거 없는 강한 결론"
+    ]
+  },
+  "llm_usage": {
+    "model": "gpt-4o-mini",
+    "calls": 0,
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0,
+    "rates": {
+      "input_per_1m": 0.0,
+      "output_per_1m": 0.0
+    },
+    "cost_usd": {
+      "input": 0.0,
+      "output": 0.0,
+      "total": 0.0
+    }
+  },
+  "evidence": [
+    {
+      "source": "duckduckgo",
+      "source_url": "https://ko.wikipedia.org/wiki/시장_조사",
+      "title": "시장 조사 - 위키백과, 우리 모두의 백과사전",
+      "quote": "시장 조사 - 위키백과, 우리 모두의 백과사전 April 7, 2025 - 시장조사에는 실로 여러 가지 조사가 포함되어 있으나 크게 나누어서 구입사용실태조사(購入使用實態調査), 판매계획조사(販賣計劃調査), 제품계획조사(製品計劃調査), 수요예측조사(需要豫測調査)의 4가지로 분류할 수 있다.",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "duckduckgo-search",
+        "query": "시장조사 불편"
+      }
+    },
+    {
+      "source": "duckduckgo",
+      "source_url": "https://www.data.go.kr/data/15099580/fileData.do",
+      "title": "한국소비자원_시장조사 보고서_20220315 | 공공데이터포털",
+      "quote": "한국소비자원_시장조사 보고서_20220315 | 공공데이터포털 Mar 29, 2022 · 한국소비자원이 제공하는 시장조사 보고서는 다양한 거래 형태와 상품·서비스 분야에서 소비자 권익을 보호하기 위해 수행된 조사 결과를 담고 있습니다. 일반적인 상품과 서비스뿐 아니라 금융·보험, 정보통신과 같은 전문 서비스, 전자상거래까지 폭넓게 다루며, 부당 거래 행위나 허위·과장 ...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "duckduckgo-search",
+        "query": "시장조사 불편"
+      }
+    },
+    {
+      "source": "duckduckgo",
+      "source_url": "https://publy.co/content/6180",
+      "title": "1시간 만에 끝! 딱 5단계로 끝내는 시장조사 하는 법 - PUBLY",
+      "quote": "1시간 만에 끝! 딱 5단계로 끝내는 시장조사 하는 법 - PUBLY June 29, 2021 - 회사에서 실무를 하다 보면, 심심치 않게 치고 들어오는 업무가 있습니다. 바로 시장조사입니다. 팀장님은 시장조사가 굉장히 쉬운 업무인 듯, 기본으로 탑재하고 입사하는 능력인 듯 말하지만, 사실 시장조사 방법을 구체적으로 배우긴 쉽지 않습니다.",
+      "pain_tags": [
+        "time"
+      ],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "duckduckgo-search",
+        "query": "시장조사 불편"
+      }
+    },
+    {
+      "source": "duckduckgo",
+      "source_url": "https://brunch.co.kr/@khushin/97",
+      "title": "마케팅의 시작 - 시장조사 방법",
+      "quote": "마케팅의 시작 - 시장조사 방법 November 25, 2023 - 사업이 어려운 이유와 시장조사를 해야 하는 이유는 같은 맥락이다. 목표로 삼은 시장을 대상으로 조사해봤더니 67퍼센트가 김치찌개보다는 핫도그를 좋아한다는 결과가 나왔다. 이때 김치찌개 대신 핫도그를 만들어서 판매하면 좋은 결과가 나올까?",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "duckduckgo-search",
+        "query": "시장조사 불편"
+      }
+    },
+    {
+      "source": "duckduckgo",
+      "source_url": "https://brunch.co.kr/@hyeminimi/91",
+      "title": "03화 시장조사 5단계 + 프레임워크 5가지",
+      "quote": "03화 시장조사 5단계 + 프레임워크 5가지 March 17, 2024 - 본격적으로 앞서 두 편의 글을 통해 (1) 시장조사가 왜 필요한지, (2) 어떻게 접근해야 하는지, (3) 어떤 효과를 얻을 수 있는지. 세 가지에 대해 어느정도 살펴보았다. 이제 본격적으로 시장조사 프로세스를 5단계로 나누고 각 단계별로 적절한 프레임워크를 소개한다.",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "duckduckgo-search",
+        "query": "시장조사 불편"
+      }
+    },
+    {
+      "source": "duckduckgo",
+      "source_url": "https://www.onmd.net/onmd-magazine/?bmode=view&idx=13649510",
+      "title": "시장조사 트렌드 분석 보고서 작성하는 방법 : 온엠디 이커머스 매거진",
+      "quote": "시장조사 트렌드 분석 보고서 작성하는 방법 : 온엠디 이커머스 매거진 February 20, 2024 - \"김대리 신선식품 카테고리 시장조사 해서 보고서 좀 작성해서 올려주세요\"온라인 MD 업무를 하다 보면이와 같은 요청을 받는 경우가 종종아니 생각보다 자주 발생합니다그런데 대체 시장조사는 어떻게 하고보고서는 어떻게 작성해야 하는 걸까요사실 기획서나 보고서는어떠한 정해진 정답이나 틀이 존재하지 않기 때문에이경우 가장 정답에 가…",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "duckduckgo-search",
+        "query": "시장조사 불편"
+      }
+    },
+    {
+      "source": "duckduckgo",
+      "source_url": "https://letter.wepick.kr/510/4410790",
+      "title": "마케터를 위한 시장조사 가이드",
+      "quote": "마케터를 위한 시장조사 가이드 May 15, 2024 - 고객들이 우리에게 기대하는 바와 우리가 실제로 제공하는 것의 격차(경험 격차)가 커졌기 때문 이에요. 시장조사를 통해 우리 브랜드를 마주할 고객들의 행동과 수요를 이해해야 경험 ...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "duckduckgo-search",
+        "query": "시장조사 불편"
+      }
+    },
+    {
+      "source": "duckduckgo",
+      "source_url": "https://m.blog.naver.com/yesformstory/223264664285",
+      "title": "시장조사 진행 방법 및 보고서 작성요령, 예스폼과 함께 알아보아요 : 네이버 블로그",
+      "quote": "시장조사 진행 방법 및 보고서 작성요령, 예스폼과 함께 알아보아요 : 네이버 블로그 하지만 이를 처음 진행하는 경우라면 정해진 정답이나 틀이 존재하는 내용이 아니기에 더욱 당황스럽게 여겨질 수 있습니다. 때문에 시장조사는 어떻게 해야 하는지 관련 보고서는 어떻게 작성해야 하는지에 대한 내용에 대해 궁금증이 생길 수 있는데요.",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "duckduckgo-search",
+        "query": "시장조사 불편"
+      }
+    },
+    {
+      "source": "duckduckgo",
+      "source_url": "https://blog.naver.com/patsu__2701/223892058279",
+      "title": "시장조사 실패 사례와 성공 사례 비교 분석 : 네이버 블로그",
+      "quote": "시장조사 실패 사례와 성공 사례 비교 분석 : 네이버 블로그 시장조사 실패는 주로 잘못된 가설 설정, 표본 선정 오류, 데이터 해석 미흡에서 비롯됩니다. 예를 들어, 한 기업이 특정 고객층의 수요를 과대평가해 제품을 출시했으나 실제 시장에서는 관심이 거의 없었던 사례가 있습니다. 또한, 설문 문항의 편향이나 조사 시점의 부적절함도 실패를 부릅니다 ...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "duckduckgo-search",
+        "query": "시장조사 문제점"
+      }
+    },
+    {
+      "source": "duckduckgo",
+      "source_url": "https://abcfact.tistory.com/entry/마케터라면-알아야할-시장조사-지식-10가지-조사가-틀리는-이유",
+      "title": "마케터라면 알아야할 시장조사 지식 10가지 - 조사가 틀리는 이유",
+      "quote": "마케터라면 알아야할 시장조사 지식 10가지 - 조사가 틀리는 이유 May 5, 2023 · 마케터라면 알아야할 시장조사 지식 10가지 - 조사가 틀리는 이유 만약, 당신이 마케터이거나 사업을 운영하거나 신규 사업 기획, 기존 사업의 리뉴얼을 한다면 반드시 시장 조사를 하게 될 것입니다.",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "duckduckgo-search",
+        "query": "시장조사 문제점"
+      }
+    },
+    {
+      "source": "duckduckgo",
+      "source_url": "https://openads.co.kr/content/contentDetail?contsId=11731",
+      "title": "어디서나 습관처럼 할 수 있는 시장조사 방법 4가지",
+      "quote": "어디서나 습관처럼 할 수 있는 시장조사 방법 4가지 사업을 준비하시는 분이나 마케팅 전략을 고민하시는 분들이 스마트폰만 가지고 간단하게 할 수 있는 시장조사 방법 4가지를 소개합니다. 1. 네이버 지식인, 블로그, 카페 탐색.",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "duckduckgo-search",
+        "query": "시장조사 문제점"
+      }
+    },
+    {
+      "source": "duckduckgo",
+      "source_url": "https://publy.co/content/6180",
+      "title": "1시간 만에 끝! 딱 5단계로 끝내는 시장조사 하는 법 - PUBLY",
+      "quote": "1시간 만에 끝! 딱 5단계로 끝내는 시장조사 하는 법 - PUBLY 시간을 반으로 줄이는 생존형 시장조사 가이드(feat. 실전 예시) / [Step 1] 트렌드 분석: 시장에 이슈가 있는 걸까?",
+      "pain_tags": [
+        "time"
+      ],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "duckduckgo-search",
+        "query": "시장조사 문제점"
+      }
+    },
+    {
+      "source": "duckduckgo",
+      "source_url": "https://prezi.com/bbqwa1_ejnvb/presentation/",
+      "title": "주거공간과 시장조사 by UngYeong Jo",
+      "quote": "주거공간과 시장조사 by UngYeong Jo Reader view. 주거공간과 시장조사 . 1. 택지 - 에코시티. 모델하우스 견학.인간현수막. 지역별 설문조사. 3. 분석 및 문제점 .",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "duckduckgo-search",
+        "query": "시장조사 문제점"
+      }
+    },
+    {
+      "source": "duckduckgo",
+      "source_url": "https://www.youtube.com/hashtag/시장조사",
+      "title": "# 시장조사 - YouTube",
+      "quote": "# 시장조사 - YouTube NaN / NaN. # 시장조사 .",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "duckduckgo-search",
+        "query": "시장조사 문제점"
+      }
+    },
+    {
+      "source": "duckduckgo",
+      "source_url": "https://brunch.co.kr/@flowday/9",
+      "title": "시장조사와 고객조사는 다른가? | 브런치",
+      "quote": "시장조사와 고객조사는 다른가? | 브런치 그리고 내가 쓰려는 글들은 아무리 해도 시장조사 , 소비자 조사, 마케팅 조사라는 제목을 붙이기는 어렵기에 이 주제에 대해 한번 고민해 보았다.",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "duckduckgo-search",
+        "query": "시장조사 문제점"
+      }
+    },
+    {
+      "source": "duckduckgo",
+      "source_url": "https://www.reportworld.co.kr/social/s497701",
+      "title": "[ 시장조사 ] 해외시장조사 - 중국 아동복 시장 | 레포트월드",
+      "quote": "[ 시장조사 ] 해외시장조사 - 중국 아동복 시장 | 레포트월드 실제로, 2019년 국내 기업의 해외시장 진출 실패 원인 중 45%는 시장조사 부족이었다는 통계도 있다. 시장의 크기와 성장 잠재력을 판단하기 위해서는 인구통계학적 자료, 소비행태...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "duckduckgo-search",
+        "query": "시장조사 문제점"
+      }
+    },
+    {
+      "source": "duckduckgo",
+      "source_url": "https://www.canva.com/ko_kr/templates/s/market-research/",
+      "title": "시장조사 무료 이미지・디자인・샘플・템플릿 - Canva(캔바)",
+      "quote": "시장조사 무료 이미지・디자인・샘플・템플릿 - Canva(캔바) 캔바 디자이너가 만든 무료 시장조사 샘플, 템플릿. 저작권 걱정없이 누구나 쉽게 디자인.",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "duckduckgo-search",
+        "query": "시장조사 template"
+      }
+    },
+    {
+      "source": "duckduckgo",
+      "source_url": "https://www.miricanvas.com/ko/template/general_document/시장조사",
+      "title": "전문적인 디자인을 위한 무료 시장조사 템플릿 1 페이지 | 미리캔버스",
+      "quote": "전문적인 디자인을 위한 무료 시장조사 템플릿 1 페이지 | 미리캔버스 10 남색과 붉은색의 그래픽 컨셉 비지니스 사업계획서 초록색의 사무적인 시장조사 보고서 문서서식 남색과회색의깔끔한 시장조사 보고서 11 오렌지 모던 여행 리포트 화이트 미니멀 커피 조사",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "duckduckgo-search",
+        "query": "시장조사 template"
+      }
+    },
+    {
+      "source": "duckduckgo",
+      "source_url": "https://www.slidescarnival.com/ko/template/market-research-doc-ko/4520",
+      "title": "시장조사 문서 무료 템플릿 | SlidesCarnival",
+      "quote": "시장조사 문서 무료 템플릿 | SlidesCarnival 시장조사 리서치 문서 템플릿 무료 Canva Docs, MS Word, Google Docs 템플릿 시장조사 자료를 한눈에 정리하고 싶다면 이 미니멀 문서 템플릿이 딱 맞습니다. 화이트·블랙을 바탕으로 블루와 그린 포인트를 더해, 데이터와 인사이트가 깔끔하게 읽히도록 구성했습니다.",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "duckduckgo-search",
+        "query": "시장조사 template"
+      }
+    },
+    {
+      "source": "duckduckgo",
+      "source_url": "https://brunch.co.kr/@filefree/358",
+      "title": "시장조사 보고서 양식 다운로드 - 브런치",
+      "quote": "시장조사 보고서 양식 다운로드 - 브런치 Dec 16, 2025 · 시장조사 보고서 양식 다운로드 - snews 안녕하세요. 신규 사업 기획, 제품 런칭, 또는 마케팅 전략 수립의 근거가 되는 시장조사 보고서의 핵심 구성 요소와 논리적인 구조 구축 방법을 요약하여 안내해 드립니다. 잘 작성된 시장조사",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "duckduckgo-search",
+        "query": "시장조사 template"
+      }
+    },
+    {
+      "source": "duckduckgo",
+      "source_url": "https://www.miricanvas.com/en/template/leaflet_3_stages_hor/시장조사",
+      "title": "Free 시장조사 Tri-fold leaflet Templates 1 Pages | Miricanvas",
+      "quote": "Free 시장조사 Tri-fold leaflet Templates 1 Pages | Miricanvas Find a unique, distinctive 시장조사 Tri-fold leaflet template perfect for your needs at MiriCanvas. 1 Pasges | MiriCanvas.",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "duckduckgo-search",
+        "query": "시장조사 template"
+      }
+    },
+    {
+      "source": "duckduckgo",
+      "source_url": "https://www.miricanvas.com/en/template/youtube_video_full/시장조사",
+      "title": "Free 시장조사 YouTube Templates 1 Pages | Miricanvas",
+      "quote": "Free 시장조사 YouTube Templates 1 Pages | Miricanvas Find a unique, distinctive 시장조사 YouTube template perfect for your needs at MiriCanvas. 1 Pasges | MiriCanvas.",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "duckduckgo-search",
+        "query": "시장조사 template"
+      }
+    },
+    {
+      "source": "duckduckgo",
+      "source_url": "https://www.miricanvas.com/en/template/leaflet_4_stages/시장조사",
+      "title": "Free 시장조사 4-panel leaflet Templates 1 Pages | Miricanvas",
+      "quote": "Free 시장조사 4-panel leaflet Templates 1 Pages | Miricanvas Find a unique, distinctive 시장조사 4-panel leaflet template perfect for your needs at MiriCanvas. 1 Pasges | MiriCanvas.",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "duckduckgo-search",
+        "query": "시장조사 template"
+      }
+    },
+    {
+      "source": "threads",
+      "source_url": "https://www.threads.net/@jiyeyom/post/DBD_R5NzSoI/유통사-시장조사-글-쓰는-주말-뷰티",
+      "title": "유통사 시장조사 글 쓰는 주말 뷰티 - Threads",
+      "quote": "유통사 시장조사 글 쓰는 주말 뷰티 - Threads 염지예 (@jiyeyom). 4 Replies. 1.5K Views. 유통사 시장조사 글 쓰는 주말 뷰티.",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "duckduckgo-search",
+        "query": "site:threads.net 시장조사"
+      }
+    },
+    {
+      "source": "threads",
+      "source_url": "https://www.threads.net/@charmante_ju/post/DG1yl95Powg",
+      "title": "나두 이우시장에 관심많아 - Threads",
+      "quote": "나두 이우시장에 관심많아 - Threads Mar 5, 2025 · 스레드에서 연락온 스치니들이랑 소싱투어 떠남! 이우시장에서 궁금한 품목 있으면 댓글 남겨줘~ 지나가다 보이면 시장조사해서 공유해볼게! 온라인사업.",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "duckduckgo-search",
+        "query": "site:threads.net 시장조사"
+      }
+    },
+    {
+      "source": "threads",
+      "source_url": "https://www.threads.net/@naminsoo_ai/post/DDrlsIIPdul",
+      "title": "각자 잘하는 분야가 있지 :) - Threads",
+      "quote": "각자 잘하는 분야가 있지 :) - Threads Dec 17, 2024 · 1. ChatGPT - GPTs 개인화 봇, 이미지생성 등 2. Claude - 미친코딩, PDF 대화, 감정적 글쓰기 3. Perplexity - 시장조사, 정보검색, 구글검색 대용.",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [
+        "chatgpt"
+      ],
+      "meta": {
+        "provider": "duckduckgo-search",
+        "query": "site:threads.net 시장조사"
+      }
+    },
+    {
+      "source": "threads",
+      "source_url": "https://www.threads.net/@kangmyungkook",
+      "title": "강명국 (@kangmyungkook) • Threads, Say more",
+      "quote": "강명국 (@kangmyungkook) • Threads, Say more Jan 28, 2026 · 2/3 부터 자카르타로 출장을 갑니다 ✈️ 미팅 겸 K-뷰티 관련 시장조사 목적으로 가는데인도네시아에서 사업하고 계신 분들 있으면 편하게 커피챗 ...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "duckduckgo-search",
+        "query": "site:threads.net 시장조사"
+      }
+    },
+    {
+      "source": "reddit-web",
+      "source_url": "https://www.reddit.com/r/NewTubers/comments/19flcec/are_video_essays_a_good_niche_to_get_into/?tl=ko",
+      "title": "비디오 에세이가 괜찮은 틈새 시장일까요? : r/NewTubers - Reddit",
+      "quote": "비디오 에세이가 괜찮은 틈새 시장일까요? : r/NewTubers - Reddit Jan 25, 2024 · 저는 개인적으로 심층 분석 비디오 에세이를 정말 좋아하는데, 그렇게 긴 영상을 앉아서 보고 싶어 하는 사람이 있을지 잘 모르겠어요.",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "duckduckgo-search",
+        "query": "site:reddit.com 시장조사"
+      }
+    },
+    {
+      "source": "naver-news",
+      "source_url": "https://www.news1.kr/industry/electronics/6078954",
+      "title": "삼성전자, D램 점유율 1위 탈환…1년 만에 SK하이닉스 추월",
+      "quote": "삼성전자, D램 점유율 1위 탈환…1년 만에 SK하이닉스 추월 22일 시장조사업체 옴디아에 따르면 삼성전자는 지난해 4분기 D램 시장 점유율(매출 기준) 36.6%를 기록하며 1위를 차지했다. 전 분기 대비 2.9%포인트(p) 상승한 수치다. 지난해 4분기 5세대 고대역폭메모리(HBM)인...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 시장조사",
+        "kind": "news",
+        "pubDate": "Sun, 22 Feb 2026 18:44:00 +0900"
+      }
+    },
+    {
+      "source": "naver-news",
+      "source_url": "https://www.mk.co.kr/article/11968481",
+      "title": "“삼성전자 주가 어디까지 가려고”…D램 왕좌, 1년만에 재탈환했다",
+      "quote": "“삼성전자 주가 어디까지 가려고”…D램 왕좌, 1년만에 재탈환했다 22일 시장조사기관 옴디아에 따르면 지난해 4분기 글로벌 D램 시장 전체 매출 규모는 전 분기 대비 120억달러(약 17조원) 증가한 524억700만달러(약 76조원)를 기록했다. D램 가격이 크게 뛰면서 시장 규모 자체가 대폭...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 시장조사",
+        "kind": "news",
+        "pubDate": "Sun, 22 Feb 2026 18:39:00 +0900"
+      }
+    },
+    {
+      "source": "naver-news",
+      "source_url": "http://www.fnnews.com/news/202602221832227912",
+      "title": "삼성 1년만에 'D램 왕좌' 되찾았다",
+      "quote": "삼성 1년만에 'D램 왕좌' 되찾았다 22일 시장조사기관 옴디아에 따르면 지난해 4·4분기 글로벌 D램 시장 전체 매출 규모는 전 분기 대비 약 120억 달러 증가한 524억700만 달러(약 75조9000억원)로 집계됐다. 이중 삼성전자의 D램 매출은 전 분기보다...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 시장조사",
+        "kind": "news",
+        "pubDate": "Sun, 22 Feb 2026 18:33:00 +0900"
+      }
+    },
+    {
+      "source": "naver-news",
+      "source_url": "https://www.ilovepc.co.kr/news/articleView.html?idxno=58269",
+      "title": "메모리 가격 상승, SK하이닉스 vs 삼성전자 표정 차이 왜?",
+      "quote": "메모리 가격 상승, SK하이닉스 vs 삼성전자 표정 차이 왜? 이런 상황에서 전체 메모리 가격 강세는 HBM 가격 협상에 긍정적 요인으로 작용할 수 있으며, 일부 시장조사 기관은 공급 부족과 AI 수요로 HBM 가격이 지속적으로 상승할 것으로 보고 있다. 둘째, 범용 DRAM을...",
+      "pain_tags": [],
+      "wtp": 1,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 시장조사",
+        "kind": "news",
+        "pubDate": "Sun, 22 Feb 2026 18:12:00 +0900"
+      }
+    },
+    {
+      "source": "naver-news",
+      "source_url": "https://www.asiatoday.co.kr/view.php?key=20260220010006174",
+      "title": "직원정보 유출 갈등 삼성바이오로직스…수주 불발 이어 파업 리스크 직...",
+      "quote": "직원정보 유출 갈등 삼성바이오로직스…수주 불발 이어 파업 리스크 직... 개인정보위원회 관계자는 &quot;조사가 아직 진행 중이며 결과 발표 시점은 확정되지 않았다&quot;고 밝혔다.시장에서는 조사 결과에 따라 단순 행정 리스크를 넘어 기업의 내부 통제 체계와 ESG 관리 역량에 대한 평가가 다시...",
+      "pain_tags": [
+        "risk"
+      ],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 시장조사",
+        "kind": "news",
+        "pubDate": "Sun, 22 Feb 2026 18:02:00 +0900"
+      }
+    },
+    {
+      "source": "naver-news",
+      "source_url": "https://www.mk.co.kr/article/11968415",
+      "title": "1500만 반려인 시대…식품업계 펫푸드 경쟁",
+      "quote": "1500만 반려인 시대…식품업계 펫푸드 경쟁 풀무원 관계자는 &quot;올 하반기에는 동남아시아 시장을 중심으로 수출을 준비하면서 현지 시장조사와 파트너사 발굴을 추진할 것&quot;이라며 &quot;아미오 브랜드를 풀무원의 글로벌 미래 사업 포트폴리오로 육성하고자 한다&quot;고...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 시장조사",
+        "kind": "news",
+        "pubDate": "Sun, 22 Feb 2026 17:58:00 +0900"
+      }
+    },
+    {
+      "source": "naver-blog",
+      "source_url": "https://blog.naver.com/snsplus4/224190752868",
+      "title": "상봉 프레미어스 엠코 경매 탐방: 2025타경1948, 핵심만...",
+      "quote": "상봉 프레미어스 엠코 경매 탐방: 2025타경1948, 핵심만... 첫 번째 핵심 단계는 '2025타경1948' 물건에 대한 철저한 권리분석과 시세 조사입니다. 이 과정은 내가 투자할 아파트의 숨겨진 위험은 없는지, 그리고 시장에서의 실제 가치는 어느 정도인지 파악하는 중요한...",
+      "pain_tags": [
+        "risk"
+      ],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 시장조사",
+        "kind": "blog",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-blog",
+      "source_url": "https://blog.naver.com/daisyparkkorea/224191741736",
+      "title": "결혼은 줄었지만, 허니문은 깊어졌다",
+      "quote": "결혼은 줄었지만, 허니문은 깊어졌다 한국 시장에서 반복적으로 놓치는 포인트가 있다. 바로 '실질적 부가가치'에 대한 한국 소비자의 민감도다. 복수의 여행 트렌드 조사에서 반복적으로 확인되는 패턴이 있다. 한국인 여행자는 객실 정가(rack...",
+      "pain_tags": [
+        "repeat"
+      ],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 시장조사",
+        "kind": "blog",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-news",
+      "source_url": "https://www.news1.kr/bio/pharmaceutical-bio/6072232",
+      "title": "JW중외제약, '통풍 신약' 상용화 막바지…제조소 동등성 확보 총력",
+      "quote": "JW중외제약, '통풍 신약' 상용화 막바지…제조소 동등성 확보 총력 시장 진출을 위한 채비를 끝냈다는 평가가 나온다. 전북대병원서 대상자 모집 돌입…&quot;제조소 간 차이 검증... 이전하며 시장성을 입증한 바 있다. 글로벌 시장조사기관 그랜드뷰리서치에 따르면 글로벌 통풍 치료제...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 시장성 검증",
+        "kind": "news",
+        "pubDate": "Fri, 13 Feb 2026 06:20:00 +0900"
+      }
+    },
+    {
+      "source": "naver-news",
+      "source_url": "http://www.kyosu.net/news/articleView.html?idxno=157475",
+      "title": "한동대–MYSC, 경북 청년창업기업 3곳 성장 지원 협력 추진",
+      "quote": "한동대–MYSC, 경북 청년창업기업 3곳 성장 지원 협력 추진 개발부터 시장검증까지 전 과정을 지원해왔다. MYSC를 비롯해 경북시민재단, 브랜딩 전문기업 라이터르... 자연주의와 러닝 트렌드에 맞춘 저당 기능성 음료로 시장성을 검증한 울르미컴퍼니는 B2B2C 유통과 6차산업...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 시장성 검증",
+        "kind": "news",
+        "pubDate": "Mon, 09 Feb 2026 14:30:00 +0900"
+      }
+    },
+    {
+      "source": "naver-news",
+      "source_url": "https://dhnews.co.kr/news/view/1065588536979490",
+      "title": "한동대·MYSC, 경북 청년창업기업 3곳 성장 ‘부축’",
+      "quote": "한동대·MYSC, 경북 청년창업기업 3곳 성장 ‘부축’ 개발부터 시장검증까지 전 과정을 지원해왔다. MYSC를 비롯해 경북시민재단, 브랜딩 전문기업 라이터르... 자연주의와 러닝 트렌드에 맞춘 저당 기능성 음료로 시장성을 검증한 울르미컴퍼니는 B2B2C 유통과 6차산업...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 시장성 검증",
+        "kind": "news",
+        "pubDate": "Mon, 09 Feb 2026 13:52:00 +0900"
+      }
+    },
+    {
+      "source": "naver-news",
+      "source_url": "http://www.veritas-a.com/news/articleView.html?idxno=597571",
+      "title": "한동대–MYSC, 경북 청년창업기업 3곳 성장 지원 협력 추진",
+      "quote": "한동대–MYSC, 경북 청년창업기업 3곳 성장 지원 협력 추진 개발부터 시장검증까지 전 과정을 지원해왔다. MYSC를 비롯해 경북시민재단, 브랜딩 전문기업 라이터르... 자연주의와 러닝 트렌드에 맞춘 저당 기능성 음료로 시장성을 검증한 울르미컴퍼니는 B2B2C 유통과 6차산업...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 시장성 검증",
+        "kind": "news",
+        "pubDate": "Mon, 09 Feb 2026 13:32:00 +0900"
+      }
+    },
+    {
+      "source": "naver-news",
+      "source_url": "https://magazine.hankyung.com/job-joy/article/202602070848d",
+      "title": "유승연 한남대학교 창업지원단장, “14년이 넘는 기간 동안 중소벤처기...",
+      "quote": "유승연 한남대학교 창업지원단장, “14년이 넘는 기간 동안 중소벤처기... 단순히 아이디어 단계의 창업을 지원하는 데 그치지 않고, 시장성과 성장 가능성을 갖춘 기업이 실제 산업... 해외시장 조사 컨설팅을 통해 현지 수요와 경쟁 환경을 점검하고, IR 자료 번역 및 리디자인, 글로벌 홈페이지...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 시장성 검증",
+        "kind": "news",
+        "pubDate": "Sat, 07 Feb 2026 19:32:00 +0900"
+      }
+    },
+    {
+      "source": "naver-news",
+      "source_url": "https://www.econovill.com/news/articleView.html?idxno=728464",
+      "title": "&quot;잠수함 사줄게, 차 공장 다오&quot;… 60조 수주전, 韓 '배보다 배꼽' 딜레마",
+      "quote": "&quot;잠수함 사줄게, 차 공장 다오&quot;… 60조 수주전, 韓 '배보다 배꼽' 딜레마 실전 검증된 한국 vs 기술 이전 약속한 독일 CPSP는 캐나다 왕립해군이 노후 빅토리아급 잠수함을 대체하기... 캐나다 현지에 생산공장을 짓기에는 시장성이 담보되지 않는다. 캐나다 시장조사업체 데로지에 따르면...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 시장성 검증",
+        "kind": "news",
+        "pubDate": "Wed, 04 Feb 2026 21:52:00 +0900"
+      }
+    },
+    {
+      "source": "naver-blog",
+      "source_url": "https://blog.naver.com/kthigh11/224191332661",
+      "title": "자료정리와 AI분석을 한 번에 끝내는 마법의 NotebookLM...",
+      "quote": "자료정리와 AI분석을 한 번에 끝내는 마법의 NotebookLM... [사업·전략 분석 질문] 업로드 자료를 기반으로 경영 컨설턴트 관점에서 시장 기회 리스크 요인... 시장성 평가 이 자료를 기반으로 시장성을 평가해줘. 수익 모델 도출 가능한 비즈니스 모델을 5가지...",
+      "pain_tags": [
+        "risk"
+      ],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 시장성 검증",
+        "kind": "blog",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-blog",
+      "source_url": "https://blog.naver.com/myhome-insta/224190910335",
+      "title": "이노진, 특허 이어 SCI 논문 등재…미토콘드리아 기반...",
+      "quote": "이노진, 특허 이어 SCI 논문 등재…미토콘드리아 기반... 실제 시장 신뢰도를 높이기 위해서는 논문 발표나 외부 검증 자료가 중요하게 작용한다. 이노진 역시 특허 이후 추가 연구를 진행한 배경에 대해 “시장성과 과학성을 동시에 확보하기 위한 전략”이라는...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 시장성 검증",
+        "kind": "blog",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-blog",
+      "source_url": "https://blog.naver.com/possibleteo/224189968940",
+      "title": "2026 HPC 이노베이션 허브 사업화 지원 | 베타테스트...",
+      "quote": "2026 HPC 이노베이션 허브 사업화 지원 | 베타테스트... 해석 시장성은 매출 가능성뿐 아니라, 실제 수요처 확보 전략과 진입 구조를 평가합니다. ▪ 작성 전략 타깃 시장 구체화 초기 수요처 확보 전략 제시 단계별 매출 전환 계획 설명 ▪ 조사 방법 산업별 HPC...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 시장성 검증",
+        "kind": "blog",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-blog",
+      "source_url": "https://blog.naver.com/madame_bb/224189720424",
+      "title": "[정부지원사업공고] 선정되는 사업계획서는 구조가 다릅니다...",
+      "quote": "[정부지원사업공고] 선정되는 사업계획서는 구조가 다릅니다... 사업계획은 다음 세 가지를 검증하는 문서입니다. 시장성. 수익성. 실행 가능성(안정성) 문장이... 모르는 상태에서 시장을 조사하고, 수익을 계산하고, 가능성을 검증해 가는 과정 그 자체가 사업계획입니다....",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 시장성 검증",
+        "kind": "blog",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-blog",
+      "source_url": "https://blog.naver.com/ai-yj50/224177583876",
+      "title": "데이터로 하자&quot; - AI로 확실한 수익화 아이템 찾는 검증 3단계",
+      "quote": "데이터로 하자&quot; - AI로 확실한 수익화 아이템 찾는 검증 3단계 내 자산 포트폴리오 [질문] &quot;AI x 부업&quot; 아이템의 시장성과 적합성을 종합 분석해줘. AI의 최종 결론... #AI부업검증 #데이터기반의사결정 #구글트렌드 #크몽시장조사 #셀러라이프 #NotebookLM #세인투후기...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 시장성 검증",
+        "kind": "blog",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-cafearticle",
+      "source_url": "http://cafe.naver.com/businessgateway/6445",
+      "title": "(경매강의 제12강) &quot;경매물건 효과적인 검색 방법&quot;",
+      "quote": "(경매강의 제12강) &quot;경매물건 효과적인 검색 방법&quot; 감정평가액은 참고 지표일 뿐, 자산운용가는 시장에서 즉시 소화 가능한 '실질 가치'를 도출해야 합니다. 디지털 사전 조사 및 서류 검증 가이드 입지 및 시장성 분석 (지도 데이터): 초등학교 인접성, 대단지 여부...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 시장성 검증",
+        "kind": "cafearticle",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-cafearticle",
+      "source_url": "http://cafe.naver.com/misinggo/1775824",
+      "title": "의류 설문조사 참여자 대상 스타벅스 3만원 상당 모바일 기프티콘 (10명 추첨 / 문자 발송)",
+      "quote": "의류 설문조사 참여자 대상 스타벅스 3만원 상당 모바일 기프티콘 (10명 추첨 / 문자 발송) 수요 조사를 진행하고 있습니다. 본 설문은 정부지원사업 제출을 위한 사업계획서의 시장성 및 실현 가능성 검증 자료로 활용될 예정입니다. 브랜드와 제조업체 간 거래 과정에서 발생하는 정보 부족, 거래처 탐색의...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 시장성 검증",
+        "kind": "cafearticle",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-cafearticle",
+      "source_url": "http://cafe.naver.com/businessgateway/6434",
+      "title": "경매 3월 23일 / 18평 다세대 / 감정가 대비 34% / 경기 광주시",
+      "quote": "경매 3월 23일 / 18평 다세대 / 감정가 대비 34% / 경기 광주시 시장성: 최근 능평동 일대 매각가율(평균 60~66%)을 고려할 때, 34% 가격은 경쟁이 치열할 수 있으므로... 시장조사, 권리분석부터 입찰 그리고 제일 어려워하시는 명도까지 진행합니다. 서울/경기도/강원도...",
+      "pain_tags": [],
+      "wtp": 1,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 시장성 검증",
+        "kind": "cafearticle",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-cafearticle",
+      "source_url": "http://cafe.naver.com/jungdari/60",
+      "title": "성공한 셀러들은 다 쓴다는 중달이닷컴 | 내 사업에 꼭 필요한 서비스 한눈에 보기",
+      "quote": "성공한 셀러들은 다 쓴다는 중달이닷컴 | 내 사업에 꼭 필요한 서비스 한눈에 보기 &quot;라고 물어보시면, 전문가가 시장성을 분석해주고 조언을 드립니다. 판매 전략과 마케팅 인사이트도 공유되고, 공장 직거래 정보도 제공되어서 더 좋은 조건으로 소싱하실 수 있습니다. 시장조사단 정보를 활용하면...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 시장성 검증",
+        "kind": "cafearticle",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-cafearticle",
+      "source_url": "http://cafe.naver.com/bk1009/6674956",
+      "title": "활성산소가 걱정되시나요? 혈관팔팔로 건강한 혈행을 지키세요!",
+      "quote": "활성산소가 걱정되시나요? 혈관팔팔로 건강한 혈행을 지키세요! 안전성이 검증된 제품입니다.5. 뛰어난 시장성과 수상 경력활성산소가 걱정되시나요? 혈관팔팔로 건강한 혈행을 지키세요!혈관팔팔은 2년 연속 국내 시장에서 매출 1위를 기록하며, 고객들의 높은 신뢰를 받고 있습니다....",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 시장성 검증",
+        "kind": "cafearticle",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-news",
+      "source_url": "https://www.g-enews.com/view.php?ud=202602220711543044fbbec65dfb_1",
+      "title": "TSMC 주가, AI 데이터센터 6000억 달러 투자 최대 수혜…엔비디아도 'TSM...",
+      "quote": "TSMC 주가, AI 데이터센터 6000억 달러 투자 최대 수혜…엔비디아도 'TSM... &quot;어느 칩이든 TSMC가 만든다&quot; 시장조사 기관 델오로 그룹은 지난 11일 보고서에서 &quot;4대 하이퍼스케일러가... 카운터포인트리서치 수석 애널리스트 제이크 라이는 최근 CNBC와의 인터뷰에서 &quot;AI 서버 수요 측면에서...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 고객 인터뷰",
+        "kind": "news",
+        "pubDate": "Sun, 22 Feb 2026 07:24:00 +0900"
+      }
+    },
+    {
+      "source": "naver-news",
+      "source_url": "https://www.asiatoday.co.kr/view.php?key=20260220010006100",
+      "title": "&quot;메모리 다음은 MLCC&quot;…AI 슈퍼사이클에 삼성전기도 웃는다",
+      "quote": "&quot;메모리 다음은 MLCC&quot;…AI 슈퍼사이클에 삼성전기도 웃는다 20일 시장조사업체 트렌드포스에 따르면 2026년 1분기 글로벌 MLCC 시장은 'AI 중심 고부가 제품'과... 무라타 최고경영자(CEO)는 최근 블룸버그 인터뷰에서 AI 데이터센터향 고사양 MLCC 주문 규모가 자사 생산 능력의 약...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 고객 인터뷰",
+        "kind": "news",
+        "pubDate": "Fri, 20 Feb 2026 14:26:00 +0900"
+      }
+    },
+    {
+      "source": "naver-news",
+      "source_url": "https://www.donga.com/news/It/article/all/20260219/133381464/1",
+      "title": "블랙후즈 “고객 속마음까지 알아채는 ‘큐리 AI’, K-뷰티 비즈니스 도...",
+      "quote": "블랙후즈 “고객 속마음까지 알아채는 ‘큐리 AI’, K-뷰티 비즈니스 도... 그렇다고 수백 명의 고객을 일일이 만나 심층 인터뷰를 진행하자니 막대한 시간과 비용이 발목을 잡는다. 스타트업 ‘블랙후즈(Blackhoods, 대표 이은호)’는 이러한 시장조사의 구조적 딜레마를 인공지능(AI)으로...",
+      "pain_tags": [
+        "time"
+      ],
+      "wtp": 1,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 고객 인터뷰",
+        "kind": "news",
+        "pubDate": "Thu, 19 Feb 2026 15:42:00 +0900"
+      }
+    },
+    {
+      "source": "naver-news",
+      "source_url": "https://www.bloter.net/news/articleView.html?idxno=654614",
+      "title": "반도체 다음은 MLCC…삼성전기, 필리핀 신공장 '승부수'",
+      "quote": "반도체 다음은 MLCC…삼성전기, 필리핀 신공장 '승부수' 나카지마 노리오 무라타 사장은 지난 17일 블룸버그통신과의 인터뷰에서 &quot;AI 데이터센터향 고사양 MLCC 주문... 시장조사기관과 업계 추산에 따르면 2024년까지만 해도 22~23% 수준에 머물던 삼성전기의 글로벌 MLCC...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 고객 인터뷰",
+        "kind": "news",
+        "pubDate": "Thu, 19 Feb 2026 13:59:00 +0900"
+      }
+    },
+    {
+      "source": "naver-news",
+      "source_url": "https://www.kukinews.com/article/view/kuk202602190071",
+      "title": "경상국립대-거제대, '싱가포르 글로벌시장 창업탐색 프로그램' 공동 운...",
+      "quote": "경상국립대-거제대, '싱가포르 글로벌시장 창업탐색 프로그램' 공동 운... 참가자들은 현지 고객 인터뷰와 시장조사를 통해 실제 수요를 검증하고, 이를 바탕으로 팀별 비즈니스모델(BM)을 보완·고도화하며 해외 시장 진출을 위한 실행 전략을 구체화했다. 특히 이번 프로그램은 Singapore...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 고객 인터뷰",
+        "kind": "news",
+        "pubDate": "Thu, 19 Feb 2026 11:08:00 +0900"
+      }
+    },
+    {
+      "source": "naver-news",
+      "source_url": "http://dream.kotra.or.kr/kotranews/cms/news/actionKotraBoardDetail.do?SITE_NO=3&MENU_ID=180&CONTENTS_NO=1&bbsGbn=243&bbsSn=243&pNttSn=239092",
+      "title": "일상생활 속 통합 솔루션, 멕시코 가전제품 시장의 변화",
+      "quote": "일상생활 속 통합 솔루션, 멕시코 가전제품 시장의 변화 멕시코 가전제품 시장 규모 글로벌 시장조사기관 유로모니터(Euromonitor)에 따르면 멕시코는 연간 1억 대... 멕시코에서 한국 가전제품을 공급하는 기업 종사자 A씨는 KOTRA 멕시코시티무역관과의 인터뷰에서...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 고객 인터뷰",
+        "kind": "news",
+        "pubDate": "Thu, 19 Feb 2026 09:45:00 +0900"
+      }
+    },
+    {
+      "source": "naver-news",
+      "source_url": "https://biz.chosun.com/distribution/channel/2026/02/17/TWQH3FBI35HMFB3EPWWYA35YDQ/?utm_source=naver&utm_medium=original&utm_campaign=biz",
+      "title": "Z 세대의 ‘보물찾기’, 유통시장을 재편하다… 리커머스 3.0 질주",
+      "quote": "Z 세대의 ‘보물찾기’, 유통시장을 재편하다… 리커머스 3.0 질주 시장조사 업체 팩트엠알(Fact.MR)에 따르면, 2025년 글로벌 리커머스 시장 규모는 2025년 5250억달러(약... ‘이코노미조선’은 유통시장을 흔드는 리커머스의 현주소와 전망을 국내외 전문가 인터뷰를 통해 분석했다....",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 고객 인터뷰",
+        "kind": "news",
+        "pubDate": "Tue, 17 Feb 2026 06:01:00 +0900"
+      }
+    },
+    {
+      "source": "naver-news",
+      "source_url": "http://www.choicenews.co.kr/news/articleView.html?idxno=161177",
+      "title": "중국 휴머노이드 로봇 '열풍' 어디까지?",
+      "quote": "중국 휴머노이드 로봇 '열풍' 어디까지? 시장조사기관 국제데이터공사(IDC)가 지난 1월 발표한 '글로벌 휴머노이드 로봇 시장 분석'에 따르면, 2025년... 산업 고객의 주문이 급증한 것으로 나타났다. 유니트리 관계자는 제일재경과의 인터뷰에서 &quot;주문 구성이...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 고객 인터뷰",
+        "kind": "news",
+        "pubDate": "Mon, 16 Feb 2026 09:30:00 +0900"
+      }
+    },
+    {
+      "source": "naver-blog",
+      "source_url": "https://kyla104.tistory.com/50",
+      "title": "2025년 일본 긴급모객의 모든 비법 5가지!",
+      "quote": "2025년 일본 긴급모객의 모든 비법 5가지! 일본 시장에서 성공하기 위해서는 신속하고 효율적인 모객 전략이 필수적입니다. 다음 표는 일본의... 설문조사 및 인터뷰를 통해 데이터를 수집하세요. 소셜 미디어 분석을 통해 고객의 선호도를 파악하세요....",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 고객 인터뷰",
+        "kind": "blog",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-blog",
+      "source_url": "https://think-tank.tistory.com/775",
+      "title": "중원구 하대원동 민생지원금 어디서 쓸 수 있나 확인",
+      "quote": "중원구 하대원동 민생지원금 어디서 쓸 수 있나 확인 본 분석은 실제 현장 조사 및 주민 인터뷰, 상인 인터뷰를 바탕으로 작성되었으며, 객관적인 정보... 🏪 하대원동 민생지원금 사용 가능 업체 비교분석 (예시) 하대원시장 장점 ✅: 신선한 농산물과 수산물을...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 고객 인터뷰",
+        "kind": "blog",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-news",
+      "source_url": "https://www.businesspost.co.kr/BP?command=article_view&num=430249",
+      "title": "[Who Is ?] 김형태 시프트업 대표이사",
+      "quote": "[Who Is ?] 김형태 시프트업 대표이사 글로벌 시장조사업체 센서타워에 따르면, 시프트업은 2022년 11월4일부터 2024년 1월25일까지 이 게임으로 7억... 이 가운데 '캐릭터 뽑기'는 확률 기반에 유료 재화(게임 내 획득도 가능)를 소모하는 방식으로 작동되기...",
+      "pain_tags": [],
+      "wtp": 1,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 유료 베타",
+        "kind": "news",
+        "pubDate": "Fri, 13 Feb 2026 07:30:00 +0900"
+      }
+    },
+    {
+      "source": "naver-news",
+      "source_url": "https://www.the-pr.co.kr/news/articleView.html?idxno=60323",
+      "title": "AI가 고르는 브랜드의 시대…에이전틱 커머스가 바꾸는 검색과 커뮤니케...",
+      "quote": "AI가 고르는 브랜드의 시대…에이전틱 커머스가 바꾸는 검색과 커뮤니케... 이는 글로벌 시장조사기관 그랜드 뷰 리서치가 발표한 2030년 글로벌 B2C 전자상거래 시장 규모 추정치... 현재는 미국의 챗GPT 유료구독 사용자들을 대상으로 핸드메이드, 빈티지 제품 등을 판매하는 플랫폼 엣시(Etsy)의...",
+      "pain_tags": [],
+      "wtp": 1,
+      "workaround_tags": [
+        "chatgpt"
+      ],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 유료 베타",
+        "kind": "news",
+        "pubDate": "Wed, 28 Jan 2026 12:04:00 +0900"
+      }
+    },
+    {
+      "source": "naver-news",
+      "source_url": "https://www.donga.com/news/Economy/article/all/20251210/132937906/1",
+      "title": "“오픈AI는 제2의 넷스케이프”…AI 선구자에 회의론 왜?[딥다이브]",
+      "quote": "“오픈AI는 제2의 넷스케이프”…AI 선구자에 회의론 왜?[딥다이브] 구글 점유율은 아직 15.1%에 불과하죠(시장조사업체 시밀러웹 기준). 하지만 지난해 말(챗GPT 87%, 제미나이... 이후 작가로 변신해 서브스택에서 유료 뉴스레터 서비스를 운영 중인데요. 그가 왜 하필 넷스케이프를...",
+      "pain_tags": [],
+      "wtp": 1,
+      "workaround_tags": [
+        "chatgpt"
+      ],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 유료 베타",
+        "kind": "news",
+        "pubDate": "Thu, 11 Dec 2025 10:01:00 +0900"
+      }
+    },
+    {
+      "source": "naver-news",
+      "source_url": "https://www.greened.kr/news/articleView.html?idxno=331923",
+      "title": "'배틀필드 6' 참전으로 불붙은 밀리터리 슈터 게임 전쟁…",
+      "quote": "'배틀필드 6' 참전으로 불붙은 밀리터리 슈터 게임 전쟁… 8만원에 유료 구매해야 하는 패키지 게임이지만 높은 동시 접속자를 기록하고 있다. 시장조사 업체... '배틀필드 6'의 인기 돌풍은 베타테스트 때부터 예고됐다. '배틀필드 6'는 베타테스트에서 스팀 최고 동시접속자...",
+      "pain_tags": [],
+      "wtp": 1,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 유료 베타",
+        "kind": "news",
+        "pubDate": "Mon, 13 Oct 2025 15:47:00 +0900"
+      }
+    },
+    {
+      "source": "naver-news",
+      "source_url": "https://www.donga.com/news/It/article/all/20250926/132473986/1",
+      "title": "디다노니아 “렉시오로 온·오프라인 보드 게임 르네상스 꿈꾼다” [SBA...",
+      "quote": "디다노니아 “렉시오로 온·오프라인 보드 게임 르네상스 꿈꾼다” [SBA... 시장조사기업 포춘 비즈니스 인사이트는 글로벌 보드 게임 시장이 2024년 1437억 달러(약 202조 원) 규모에서... 베타 테스트 단계에 있는 렉시오 모바일 게임은 2026년 3월 출시를 목표로 막바지 담금질에 한창이다. 수익...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 유료 베타",
+        "kind": "news",
+        "pubDate": "Fri, 26 Sep 2025 19:11:00 +0900"
+      }
+    },
+    {
+      "source": "naver-news",
+      "source_url": "https://www.ddaily.co.kr/page/view/2025090414451488259",
+      "title": "쏘카·카카오T, ‘구독 전략’ 엇갈린 행보…대중화 vs 락인 강화",
+      "quote": "쏘카·카카오T, ‘구독 전략’ 엇갈린 행보…대중화 vs 락인 강화 ◆쏘카, '유료 구독 멤버십' 종료…장벽 낮추고 '카셰어링' 대중화 나선다 쏘카는 지난 2021년 모빌리티 업계... 시장조사업체 IMARC에 따르면, 글로벌 카셰어링 시장은 오는 2033년까지 연평균 11.8% 성장할 것으로 전망된다....",
+      "pain_tags": [],
+      "wtp": 1,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 유료 베타",
+        "kind": "news",
+        "pubDate": "Thu, 04 Sep 2025 14:55:00 +0900"
+      }
+    },
+    {
+      "source": "naver-blog",
+      "source_url": "https://blog.naver.com/thepledo/224187756632",
+      "title": "Red5와 함께하는 MOQ 시대의 실시간 인터렉티브 스트리밍 혁신",
+      "quote": "Red5와 함께하는 MOQ 시대의 실시간 인터렉티브 스트리밍 혁신 한때 전 세계 시장은 XDN(Experience Delivery Network) 아키텍처가 지원하는 다방향, 고확장성 실시간... 시작하든, 시장에 전달하고자 하는 핵심 메시지는 XDN 아키텍처가 일방향 또는 다방향, 거리와 규모에...",
+      "pain_tags": [
+        "time"
+      ],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 유료 베타",
+        "kind": "blog",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-cafearticle",
+      "source_url": "http://cafe.naver.com/onlinehuman/16773",
+      "title": "2/13(금) 주요 이커머스 소식 및 인공지능 소식",
+      "quote": "2/13(금) 주요 이커머스 소식 및 인공지능 소식 e커머스 시장의 판도를 깰 수 있을지에 관심이 쏠리고 있습니다. &quot;닫기 버튼 눌렀는데 왜 안 닫혀&quot;…방미통위, 무분별한 웹 광고 사실조사 정부가 온라인 웹페이지나 스마트폰 화면 등을 과도하게 가리는 광고 행태에...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 유료 베타",
+        "kind": "cafearticle",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-cafearticle",
+      "source_url": "http://cafe.naver.com/todaybigboss/4488",
+      "title": "2026-02-06 뉴스 정리",
+      "quote": "2026-02-06 뉴스 정리 06% (상대 방어) ✅ 시장 요약(한 줄) “AI 투자(캡엑스) 공포 + 고용 둔화 신호 + 크립토/귀금속... com/4fv7z8kp [카카오] “연말까지 해외 송금 수수료 0원” 카카오페이, 서비스 베타 출시 https://tinyurl.com...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 유료 베타",
+        "kind": "cafearticle",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-cafearticle",
+      "source_url": "http://cafe.naver.com/withfrom2017/13470",
+      "title": "[하나 글로벌 기업분석 데일리 뉴스] 1/23",
+      "quote": "[하나 글로벌 기업분석 데일리 뉴스] 1/23 미국의 유료 구독자인 Pro 및 Ultra 사용자를 대상으로 출시되었으며 구글 서비스 간의 결합력을 더욱... kr/3YEsg0a 웨이모가 마이애미에서 로보택시 서비스를 출시하며 미국 자율주행 시장에서의 선두 입지를 강화함...",
+      "pain_tags": [],
+      "wtp": 1,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 유료 베타",
+        "kind": "cafearticle",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-news",
+      "source_url": "https://www.elle.co.kr/article/1896876",
+      "title": "흑백요리사 열풍 이후 올해의 미식 트렌드 12가지",
+      "quote": "흑백요리사 열풍 이후 올해의 미식 트렌드 12가지 층이 시장으로 모여들고, 그들을 겨냥한 젊은 상인들이 터전을 옮기며 비롯된 현상이다. 전통시장은 실험적... 시장조사기관 유로모니터가 국내 저·무알코올 맥주 시장이 2027년 946억 원 규모로 성장할 것이라 예견한...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 가격 실험",
+        "kind": "news",
+        "pubDate": "Sat, 21 Feb 2026 20:10:00 +0900"
+      }
+    },
+    {
+      "source": "naver-news",
+      "source_url": "https://www.g-enews.com/view.php?ud=2026022107322625132bd56fbc3c_1",
+      "title": "중국 '애지봇', 휴머노이드 200대 생방송 투입... 로봇 양산 시대 '성큼...",
+      "quote": "중국 '애지봇', 휴머노이드 200대 생방송 투입... 로봇 양산 시대 '성큼... 기술이 실험실을 벗어나 본격적인 양산 및 실전 배치 단계에 진입했음을 알렸다. 미국 폭스뉴스는 지난 20일... 시장조사업체 옴디아(Omdia)에 따르면, 애지봇은 지난해 전 세계 휴머노이드 로봇 출하량 약 1만3000대 중...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 가격 실험",
+        "kind": "news",
+        "pubDate": "Sat, 21 Feb 2026 07:48:00 +0900"
+      }
+    },
+    {
+      "source": "naver-news",
+      "source_url": "https://www.ekoreanews.co.kr/news/articleView.html?idxno=84633",
+      "title": "K-반도체 호황에 변수로 떠오른 중국 반도체",
+      "quote": "K-반도체 호황에 변수로 떠오른 중국 반도체 시장조사업체 옴디아에 따르면 올해 초 모바일 D램(LPDDR) 가격은 지난해 초보다 70% 이상 상승했으며... 또 &quot;AI 모델을 활용하면 기존 방식 대비 광범위한 물질을 단기간에 검토할 수 있고 최소한의 실험만으로도...",
+      "pain_tags": [],
+      "wtp": 1,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 가격 실험",
+        "kind": "news",
+        "pubDate": "Fri, 20 Feb 2026 16:14:00 +0900"
+      }
+    },
+    {
+      "source": "naver-news",
+      "source_url": "https://www.g-enews.com/view.php?ud=2026022008481053422bd56fbc3c_1",
+      "title": "중국, ‘춘절 갈라’ 230억 뷰가 쏘아 올린 휴머노이드 열풍… 주문 폭...",
+      "quote": "중국, ‘춘절 갈라’ 230억 뷰가 쏘아 올린 휴머노이드 열풍… 주문 폭... G1은 중국 내수용 약 8만5000위안(약 1600만 원), 국제 버전 1만3500달러(약 1800만 원)라는 가격에도 불구하고... 시장조사업체 옴디아(Omdia)의 조사에 따르면, 지난해 전 세계에서 출하된 휴머노이드 로봇의 약 90%가 중국...",
+      "pain_tags": [],
+      "wtp": 1,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 가격 실험",
+        "kind": "news",
+        "pubDate": "Fri, 20 Feb 2026 10:20:00 +0900"
+      }
+    },
+    {
+      "source": "naver-news",
+      "source_url": "https://www.tokenpost.kr/news/policy/331744",
+      "title": "100만 명까지 돈 거는 ‘예측시장’… 크립토대디 지안카를로, 비트코인...",
+      "quote": "100만 명까지 돈 거는 ‘예측시장’… 크립토대디 지안카를로, 비트코인... 그는 “블록체인과 코드를 다루는 빌더들은 불확실성 속에서도 실험을 이어갈 수 있지만, 대형 은행... 정보가 가격에 반영되는 ‘시장 메커니즘’이라는 측면에서는 여론조사보다 훨씬 정교한 신호를 제공할 수...",
+      "pain_tags": [
+        "money"
+      ],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 가격 실험",
+        "kind": "news",
+        "pubDate": "Mon, 16 Feb 2026 06:10:00 +0900"
+      }
+    },
+    {
+      "source": "naver-blog",
+      "source_url": "https://blog.naver.com/gtcai/224191708982",
+      "title": "일본 수출 시, JIS 인증이 필요한 이유",
+      "quote": "일본 수출 시, JIS 인증이 필요한 이유 제조사 컨설팅 경험을 통해 일본 수출에서 JIS인증이 왜 핵심 요소가 되는지 현장에서 직접 확인해왔습니다. 1️⃣ 일본은 ‘표준 기반 계약 문화’를 가진 시장입니다 일본 시장은 관계나 감각 중심이 아닌...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 가격 실험",
+        "kind": "blog",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-blog",
+      "source_url": "https://deliciousstory2015.tistory.com/902",
+      "title": "인터넷 주식거래 방법",
+      "quote": "인터넷 주식거래 방법 이는 주식을 사고 팔아서 가격의 변동으로부터 이익을 얻는 것을 목표로 합니다. 시장에서 수많은... 지식과 기술 향상시키기 주식거래에 대해 지속적으로 배우고 실험하세요. 새로운 전략, 도구, 시장 동향을...",
+      "pain_tags": [],
+      "wtp": 1,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 가격 실험",
+        "kind": "blog",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-cafearticle",
+      "source_url": "http://cafe.naver.com/williamzzang/68739",
+      "title": "20260221 주간 경제전망",
+      "quote": "20260221 주간 경제전망 대한 조사를 진행하였습니다. 그 결과 심사관은 국내 밀가루 B2B 판매시장에서 88%의 점유율(’24년 기준)을 차지하는 피심인들이 장기간(’19.11월~’25.10월, 총6년)에 걸쳐 반복적으로 밀가루 판매가격 및 물량배분...",
+      "pain_tags": [
+        "repeat"
+      ],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 가격 실험",
+        "kind": "cafearticle",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-cafearticle",
+      "source_url": "http://cafe.naver.com/greenb0k6k/173128",
+      "title": "2026 한국형 AI 필승 카드",
+      "quote": "2026 한국형 AI 필승 카드 포인트…'AI·카메라·가격' 2026년 2월 19일 17:51갤럭시S26 3대 관전 포인트…'AI·카메라·가격' 삼성전자가... 시장조사기관 알파센스가 발표한 보고서에 따르면, 제약사들은 특허 만료로 인한 매출 감소와 정부의...",
+      "pain_tags": [],
+      "wtp": 1,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 가격 실험",
+        "kind": "cafearticle",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-cafearticle",
+      "source_url": "http://cafe.naver.com/coinschool2/9791",
+      "title": "지금 이 순간, 비트코인에 대해 가장 많이 오해하고 있는 것들이 있어요.&quot;기관들이 비트코인을 장악하면 끝...",
+      "quote": "지금 이 순간, 비트코인에 대해 가장 많이 오해하고 있는 것들이 있어요.&quot;기관들이 비트코인을 장악하면 끝... 산술적으로 계산하면 지금 가격에서 최소 수배 이상 폭등해야 그 물량을 시장에서 흡수할 수 있어요. 즉... 트리플에이라는 조사 기관 자료에 따르면 2024년 기준 전 세계 암호화폐 사용자가 약 5억 6,000만 명으로...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 가격 실험",
+        "kind": "cafearticle",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-cafearticle",
+      "source_url": "http://cafe.naver.com/digitalfarm/126",
+      "title": "[지구님추천책] 1페이지 마케팅플랜 후기",
+      "quote": "[지구님추천책] 1페이지 마케팅플랜 후기 대략적으로 크기, 당도, 상품성에 대해 불만이 많고, 싼 가격에 좋은 상품을 원한다! 8. 대부분의 마케팅... 그래서 설문조사나 시장조사에서는 이성적이고 논리적으로 답하지만 실제 물건을 구입할 때는 감정에 따라...",
+      "pain_tags": [],
+      "wtp": 1,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 가격 실험",
+        "kind": "cafearticle",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-news",
+      "source_url": "https://www.etoday.co.kr/news/view/2557128",
+      "title": "AI·후기에 쏠리는 벤처투자...후기 투자 16% 뛸 때 초기 2% 가뭄",
+      "quote": "AI·후기에 쏠리는 벤처투자...후기 투자 16% 뛸 때 초기 2% 가뭄 딥테크를 창업한다고 해도 특성상 초기 3년간 성과를 검증하기 어렵다보니 자연스럽게 중후기에 집중될 수밖에 없는 구조&quot;고 설명했다. 특히 AI는 지난해 국내는 물론 글로벌 벤처투자 시장의 핵심 키워드로...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 창업 후기",
+        "kind": "news",
+        "pubDate": "Thu, 19 Feb 2026 05:00:00 +0900"
+      }
+    },
+    {
+      "source": "naver-news",
+      "source_url": "http://www.veritas-a.com/news/articleView.html?idxno=598006",
+      "title": "제주대 글로컬, 글로벌 창업 아이디어 발굴을 위한 오사카 현장 프로그...",
+      "quote": "제주대 글로컬, 글로벌 창업 아이디어 발굴을 위한 오사카 현장 프로그... 내 시장조사를 수행하며 창업 실현을 위해 힘썼으며, 제주대는 이를 통해 학생들이 실제 해외 시장 환경을... 체험 후기 및 구체화된 사업계획서를 발표하는 내용으로 추진할 계획이다. 제주대 글로컬, 글로벌 창업...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 창업 후기",
+        "kind": "news",
+        "pubDate": "Wed, 11 Feb 2026 13:26:00 +0900"
+      }
+    },
+    {
+      "source": "naver-news",
+      "source_url": "http://dream.kotra.or.kr/kotranews/cms/news/actionKotraBoardDetail.do?SITE_NO=3&MENU_ID=180&CONTENTS_NO=1&bbsGbn=243&bbsSn=243&pNttSn=238736",
+      "title": "대만 네일 시장, 살롱에서 셀프로 확산되며 양 갈래 발전",
+      "quote": "대만 네일 시장, 살롱에서 셀프로 확산되며 양 갈래 발전 이러한 성장은 소규모 창업 진입 장벽이 낮은 산업 구조와 더불어, ‘소확행(小確幸)’ 소비 기조... * 주: 1 TWD = 47 KRW (하나은행 2025년 12월 평균 최종 고시 매매 기준율 기준) 글로벌 시장조사기관 스태티스타...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 창업 후기",
+        "kind": "news",
+        "pubDate": "Thu, 05 Feb 2026 13:54:00 +0900"
+      }
+    },
+    {
+      "source": "naver-news",
+      "source_url": "https://platum.kr/archives/281079",
+      "title": "몰트북 구경은 끝났다",
+      "quote": "몰트북 구경은 끝났다 시장조사 기관 가트너는 &quot;수용할 수 없는 사이버보안 위험&quot;이라며 차단을 권고했다. 지난 며칠간 올라온... 그 끝에 나름의 작동 구조를 만들어냈다는 후기가 올라왔다. 창업 생태계는 원래 그렇게 굴러간다. 먼저 뛰어든...",
+      "pain_tags": [
+        "risk"
+      ],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 창업 후기",
+        "kind": "news",
+        "pubDate": "Wed, 04 Feb 2026 22:50:00 +0900"
+      }
+    },
+    {
+      "source": "naver-news",
+      "source_url": "https://health.chosun.com/site/data/html_dir/2026/01/30/2026013003731.html",
+      "title": "“핵심 기술 하나로 금세 유니콘” 바이오·헬스 스타트업 투자 유치 전...",
+      "quote": "“핵심 기술 하나로 금세 유니콘” 바이오·헬스 스타트업 투자 유치 전... 하이프 사이클(Hype Cycle)은 시장조사기관 가트너(Gartner)가 제안한, 기술의 성숙도를 표현하는 시각적... 2025년 초 기준으로 창업 초기 기업에 대한 투자가 줄고, 중기·후기 기업에 대한 투자가 증가하는 추세가...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 창업 후기",
+        "kind": "news",
+        "pubDate": "Fri, 30 Jan 2026 18:22:00 +0900"
+      }
+    },
+    {
+      "source": "naver-news",
+      "source_url": "https://www.donga.com/news/It/article/all/20260128/133247602/1",
+      "title": "[스타트업 브랜딩 가이드] 브랜딩은 ‘멋’이 아니라 선택과 신뢰를 만...",
+      "quote": "[스타트업 브랜딩 가이드] 브랜딩은 ‘멋’이 아니라 선택과 신뢰를 만... 글로벌 시장조사기관 닐슨이 56개국 4만 명 이상의 소비자를 대상으로 진행한 2021년 글로벌 광고 신뢰도 조사에 따르면 응답자의 88%가 ‘내가 아는 사람의 추천’을 신뢰한다. 처음 구매하는 제품에서 후기와 추천이 눈에...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 창업 후기",
+        "kind": "news",
+        "pubDate": "Wed, 28 Jan 2026 11:45:00 +0900"
+      }
+    },
+    {
+      "source": "naver-news",
+      "source_url": "http://dream.kotra.or.kr/kotranews/cms/news/actionKotraBoardDetail.do?SITE_NO=3&MENU_ID=180&CONTENTS_NO=1&bbsGbn=243&bbsSn=243&pNttSn=238448",
+      "title": "운동복을 넘어 일상으로: 대만 애슬레저 시장의 진화",
+      "quote": "운동복을 넘어 일상으로: 대만 애슬레저 시장의 진화 시장조사업체 딥 마켓 인사이트(Deep Market Insights)는 대만 애슬레저 시장이 앞으로도 연평균 9~10%의... 착용 후기와 스타일링을 통해 제품을 인식하고 구매로 이어지는 패턴을 보인다. 특히 스레드, 인스타그램 등...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 창업 후기",
+        "kind": "news",
+        "pubDate": "Tue, 27 Jan 2026 10:34:00 +0900"
+      }
+    },
+    {
+      "source": "naver-news",
+      "source_url": "https://www.mk.co.kr/article/11935187",
+      "title": "의대생이 만든 ‘강남언니’, 6천억 플랫폼 되다 [내일은 천억클럽]",
+      "quote": "의대생이 만든 ‘강남언니’, 6천억 플랫폼 되다 [내일은 천억클럽] 시장조사기관 그랜드뷰리서치에 따르면, 2024년 896억달러 규모였던 이 시장은 2033년 2400억달러에 이를... 한때 단순한 병원 후기 앱으로 알려졌던 이 서비스는 이제 대중에게 익숙한 이름이자, 글로벌 미용 의료...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "시장조사 창업 후기",
+        "kind": "news",
+        "pubDate": "Thu, 22 Jan 2026 20:26:00 +0900"
+      }
+    },
+    {
+      "source": "naver-news",
+      "source_url": "http://www.veritas-a.com/news/articleView.html?idxno=598873",
+      "title": "한라대, 창업 아이디어 구체화 프로그램 통해 총 17개 창업 아이템 실체...",
+      "quote": "한라대, 창업 아이디어 구체화 프로그램 통해 총 17개 창업 아이템 실체... 한라대(총장 김응권)는 2025년 10월부터 2026년 1월까지 추진한 딥테크(예비)기술창업 아이디어 구체화 지원... 검증/지식재산/시장조사/재료비/시제품 제작까지 아우르는 전주기 기술창업 지원을 받았다. 참여자들은...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "스타트업아이디어 시장조사",
+        "kind": "news",
+        "pubDate": "Fri, 20 Feb 2026 12:16:00 +0900"
+      }
+    },
+    {
+      "source": "naver-news",
+      "source_url": "https://kr.aving.net/news/articleView.html?idxno=1808840",
+      "title": "[AW 2026] 이길선 KOIIA 사무국장, &quot;인프라 준비 끝낸 韓 제조업, 실전 A...",
+      "quote": "[AW 2026] 이길선 KOIIA 사무국장, &quot;인프라 준비 끝낸 韓 제조업, 실전 A... 시장조사업체 에스엔에스인사이더에 따르면, 지난 2025년 52억 3,000만 달러(한화 약 7조 5,900억 원) 규모로... AX 얼라리언스' 제조 서비스 분과를 맡아 제조 기업 지원을 위한 정책 아이디어를 적극 발굴하는가 하면...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "스타트업아이디어 시장조사",
+        "kind": "news",
+        "pubDate": "Thu, 19 Feb 2026 18:08:00 +0900"
+      }
+    },
+    {
+      "source": "naver-news",
+      "source_url": "https://zdnet.co.kr/view/?no=20260218194405",
+      "title": "망한 회사에서 일하면 커리어도 망하는 걸까",
+      "quote": "망한 회사에서 일하면 커리어도 망하는 걸까 시장 조사를 하고, 경쟁사를 분석하고, 경쟁사의 프로덕트와 곧 나올 우리의 것을 비교해가며 우리만이... 초기 스타트업은 태생적인 구조가 불확실함의 연속이다. 기술과 아이디어를 기반으로 빠르게 실험하고, 계속...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "스타트업아이디어 시장조사",
+        "kind": "news",
+        "pubDate": "Thu, 19 Feb 2026 08:01:00 +0900"
+      }
+    },
+    {
+      "source": "naver-news",
+      "source_url": "http://www.veritas-a.com/news/articleView.html?idxno=598006",
+      "title": "제주대 글로컬, 글로벌 창업 아이디어 발굴을 위한 오사카 현장 프로그...",
+      "quote": "제주대 글로컬, 글로벌 창업 아이디어 발굴을 위한 오사카 현장 프로그... 창업 아이디어에 대한 사업계획서 작성과 IR 피칭 등 사전 창업 교육을 수료한 참가자들은 일본 고베 스타트업센터에서 사업계획서 발표 및 오사카 내 시장조사를 수행하며 창업 실현을 위해 힘썼으며, 제주대는 이를...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "스타트업아이디어 시장조사",
+        "kind": "news",
+        "pubDate": "Wed, 11 Feb 2026 13:26:00 +0900"
+      }
+    },
+    {
+      "source": "naver-news",
+      "source_url": "https://www.laborplus.co.kr/news/articleView.html?idxno=40330",
+      "title": "2월 2주 주요 제조업 전망",
+      "quote": "2월 2주 주요 제조업 전망 부문 시장조사업체 클락슨리서치에 따르면 2026년 1월 전 세계 선박 수주량은 158척임. 조업 난이도, 공정... 포스코기술투자는 아이디어나 기술이 실제로 가능할지 미리 작은 규모로 시험해보는 과정인 사업 검증(PoC...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "스타트업아이디어 시장조사",
+        "kind": "news",
+        "pubDate": "Tue, 10 Feb 2026 22:58:00 +0900"
+      }
+    },
+    {
+      "source": "naver-news",
+      "source_url": "https://zdnet.co.kr/view/?no=20260207151236",
+      "title": "&quot;인간과 경쟁하는 AI 현실로…몰트북, 시작에 불과하다&quot;",
+      "quote": "&quot;인간과 경쟁하는 AI 현실로…몰트북, 시작에 불과하다&quot; 이번에 몰트북을 보면, AI 에이전트가 우리를 대신해 토론을하고, 시장 조사도 자동으로 해주고 있는... 또 AI 에이전트가 어떠한 아이디어를 제시했다면 그 저작권은 누구에게 있는가? AI 에이전트가 어떤 의사결정을...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "스타트업아이디어 시장조사",
+        "kind": "news",
+        "pubDate": "Sun, 08 Feb 2026 20:26:00 +0900"
+      }
+    },
+    {
+      "source": "naver-blog",
+      "source_url": "https://blog.naver.com/good_n_brand_/224191619477",
+      "title": "성공적인 창업을 위한 필수 조건 6가지",
+      "quote": "성공적인 창업을 위한 필수 조건 6가지 좋은 아이디어도 살아남지 못한다. 창업은 용기만으로 되지 않는다 &quot;좋은 아이디어가 있으니까... 이야기 #창업필수조건 #성공적인창업 #창업준비 #스타트업전략 #동업자선택 #창업자금확보 #시장분석 #STP전략...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "스타트업아이디어 시장조사",
+        "kind": "blog",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-blog",
+      "source_url": "https://blog.naver.com/wesolpat/224191441859",
+      "title": "우선심사 제도를 활용한 특허 등록 빠르게 확보하는 방법",
+      "quote": "우선심사 제도를 활용한 특허 등록 빠르게 확보하는 방법 벤처, 스타트업 기업들에게 꼭 필요한 제도라고 할 수 있습니다. 다만, 무든 아이디어가 우선심사... 확보함으로써 시장 독점권을 방어했습니다. 2. 우선심사 활용 특허 출원 전략 우선심사 제도 활용은...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "스타트업아이디어 시장조사",
+        "kind": "blog",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-cafearticle",
+      "source_url": "http://cafe.naver.com/toolgen/46937",
+      "title": "금지된 유전자 조작 아기… 어쨌든 밀어붙이는 미국 테크 엘리트",
+      "quote": "금지된 유전자 조작 아기… 어쨌든 밀어붙이는 미국 테크 엘리트 지원하는 스타트업들은 질병을 예방하고 높은 IQ와 기타 선호하는 특성의 가능성을 높이기를 바라며 생식... &quot; '학계가 지켜볼 것' 맥킨지의 시장 조사에 따르면 미국의 체외수정(IVF) 시장이 2023년 약 35억 달러에서 2028년...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "스타트업아이디어 시장조사",
+        "kind": "cafearticle",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-cafearticle",
+      "source_url": "http://cafe.naver.com/greenb0k6k/173128",
+      "title": "2026 한국형 AI 필승 카드",
+      "quote": "2026 한국형 AI 필승 카드 행안부는 이번 공모전을 통해 민간의 창의적 아이디어와 기술 역량을 활용, 정부 13:15아이부터 어른까지... 시장조사기관 알파센스가 발표한 보고서에 따르면, 제약사들은 특허 만료로 인한 매출 감소와 정부의...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "스타트업아이디어 시장조사",
+        "kind": "cafearticle",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-cafearticle",
+      "source_url": "http://cafe.naver.com/greenb0k6k/172901",
+      "title": "AI 글로벌 경쟁",
+      "quote": "AI 글로벌 경쟁 4일 시장조사업 16:50딥시크, ‘더 효율적인 AI 훈련법’ 담은 논문 발표… 차세대‘R2’ 모델 설 전후 공개 1년 전 '가성비' 인공지능(AI) 모델로 시장에 충격을 줬던 중국 스타트업 딥시크가 최근 더 효율적인 AI...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "스타트업아이디어 시장조사",
+        "kind": "cafearticle",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-news",
+      "source_url": "https://www.sedaily.com/article/20008296?ref=naver",
+      "title": "출연연 딥테크 기획창업 제3기 본격 가동",
+      "quote": "출연연 딥테크 기획창업 제3기 본격 가동 창업 아이디어를 비즈니스모델(BM)로 고도화하는 데 필요한 전문 컨설팅에서부터 팀 빌딩, 정부지원사업... 이번 제3기에는 반도체, 바이오, AI, 로봇, 에너지 등 첨단기술 분야를 중심으로 기술성, 시장성, 사업화 가능성...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "스타트업아이디어 시장성 검증",
+        "kind": "news",
+        "pubDate": "Thu, 12 Feb 2026 09:34:00 +0900"
+      }
+    },
+    {
+      "source": "naver-blog",
+      "source_url": "https://blog.naver.com/limsoo0138/224190168427",
+      "title": "2026년 청년창업 지원금: 종류, 자격 요건 및 합격률 높이는...",
+      "quote": "2026년 청년창업 지원금: 종류, 자격 요건 및 합격률 높이는... 단순한 아이디어 창업보다는 기술적 차별성과 글로벌 진출 가능성을 보유한 스타트업에 예산이... 아이디어 단계에서 시제품(MVP)을 제작해 시장성을 검증해볼 수 있는 최고의 기회이므로, 아직 사업자가...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "스타트업아이디어 시장성 검증",
+        "kind": "blog",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-blog",
+      "source_url": "https://blog.naver.com/willawip/224188154485",
+      "title": "대표변리사, 스타트업 성장을 설계하는 IP 파트너로 주목받다",
+      "quote": "대표변리사, 스타트업 성장을 설계하는 IP 파트너로 주목받다 &quot;대기업의 체계와 스타트업의 야성을 모두 경험한 유일무이한 이력&quot; 이번 위클리피플 인터뷰에서... 창업 - 아이디어 구체화 및 선행기술조사 - 창업 아이템의 시장성 검증 및 BM 특허 설계 - 정부 지원사업...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "스타트업아이디어 시장성 검증",
+        "kind": "blog",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-cafearticle",
+      "source_url": "http://cafe.naver.com/koarane/386945",
+      "title": "강남 국제특허사무소, 글로벌 시장 독점이 목표인가요?",
+      "quote": "강남 국제특허사무소, 글로벌 시장 독점이 목표인가요? 특히 글로벌 스타트업과 수출 중심 기업이 밀집한 테헤란로 일대에서는 이러한 해외 출원 업무를 전담하는... 강남 국제특허사무소로서 테헤란은 선생님의 아이디어가 국경을 넘어 로열티를 벌어들이는 캐시카우로 거듭날...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "스타트업아이디어 시장성 검증",
+        "kind": "cafearticle",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "naver-cafearticle",
+      "source_url": "http://cafe.naver.com/itguro/2072",
+      "title": "대학생 청년 창업 지원과 자금 조달 전략: 개인사업자 vs 법인 비교",
+      "quote": "대학생 청년 창업 지원과 자금 조달 전략: 개인사업자 vs 법인 비교 성공적인 창업을 꿈꾸는 대학생 청년 창업자 여러분, 빛나는 아이디어만큼이나 중요한 것이 바로 현실적인... 초기에는 개인사업자로 시작하여 시장성을 검증하고, 사업 규모가 커지고 외부 투자가 필요하다고 판단될 때...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "naver-openapi",
+        "query": "스타트업아이디어 시장성 검증",
+        "kind": "cafearticle",
+        "pubDate": null
+      }
+    },
+    {
+      "source": "youtube-video",
+      "source_url": "https://www.youtube.com/watch?v=DRT0mXkpgZI",
+      "title": "마케팅 시장조사, 이 영상 하나로 끝내드립니다",
+      "quote": "마케팅 시장조사, 이 영상 하나로 끝내드립니다 마케팅 00:00 고객조사방법 07:30 시장조사방법 오늘 영상을 봐도 마케팅이 어렵다면? 곽팀장이 운영하는 마케팅 에이전시 ...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "youtube-data-api",
+        "query": "시장조사 불편",
+        "videoId": "DRT0mXkpgZI"
+      }
+    },
+    {
+      "source": "youtube-comment",
+      "source_url": "https://www.youtube.com/watch?v=DRT0mXkpgZI",
+      "title": "마케팅 시장조사, 이 영상 하나로 끝내드립니다",
+      "quote": "주요 툴 - 네이버 검색어 트렌드 - 판다랭크 - 네이버 검색광고 관리자 - 구글 광고 라이브러리",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "youtube-data-api",
+        "query": "시장조사 불편",
+        "videoId": "DRT0mXkpgZI"
+      }
+    },
+    {
+      "source": "youtube-comment",
+      "source_url": "https://www.youtube.com/watch?v=DRT0mXkpgZI",
+      "title": "마케팅 시장조사, 이 영상 하나로 끝내드립니다",
+      "quote": "시장조사 너무 막막했는데 이렇게 자세히 알려준 곳은 처음입니다 감사합니다!",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "youtube-data-api",
+        "query": "시장조사 불편",
+        "videoId": "DRT0mXkpgZI"
+      }
+    },
+    {
+      "source": "youtube-comment",
+      "source_url": "https://www.youtube.com/watch?v=DRT0mXkpgZI",
+      "title": "마케팅 시장조사, 이 영상 하나로 끝내드립니다",
+      "quote": "와 대박입니다..! 전 영상에 시장조사 말씀드렸었는데ㅠㅠ 아껴서 잘 보도록 하겠습니다!!!",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "youtube-data-api",
+        "query": "시장조사 불편",
+        "videoId": "DRT0mXkpgZI"
+      }
+    },
+    {
+      "source": "youtube-comment",
+      "source_url": "https://www.youtube.com/watch?v=DRT0mXkpgZI",
+      "title": "마케팅 시장조사, 이 영상 하나로 끝내드립니다",
+      "quote": "참 좋은 시장조사 내용 입니다.. 대부분 스타트업들이 놓치고 가는 부분 잘 찝어 주셨습니다.",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "youtube-data-api",
+        "query": "시장조사 불편",
+        "videoId": "DRT0mXkpgZI"
+      }
+    },
+    {
+      "source": "youtube-comment",
+      "source_url": "https://www.youtube.com/watch?v=DRT0mXkpgZI",
+      "title": "마케팅 시장조사, 이 영상 하나로 끝내드립니다",
+      "quote": "원론적인 개념을 쉽게 알려주셔서 도움이 많이 됩니다. 감사합니다.",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "youtube-data-api",
+        "query": "시장조사 불편",
+        "videoId": "DRT0mXkpgZI"
+      }
+    },
+    {
+      "source": "youtube-comment",
+      "source_url": "https://www.youtube.com/watch?v=DRT0mXkpgZI",
+      "title": "마케팅 시장조사, 이 영상 하나로 끝내드립니다",
+      "quote": "너무 유익한 내용입니다! 광고 제안시 시장조사 파트를 더 쉽게 할 수 있을 것 같아요! 정말 감사합니다. 항상 건강하세요!",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "youtube-data-api",
+        "query": "시장조사 불편",
+        "videoId": "DRT0mXkpgZI"
+      }
+    },
+    {
+      "source": "youtube-comment",
+      "source_url": "https://www.youtube.com/watch?v=DRT0mXkpgZI",
+      "title": "마케팅 시장조사, 이 영상 하나로 끝내드립니다",
+      "quote": "이런 귀한 정보들을 공짜로 알려주시다니 취준생인 저한테는 한줄기의 빛과 같은 영상이었습니다. 너무 감사합니다. 공짜로 보기에 죄송해서 광고 끝까지 다 봤습니다 ㅋㅋㅋ 정말 감사합니당!!",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "youtube-data-api",
+        "query": "시장조사 불편",
+        "videoId": "DRT0mXkpgZI"
+      }
+    },
+    {
+      "source": "youtube-comment",
+      "source_url": "https://www.youtube.com/watch?v=DRT0mXkpgZI",
+      "title": "마케팅 시장조사, 이 영상 하나로 끝내드립니다",
+      "quote": "진정성 있는 컨텐츠, 너무 잘 보았고, 진심으로 감사합니다.",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "youtube-data-api",
+        "query": "시장조사 불편",
+        "videoId": "DRT0mXkpgZI"
+      }
+    },
+    {
+      "source": "youtube-video",
+      "source_url": "https://www.youtube.com/watch?v=TtzucjsGYqw",
+      "title": "디지털 시장조사를 단 10분 만에 끝내는 방법",
+      "quote": "디지털 시장조사를 단 10분 만에 끝내는 방법 시장조사 #시장조사방법 #시장조사하는방법 회사에서 누구나 시장조사를 쉽게 할 수 있는 방법입니다. 네이버 데이터 랩을 통해 ...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "youtube-data-api",
+        "query": "시장조사 불편",
+        "videoId": "TtzucjsGYqw"
+      }
+    },
+    {
+      "source": "youtube-comment",
+      "source_url": "https://www.youtube.com/watch?v=TtzucjsGYqw",
+      "title": "디지털 시장조사를 단 10분 만에 끝내는 방법",
+      "quote": "시장 트렌드 데스크조사 잘하는 방법 정말 잘 배웠습니다~~~",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "youtube-data-api",
+        "query": "시장조사 불편",
+        "videoId": "TtzucjsGYqw"
+      }
+    },
+    {
+      "source": "youtube-comment",
+      "source_url": "https://www.youtube.com/watch?v=TtzucjsGYqw",
+      "title": "디지털 시장조사를 단 10분 만에 끝내는 방법",
+      "quote": "미쳤다 감사합니다",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "youtube-data-api",
+        "query": "시장조사 불편",
+        "videoId": "TtzucjsGYqw"
+      }
+    },
+    {
+      "source": "youtube-comment",
+      "source_url": "https://www.youtube.com/watch?v=TtzucjsGYqw",
+      "title": "디지털 시장조사를 단 10분 만에 끝내는 방법",
+      "quote": "아...과제 고민하다 한 줄기 빛과 같은 영상이네요... ㅠㅠ",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "youtube-data-api",
+        "query": "시장조사 불편",
+        "videoId": "TtzucjsGYqw"
+      }
+    },
+    {
+      "source": "youtube-comment",
+      "source_url": "https://www.youtube.com/watch?v=TtzucjsGYqw",
+      "title": "디지털 시장조사를 단 10분 만에 끝내는 방법",
+      "quote": "3:34",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "youtube-data-api",
+        "query": "시장조사 불편",
+        "videoId": "TtzucjsGYqw"
+      }
+    },
+    {
+      "source": "youtube-comment",
+      "source_url": "https://www.youtube.com/watch?v=TtzucjsGYqw",
+      "title": "디지털 시장조사를 단 10분 만에 끝내는 방법",
+      "quote": "와ㅠㅜㅠ완전 고밀도 농축 영상 감사합니다!!",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "youtube-data-api",
+        "query": "시장조사 불편",
+        "videoId": "TtzucjsGYqw"
+      }
+    },
+    {
+      "source": "youtube-comment",
+      "source_url": "https://www.youtube.com/watch?v=TtzucjsGYqw",
+      "title": "디지털 시장조사를 단 10분 만에 끝내는 방법",
+      "quote": "빠른시장조사방법",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "youtube-data-api",
+        "query": "시장조사 불편",
+        "videoId": "TtzucjsGYqw"
+      }
+    },
+    {
+      "source": "youtube-comment",
+      "source_url": "https://www.youtube.com/watch?v=TtzucjsGYqw",
+      "title": "디지털 시장조사를 단 10분 만에 끝내는 방법",
+      "quote": "키워드 뽑는거 이상의 구체적인 시장규모 추정이 없는거 같아서 좀 아쉽습니다. 혹시나 해서 봤는데 마케터분이셨군요. 시장조사라는 표현 말고 다른 표현(키워드 찾기 등) 을 사용하시면 어떨까 싶습니다.",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "youtube-data-api",
+        "query": "시장조사 불편",
+        "videoId": "TtzucjsGYqw"
+      }
+    },
+    {
+      "source": "youtube-comment",
+      "source_url": "https://www.youtube.com/watch?v=TtzucjsGYqw",
+      "title": "디지털 시장조사를 단 10분 만에 끝내는 방법",
+      "quote": "와 이분 개고수네 추천합니다",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "youtube-data-api",
+        "query": "시장조사 불편",
+        "videoId": "TtzucjsGYqw"
+      }
+    },
+    {
+      "source": "youtube-video",
+      "source_url": "https://www.youtube.com/watch?v=bQMl-CTXzPk",
+      "title": "스티브 잡스가 이런 말을?(시장조사에 대한 오해와 진실)",
+      "quote": "스티브 잡스가 이런 말을?(시장조사에 대한 오해와 진실) 신제품, 신규 서비스 개발에 활용되는 시장조사 기법의 문제점과 그 대안에 대해 알아봅니다.",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "youtube-data-api",
+        "query": "시장조사 문제점",
+        "videoId": "bQMl-CTXzPk"
+      }
+    },
+    {
+      "source": "youtube-video",
+      "source_url": "https://www.youtube.com/watch?v=SuhVL6gTYTw",
+      "title": "👖🗼데님에 미친 주우재의 도쿄 쇼핑 가이드ㅣ쇼핑, 여행, 브이로그 [시장조사 in 도쿄 1편]",
+      "quote": "👖🗼데님에 미친 주우재의 도쿄 쇼핑 가이드ㅣ쇼핑, 여행, 브이로그 [시장조사 in 도쿄 1편] 안녕하세요 대주주 여러분 저한테 데님은 피규어입니다. 2편 바로가기 https://youtu.be/megdq8PYM1k 이 영상은 [브랜든] 유료 광고 ...",
+      "pain_tags": [],
+      "wtp": 1,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "youtube-data-api",
+        "query": "시장조사 후기",
+        "videoId": "SuhVL6gTYTw"
+      }
+    },
+    {
+      "source": "youtube-comment",
+      "source_url": "https://www.youtube.com/watch?v=SuhVL6gTYTw",
+      "title": "👖🗼데님에 미친 주우재의 도쿄 쇼핑 가이드ㅣ쇼핑, 여행, 브이로그 [시장조사 in 도쿄 1편]",
+      "quote": "왜 일본어도 잘해 ..? 저게 어떻게 40대야 ...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "youtube-data-api",
+        "query": "시장조사 후기",
+        "videoId": "SuhVL6gTYTw"
+      }
+    },
+    {
+      "source": "youtube-comment",
+      "source_url": "https://www.youtube.com/watch?v=SuhVL6gTYTw",
+      "title": "👖🗼데님에 미친 주우재의 도쿄 쇼핑 가이드ㅣ쇼핑, 여행, 브이로그 [시장조사 in 도쿄 1편]",
+      "quote": "주우재씨 침착맨 입니까 데님 입니까. 한 명만 선택하세요",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "youtube-data-api",
+        "query": "시장조사 후기",
+        "videoId": "SuhVL6gTYTw"
+      }
+    },
+    {
+      "source": "youtube-comment",
+      "source_url": "https://www.youtube.com/watch?v=SuhVL6gTYTw",
+      "title": "👖🗼데님에 미친 주우재의 도쿄 쇼핑 가이드ㅣ쇼핑, 여행, 브이로그 [시장조사 in 도쿄 1편]",
+      "quote": "어떻게 데님까지 사랑하겠어...주우재를 사랑하는 거지...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "youtube-data-api",
+        "query": "시장조사 후기",
+        "videoId": "SuhVL6gTYTw"
+      }
+    },
+    {
+      "source": "youtube-comment",
+      "source_url": "https://www.youtube.com/watch?v=SuhVL6gTYTw",
+      "title": "👖🗼데님에 미친 주우재의 도쿄 쇼핑 가이드ㅣ쇼핑, 여행, 브이로그 [시장조사 in 도쿄 1편]",
+      "quote": "데님이 좀 올라오긴 했는데, 일반인까지 터진게 사실 우재형 덕 아님? ㅋㅋㅋㅋ",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "youtube-data-api",
+        "query": "시장조사 후기",
+        "videoId": "SuhVL6gTYTw"
+      }
+    },
+    {
+      "source": "youtube-comment",
+      "source_url": "https://www.youtube.com/watch?v=SuhVL6gTYTw",
+      "title": "👖🗼데님에 미친 주우재의 도쿄 쇼핑 가이드ㅣ쇼핑, 여행, 브이로그 [시장조사 in 도쿄 1편]",
+      "quote": "진짜 데님 하나도 관심 없는데 설명에 빠져버림......",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "youtube-data-api",
+        "query": "시장조사 후기",
+        "videoId": "SuhVL6gTYTw"
+      }
+    },
+    {
+      "source": "youtube-comment",
+      "source_url": "https://www.youtube.com/watch?v=SuhVL6gTYTw",
+      "title": "👖🗼데님에 미친 주우재의 도쿄 쇼핑 가이드ㅣ쇼핑, 여행, 브이로그 [시장조사 in 도쿄 1편]",
+      "quote": "주우재 일본시리즈 너무 좋음ㅋㅋㅋㅋ",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "youtube-data-api",
+        "query": "시장조사 후기",
+        "videoId": "SuhVL6gTYTw"
+      }
+    },
+    {
+      "source": "youtube-comment",
+      "source_url": "https://www.youtube.com/watch?v=SuhVL6gTYTw",
+      "title": "👖🗼데님에 미친 주우재의 도쿄 쇼핑 가이드ㅣ쇼핑, 여행, 브이로그 [시장조사 in 도쿄 1편]",
+      "quote": "데님에 미친게 아니라 그냥 미친거 아닙니까 형님 이 더위에 데님이라니",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "youtube-data-api",
+        "query": "시장조사 후기",
+        "videoId": "SuhVL6gTYTw"
+      }
+    },
+    {
+      "source": "youtube-comment",
+      "source_url": "https://www.youtube.com/watch?v=SuhVL6gTYTw",
+      "title": "👖🗼데님에 미친 주우재의 도쿄 쇼핑 가이드ㅣ쇼핑, 여행, 브이로그 [시장조사 in 도쿄 1편]",
+      "quote": "에,, 데님은 정말 관심이 없고요..그냥 자기가 좋아하는 것(데님)을 열정적으로 찾아다니는 주우재가 재미있는 것입니다...",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "youtube-data-api",
+        "query": "시장조사 후기",
+        "videoId": "SuhVL6gTYTw"
+      }
+    },
+    {
+      "source": "youtube-comment",
+      "source_url": "https://www.youtube.com/watch?v=j_7Dpa8j9_s",
+      "title": "재혼시장에 괜찮은 여자는 없다",
+      "quote": "여자들이 재혼하는 경우 보면 좀 어리석은 판단을 할 때가 많은 게 사실.. 경제적, 정서적으로 의지하고 싶어하지만 그 기대를 충족 못 하는 경우가 대부분이기때문에 결국 초혼 때보다 못한 상황이 됨.",
+      "pain_tags": [],
+      "wtp": 0,
+      "workaround_tags": [],
+      "meta": {
+        "provider": "youtube-data-api",
+        "query": "시장조사 후기",
+        "videoId": "j_7Dpa8j9_s"
+      }
+    }
+  ]
+}
