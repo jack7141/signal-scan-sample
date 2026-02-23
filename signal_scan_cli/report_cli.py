@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import argparse
+import hashlib
 import json
 import os
 import re
@@ -76,36 +77,103 @@ WORKAROUND_KEYWORDS = {
     "other_tool": ["tool", "saas", "software", "app"],
 }
 
-WTP_LEVEL_2 = [
-    "돈 내", "pay for", "paid for", "already paying", "구독 중", "결제", "buy this", "지불할 의향", "낼 의향", "구매 의향",
-]
-WTP_LEVEL_1 = [
-    "가격", "price", "pricing", "얼마", "worth it", "유료", "cost", "의향", "pay", "결제할",
-]
-
-RELEVANCE_TERMS = [
-    "매매일지", "매매 일지", "트레이딩일지", "트레이딩 일지", "트레이더 저널",
-    "trading journal", "trade journal", "trade log", "trading log", "journaling",
-    "매매기록", "매매 기록", "trading notes", "거래기록",
-    "trading performance", "trading review", "pnl tracker", "rule violation",
-    "review my trades", "journal app", "trading mistakes",
+SERVICE_CONTEXT_TERMS = [
+    "서비스", "도구", "툴", "앱", "프로그램", "솔루션", "플랫폼", "SaaS",
+    "구독", "결제", "유료", "플랜", "요금", "가격표", "베타", "리포트", "컨설팅",
+    "웹서비스", "소프트웨어", "software", "app", "tool", "platform", "service",
+    "subscription", "beta", "saas", "report", "consulting",
 ]
 
-PROBLEM_TERMS = [
-    "노션", "notion", "엑셀", "excel", "spreadsheet", "수작업", "manual",
-    "동기화", "sync", "대시보드", "dashboard", "복기", "매매복기",
+NON_PRODUCT_PRICE_TERMS = [
+    "아파트", "전세", "분양", "부동산", "금 가격", "리튜", "원자재", "환율",
+    "주가", "코스피", "코스닥", "종목", "2차전지", "금리", "대출",
+    "상가", "토지", "재개발", "공매도", "테마주", "리딩방",
+    "gold price", "oil price", "stock price", "real estate",
 ]
+
+WTP_STRONG_PATTERNS = [
+    r"이미\s*(구독|결제|유료)\s*중",
+    r"(월|년)\s*\d+(\.\d+)?\s*(만원|원)\s*내고",
+    r"돈\s*내고\s*써",
+    r"유료로라도\s*쓰",
+    r"pay for", r"paid for", r"already paying",
+    r"지불할 의향", r"낼 의향", r"구매 의향",
+    r"buy this", r"구독 중",
+]
+
+WTP_WEAK_PATTERNS = [
+    r"(가격|요금|비용)\s*(얼마|어떻게|좀|대략)",
+    r"(구독|결제)\s*(할|하고|해볼)",
+    r"worth it", r"pricing",
+    r"얼마.{0,5}낼", r"how much",
+]
+
+
+def build_relevance_terms(intake: Dict[str, Any]) -> List[str]:
+    """intake 기반으로 관련성 판단 용어를 동적 생성한다."""
+    parts: List[str] = []
+    for field in ["target", "problem", "current_alternative", "promised_outcome"]:
+        v = str(intake.get(field) or "")
+        if v:
+            parts.append(v)
+    for k in (intake.get("keywords") or []):
+        parts.append(str(k))
+    blob = " ".join(parts)
+    # 2글자 이상 토큰 추출 + 원문 구절도 포함
+    tokens = re.split(r"[\s,/·]+", blob)
+    out: List[str] = []
+    seen: set = set()
+    # 원문 구절(필드 값 자체)을 relevance term 으로 우선 등록
+    for field in ["target", "problem"]:
+        v = str(intake.get(field) or "").strip()
+        if v and v.lower() not in seen:
+            seen.add(v.lower())
+            out.append(v)
+    for t in tokens:
+        t = t.strip()
+        if len(t) < 2:
+            continue
+        if t.lower() in seen:
+            continue
+        seen.add(t.lower())
+        out.append(t)
+    return out[:40]
+
+
+def build_problem_terms(intake: Dict[str, Any]) -> List[str]:
+    """intake 기반으로 문제/대안 관련 용어를 동적 생성한다."""
+    parts: List[str] = []
+    for field in ["current_alternative", "problem"]:
+        v = str(intake.get(field) or "")
+        if v:
+            parts.append(v)
+    blob = " ".join(parts)
+    tokens = re.split(r"[\s,/·]+", blob)
+    out: List[str] = []
+    seen: set = set()
+    for t in tokens:
+        t = t.strip()
+        if len(t) < 2:
+            continue
+        if t.lower() in seen:
+            continue
+        seen.add(t.lower())
+        out.append(t)
+    return out[:20]
+
 
 BAD_URL_KEYWORDS = [
     "lotto", "arclink", "games-cn", "meme", "horror", "/r/ssss", "clickbait",
 ]
 
 REDDIT_ALLOWED_SUBS = [
-    "trading", "daytrading", "stocks", "stockmarket", "investing", "options", "forex", "crypto", "cryptocurrency", "algotrading",
+    "startups", "Entrepreneur", "SaaS", "smallbusiness", "sideproject", "nocode", "indiehackers",
 ]
 
 PREFERRED_DOMAIN_HINTS = [
-    "naver.com", "tistory.com", "brunch.co.kr", "velog.io", "youtube.com", "reddit.com", "threads.net"
+    "naver.com", "tistory.com", "brunch.co.kr", "velog.io", "youtube.com",
+    "reddit.com", "threads.net", "medium.com", "blog.naver.com", "cafe.naver.com",
+    "quora.com", "producthunt.com", "indiehackers.com",
 ]
 
 
@@ -130,11 +198,66 @@ def infer_workarounds(text: str) -> List[str]:
     return tags
 
 
-def infer_wtp(text: str) -> int:
-    if _contains_any(text, WTP_LEVEL_2):
+STOPWORDS_KR = {"내", "나의", "아이디어", "시장에서", "있을지", "어렵다", "방법", "하는", "것", "수",
+                "이", "가", "을", "를", "에", "에서", "로", "으로", "와", "과", "도", "만",
+                "했을", "할", "한", "된", "되는", "하고", "하면", "없다", "있다", "같은",
+                "때", "더", "의", "및", "또는", "그", "등", "위한", "대한", "통한"}
+
+
+def extract_topic_terms(intake: Dict[str, Any]) -> List[str]:
+    """intake에서 핵심 토픽 명사를 추출한다. WTP 문맥 판단과 적합도 필터에 사용."""
+    # 1) keywords 우선
+    terms = list(intake.get("keywords") or [])
+    # 2) problem에서 명사 후보 (단순 휴리스틱)
+    problem = str(intake.get("problem") or "")
+    tokens = re.split(r'[\s,./!?()\[\]{}:;"\'""'']+', problem)
+    tokens = [t.strip() for t in tokens if len(t.strip()) >= 2]
+    tokens = [t for t in tokens if t not in STOPWORDS_KR]
+    # 3) target에서도 추출
+    target = str(intake.get("target") or "")
+    t_tokens = re.split(r'[\s,./!?()\[\]{}:;"\'""'']+', target)
+    t_tokens = [t.strip() for t in t_tokens if len(t.strip()) >= 2]
+    t_tokens = [t for t in t_tokens if t not in STOPWORDS_KR]
+    # 4) 합치고 dedup
+    out: List[str] = []
+    seen: set = set()
+    for t in terms + tokens + t_tokens:
+        k = t.lower()
+        if k in seen:
+            continue
+        seen.add(k)
+        out.append(t)
+    return out[:12]
+
+
+def infer_wtp(text: str, topic_terms: Optional[List[str]] = None) -> int:
+    """WTP 탐지: 서비스/토픽 문맥이 있을 때만 인정. 부동산/주식/원자재 가격은 제외."""
+    t = (text or "").lower()
+
+    # 0) 가격/결제 단어 자체가 없으면 WTP 아님
+    if not re.search(r"(가격|요금|비용|유료|결제|구독|지불|의향|내고|pay|price|pricing|subscribe|worth|paying)", t):
+        return 0
+
+    # 1) 부동산/원자재/주식 '가격' 문맥은 WTP에서 제외
+    if any(k.lower() in t for k in NON_PRODUCT_PRICE_TERMS):
+        return 0
+
+    # 2) 서비스 문맥 or 토픽 문맥이 같이 있어야 함 (둘 다 없으면 오탐)
+    has_service_context = any(k.lower() in t for k in SERVICE_CONTEXT_TERMS)
+    has_topic_context = any(k.lower() in t for k in (topic_terms or []))
+    if not (has_service_context or has_topic_context):
+        return 0
+
+    # 3) 강/약 신호 분리
+    if any(re.search(p, t) for p in WTP_STRONG_PATTERNS):
         return 2
-    if _contains_any(text, WTP_LEVEL_1):
+    if any(re.search(p, t) for p in WTP_WEAK_PATTERNS):
         return 1
+
+    # 서비스 문맥 + 가격 단어가 같이 있으면 최소 WTP=1 (약한 신호)
+    if has_service_context or has_topic_context:
+        return 1
+
     return 0
 
 
@@ -143,20 +266,41 @@ def compact_text(s: str, max_len: int = 240) -> str:
     return s[:max_len] + ("…" if len(s) > max_len else "")
 
 
-def relevance_score(text: str, extra_terms: Optional[List[str]] = None) -> int:
+NOISE_TERMS = [
+    "토지", "부동산", "아파트", "재개발", "정책", "코스피", "코스닥", "공매", "인버스", "섹터", "2차전지",
+    "주식 추천", "테마주", "리딩방", "상가", "금리", "대출", "dc-link", "현대차", "lg전자",
+]
+
+
+def relevance_score(text: str, extra_terms: Optional[List[str]] = None,
+                    relevance_terms: Optional[List[str]] = None,
+                    problem_terms: Optional[List[str]] = None) -> int:
     low = (text or "").lower()
     s = 0
-    for t in RELEVANCE_TERMS:
+    for t in (relevance_terms or []):
         if t.lower() in low:
             s += 2
-    for t in PROBLEM_TERMS:
+    for t in (problem_terms or []):
         if t.lower() in low:
             s += 1
     for t in (extra_terms or []):
         tt = (t or "").strip().lower()
         if len(tt) >= 2 and tt in low:
             s += 2
+
+    neg_hits = sum(1 for n in NOISE_TERMS if n.lower() in low)
+    if neg_hits:
+        s -= min(6, neg_hits * 2)
     return s
+
+
+def build_project_id(intake: Dict[str, Any]) -> str:
+    key = json.dumps({
+        "target": intake.get("target", ""),
+        "problem": intake.get("problem", ""),
+        "keywords": intake.get("keywords", []),
+    }, ensure_ascii=False, sort_keys=True)
+    return hashlib.sha1(key.encode("utf-8")).hexdigest()[:12]
 
 
 def build_dynamic_terms(intake: Dict[str, Any]) -> List[str]:
@@ -181,17 +325,30 @@ def build_dynamic_terms(intake: Dict[str, Any]) -> List[str]:
 
 
 KR_TO_EN_HINTS = {
-    "매매일지": "trading journal",
-    "트레이딩": "trading",
-    "복기": "trade review",
-    "규칙 위반": "rule violation",
-    "손익": "profit and loss",
     "대시보드": "dashboard",
-    "자동 기록": "auto logging",
-    "트레이더": "trader",
     "엑셀": "excel",
     "노션": "notion",
+    "자동화": "automation",
+    "시장조사": "market research",
+    "검증": "validation",
+    "창업": "startup",
+    "고객": "customer",
+    "유료": "paid",
+    "수익화": "monetization",
+    "가격": "pricing",
+    "경쟁": "competition",
 }
+
+
+def is_idea_validation_context(intake: Dict[str, Any]) -> bool:
+    blob = " ".join([
+        str(intake.get("target") or ""),
+        str(intake.get("problem") or ""),
+        str(intake.get("current_alternative") or ""),
+        " ".join(intake.get("keywords") or []),
+    ]).lower()
+    markers = ["idea", "validation", "wtp", "시장성", "시장조사", "수익화", "창업", "startup"]
+    return any(m in blob for m in markers)
 
 
 def build_reddit_english_queries(intake: Dict[str, Any], plan: Dict[str, Any]) -> List[str]:
@@ -200,27 +357,51 @@ def build_reddit_english_queries(intake: Dict[str, Any], plan: Dict[str, Any]) -
     seed.extend((intake.get("keywords") or [])[:8])
     seed.extend([str(intake.get("target") or ""), str(intake.get("problem") or "")])
 
-    english = [
-        "trading journal app",
-        "trade log app",
-        "trading performance tracker",
-        "trading review workflow",
-        "willingness to pay trading app",
-        "how traders track mistakes",
-        "best trading journal app",
-    ]
+    idea_mode = is_idea_validation_context(intake)
+    if idea_mode:
+        english = [
+            "startup idea validation",
+            "how to validate startup idea",
+            "willingness to pay test",
+            "customer discovery interview",
+            "pre selling before build",
+            "market demand validation",
+            "go to market validation",
+            "founder idea validation mistakes",
+        ]
+        required_tokens = ["validation", "startup", "idea", "customer", "market", "wtp", "pricing", "mvp", "pre selling", "discovery"]
+    else:
+        # intake 기반 동적 영문 쿼리 생성 (트레이딩 하드코딩 제거)
+        english = []
+        en_keywords = [k for k in (intake.get("keywords") or []) if re.search(r"[a-z]", k.lower())]
+        target_en = str(intake.get("target") or "")
+        problem_en = str(intake.get("problem") or "")
+        for ek in en_keywords[:5]:
+            english.append(ek)
+            english.append(f"{ek} app")
+            english.append(f"{ek} alternatives")
+        if target_en:
+            for kr, en in KR_TO_EN_HINTS.items():
+                if kr in target_en:
+                    english.append(en)
+                    english.append(f"{en} app")
+        # required_tokens: intake keywords에서 추출
+        required_tokens = []
+        for ek in en_keywords:
+            required_tokens.extend(ek.lower().split())
+        required_tokens = list(set(t for t in required_tokens if len(t) >= 3))[:15]
+        if not required_tokens:
+            required_tokens = ["app", "tool", "service", "review", "alternative"]
 
     for s in seed:
         ss = (s or "").strip()
         if not ss:
             continue
         low = ss.lower()
-        # keep english-only query as-is (drop mixed KR+EN noise)
         if re.search(r"[a-z]", low):
             ascii_ratio = sum(1 for ch in low if ord(ch) < 128) / max(1, len(low))
             if ascii_ratio >= 0.9:
                 english.append(low)
-        # add mapped hints for korean terms
         for kr, en in KR_TO_EN_HINTS.items():
             if kr in ss:
                 english.append(en)
@@ -233,23 +414,26 @@ def build_reddit_english_queries(intake: Dict[str, Any], plan: Dict[str, Any]) -
     out = []
     seen = set()
     for q in english:
-        qq = re.sub(r"\s+", " ", q).strip()
+        qq = re.sub(r"\s+", " ", q).strip().lower()
         if len(qq) < 3:
             continue
-        # avoid overly generic one-word queries
         if len(qq.split()) == 1:
             continue
-        if not any(k in qq for k in ["trading", "trade", "journal", "log", "review", "tracker"]):
+        if not any(k in qq for k in required_tokens):
             continue
         if qq in seen:
             continue
         seen.add(qq)
         out.append(qq)
-    return out[:10]
+    return out[:12]
 
 
-def is_relevant_text(text: str, threshold: int = 2, extra_terms: Optional[List[str]] = None) -> bool:
-    return relevance_score(text, extra_terms=extra_terms) >= threshold
+def is_relevant_text(text: str, threshold: int = 2, extra_terms: Optional[List[str]] = None,
+                     relevance_terms: Optional[List[str]] = None,
+                     problem_terms: Optional[List[str]] = None) -> bool:
+    return relevance_score(text, extra_terms=extra_terms,
+                           relevance_terms=relevance_terms,
+                           problem_terms=problem_terms) >= threshold
 
 
 # -----------------------------
@@ -261,13 +445,29 @@ def build_query_plan(intake: Dict[str, Any]) -> Dict[str, Any]:
     target = intake.get("target", "")
     problem = intake.get("problem", "")
     alt = intake.get("current_alternative", "")
-    base_terms = [target, problem, alt] + kws
-    base_terms = [x.strip() for x in base_terms if x and x.strip()]
+
+    # 핵심 명사 추출: full sentence 대신 토큰화된 핵심 용어 사용
+    topic_terms = extract_topic_terms(intake)
+    # 쿼리용 base_terms: keywords + topic_terms (중복 제거)
+    seen: set = set()
+    base_terms: List[str] = []
+    for t in kws + topic_terms:
+        t = t.strip()
+        if t and t.lower() not in seen:
+            seen.add(t.lower())
+            base_terms.append(t)
+    # target/problem 원문은 너무 길면 포함하지 않음 (핵심 명사만 사용)
+    if target and len(target) <= 15 and target.lower() not in seen:
+        base_terms.insert(0, target)
+    if alt and len(alt) <= 15 and alt.lower() not in seen:
+        base_terms.append(alt)
 
     reddit_queries = []
     ddg_queries = []
     naver_queries = []
     ph_queries = []
+
+    idea_mode = is_idea_validation_context(intake)
 
     for term in base_terms[:8]:
         reddit_queries.extend([
@@ -288,15 +488,25 @@ def build_query_plan(intake: Dict[str, Any]) -> Dict[str, Any]:
             f"site:reddit.com {term}",
         ])
 
-        # naver-friendly KR intent queries
-        naver_queries.extend([
-            f"{term} 매매일지",
-            f"{term} 엑셀 노션",
-            f"{term} 자동화",
-            f"{term} 유료",
-            f"{term} 가격",
-            f"{term} 후기",
-        ])
+        # naver-friendly KR intent queries (context-aware)
+        if idea_mode:
+            naver_queries.extend([
+                f"{term} 시장조사",
+                f"{term} 시장성 검증",
+                f"{term} 고객 인터뷰",
+                f"{term} 유료 베타",
+                f"{term} 가격 실험",
+                f"{term} 창업 후기",
+            ])
+        else:
+            naver_queries.extend([
+                f"{term} 후기",
+                f"{term} 불편",
+                f"{term} 대안",
+                f"{term} 유료",
+                f"{term} 가격",
+                f"{term} 자동화",
+            ])
         ph_queries.append(term)
 
     subreddit_candidates = [
@@ -539,9 +749,9 @@ def fetch_ddg_search(query: str, max_results: int = 10) -> List[EvidenceCard]:
             if any(k in low_url for k in BAD_URL_KEYWORDS):
                 continue
 
-            # if query is generic, prefer known content domains
+            # 도메인 필터 완화: 알려진 도메인이 아니어도 텍스트가 충분하면 허용
             if not any(h in low_url for h in PREFERRED_DOMAIN_HINTS):
-                if len(text_blob) < 30:
+                if len(text_blob) < 10:
                     continue
 
             src = "duckduckgo"
@@ -690,9 +900,10 @@ def fetch_naver_search(client_id: str, client_secret: str, query: str, display: 
     for t, endpoint in [
         ("news", "https://openapi.naver.com/v1/search/news.json"),
         ("blog", "https://openapi.naver.com/v1/search/blog.json"),
+        ("cafearticle", "https://openapi.naver.com/v1/search/cafearticle.json"),
     ]:
         try:
-            r = requests.get(endpoint, headers=headers, params={"query": query, "display": display, "sort": "sim"}, timeout=20)
+            r = requests.get(endpoint, headers=headers, params={"query": query, "display": display, "sort": "date"}, timeout=20)
             r.raise_for_status()
             data = r.json()
             items = data.get("items", [])
@@ -920,7 +1131,7 @@ def normalize_apify_items(items: List[Dict[str, Any]], source: str, query: str) 
 # Scoring
 # -----------------------------
 
-def score_report(cards: List[EvidenceCard]) -> Dict[str, Any]:
+def score_report(cards: List[EvidenceCard], intake: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
     if not cards:
         return {
             "demand_score": 0,
@@ -928,6 +1139,9 @@ def score_report(cards: List[EvidenceCard]) -> Dict[str, Any]:
             "decision": "iterate",
             "stats": {},
         }
+
+    # topic_terms for fit_rate calculation
+    topic_terms = extract_topic_terms(intake) if intake else []
 
     def source_weight(src: str) -> float:
         s = (src or "").lower()
@@ -957,17 +1171,34 @@ def score_report(cards: List[EvidenceCard]) -> Dict[str, Any]:
             return 0.9
         return 0.75
 
+    # Fit rate: topic_terms와 매칭되는 카드 비율
+    def is_topic_relevant(c: EvidenceCard) -> bool:
+        if not topic_terms:
+            return True  # topic_terms 없으면 전부 relevant 취급
+        blob = f"{c.title} {c.quote}".lower()
+        hit = sum(1 for t in topic_terms if t.lower() in blob)
+        return hit >= 2
+
+    # Voice rate: 커뮤니티/리뷰/댓글 소스 비율
+    COMMUNITY_SOURCES = {"reddit", "reddit-web", "threads", "threads-manual", "hackernews",
+                         "apify-reddit", "apify-threads", "reddit-manual"}
+    community_count = sum(1 for c in cards if c.source.lower() in COMMUNITY_SOURCES or c.source.startswith("apify-reddit"))
+
+    relevant_cards = [c for c in cards if is_topic_relevant(c)]
+    fit_rate = len(relevant_cards) / max(1, len(cards))
+    voice_rate = community_count / max(1, len(cards))
+
     weights = [max(0.3, source_weight(c.source) * recency_weight(c.meta)) for c in cards]
     w_total = sum(weights)
 
     pain_w = sum(w for c, w in zip(cards, weights) if c.pain_tags)
-    wtp1_w = sum(w for c, w in zip(cards, weights) if c.wtp >= 1)
+    wtp1_only_w = sum(w for c, w in zip(cards, weights) if c.wtp == 1)
     wtp2_w = sum(w for c, w in zip(cards, weights) if c.wtp >= 2)
     workaround_w = sum(w for c, w in zip(cards, weights) if c.workaround_tags)
     sources = len(set(c.source for c in cards))
 
     pain_ratio = pain_w / max(1e-9, w_total)
-    wtp_ratio = (wtp1_w + 2 * wtp2_w) / max(1e-9, (2 * w_total))
+    wtp_ratio = (wtp1_only_w + 2 * wtp2_w) / max(1e-9, (2 * w_total))  # 0~1 범위, wtp2에 2배 가중
     workaround_ratio = workaround_w / max(1e-9, w_total)
     source_bonus = min(0.15, sources * 0.05)
 
@@ -980,9 +1211,10 @@ def score_report(cards: List[EvidenceCard]) -> Dict[str, Any]:
     score = max(0, min(100, round(score, 1)))
 
     total = len(cards)
-    if total >= 30 and sources >= 3:
+    # confidence에 fit_rate + voice_rate 반영
+    if total >= 30 and sources >= 4 and fit_rate >= 0.6 and voice_rate >= 0.4:
         conf = "high"
-    elif total >= 12 and sources >= 2:
+    elif total >= 12 and sources >= 2 and fit_rate >= 0.4:
         conf = "medium"
     else:
         conf = "low"
@@ -1005,9 +1237,11 @@ def score_report(cards: List[EvidenceCard]) -> Dict[str, Any]:
             "wtp_level2": sum(1 for c in cards if c.wtp >= 2),
             "workaround_hits": sum(1 for c in cards if c.workaround_tags),
             "source_count": sources,
+            "fit_rate": round(fit_rate, 3),
+            "voice_rate": round(voice_rate, 3),
             "weighted_total": round(w_total, 2),
             "weighted_pain": round(pain_w, 2),
-            "weighted_wtp1_plus": round(wtp1_w, 2),
+            "weighted_wtp1_only": round(wtp1_only_w, 2),
             "weighted_wtp2": round(wtp2_w, 2),
             "weighted_workaround": round(workaround_w, 2),
         },
@@ -1224,9 +1458,45 @@ def module_quality_explainer(intake: Dict[str, Any], score: Dict[str, Any], card
             "quality_score": quality_score,
             "breakdown": [{"metric": "source_diversity", "value": distinct_sources, "why_it_matters": "소스 다양성이 높을수록 결론 신뢰도 상승"}],
             "conclusion_guardrail": {"allow_strong_conclusion": quality_score >= 60, "reason": "품질점수 기반"},
-            "more_evidence_needed": [{"goal": "WTP 신호 보강", "how_to_collect": "가격/유료 언급 키워드 중심 추가 수집"}],
+            "more_evidence_needed": [{"goal": "돈 낼 의사 신호 보강", "how_to_collect": "가격/유료 언급 키워드 중심 추가 수집"}],
         }
     return out
+
+
+def default_template_pack(intake: Dict[str, Any]) -> Dict[str, Any]:
+    """intake 기반으로 기본 템플릿 팩을 동적 생성한다 (trading 하드코딩 제거)."""
+    target = str(intake.get("target") or "핵심 타겟")
+    problem = str(intake.get("problem") or "핵심 문제")
+    alt = str(intake.get("current_alternative") or "기존 방법")
+    outcome = str(intake.get("promised_outcome") or "문제 해결")
+    return {
+        "threads_posts": [
+            {"type": "save", "text": f"[{target}] {problem} 해결하려고 할 때 가장 불편한 점 1가지만 알려주세요."},
+            {"type": "repost", "text": f"{alt} 대신 {outcome} 할 수 있다면 어떤 기능이 가장 우선일까요?"},
+            {"type": "recruit", "text": f"{target} 대상 유료베타 10명 모집합니다. 가장 필요한 기능 댓글로 주세요."},
+        ],
+        "reddit_posts": [
+            {"type": "question", "title": f"{problem} - 어떻게 해결하고 계신가요?", "body": f"{alt} 외에 더 좋은 방법이 있는지 의견 부탁드립니다."},
+            {"type": "feedback", "title": f"{outcome} 유료베타 피드백 부탁드립니다", "body": f"실제로 결제할 가치가 있는지 의견 부탁드립니다."},
+        ],
+        "landing_copy": [
+            {"variant": "short", "headline": f"{problem} 해결", "subheadline": f"{alt} 대신 더 쉽게", "bullets": ["자동화", "대시보드", "퍼포먼스 추적"], "cta": "유료베타 신청"},
+            {"variant": "medium", "headline": f"{target}을 위한 실행형 솔루션", "subheadline": outcome, "bullets": ["데이터 기반 분석", "인사이트 자동화", "시간 절감"], "cta": "지금 검증하기"},
+            {"variant": "strong", "headline": f"{outcome}", "subheadline": f"기록이 아니라 의사결정을 돕는 서비스", "bullets": ["원인 분석", "패턴 감지", "다음 액션 추천"], "cta": "48시간 리포트 받기"},
+        ],
+        "faqs": [
+            {"q": f"기존 방법({alt})과 뭐가 다른가요?", "a": f"자동화와 인사이트로 {problem} 해결 시간을 줄입니다.", "citations": []},
+            {"q": "누구에게 맞나요?", "a": f"{target}에게 적합합니다.", "citations": []},
+            {"q": "유료 전환 기준은요?", "a": "시간 절감/성과 개선 체감이 명확할 때 전환 가능성이 높습니다.", "citations": []},
+            {"q": "데이터는 안전한가요?", "a": "민감정보 최소 수집과 접근제어를 적용합니다.", "citations": []},
+            {"q": "모바일도 되나요?", "a": "핵심 기능은 모바일에서도 확인 가능하도록 설계합니다.", "citations": []},
+            {"q": "초보자도 쓸 수 있나요?", "a": "템플릿 기반 입력으로 시작 장벽을 낮춥니다.", "citations": []},
+            {"q": "기존 도구와 병행 가능한가요?", "a": "초기에는 병행 사용 후 점진 전환을 권장합니다.", "citations": []},
+            {"q": "리포트는 얼마나 자주 받나요?", "a": "주간 리포트 기본, 필요시 일간 요약 확장 가능합니다.", "citations": []},
+            {"q": "환불/보장 정책은?", "a": "유료베타는 재분석 1회 제공 같은 리스크 완화 정책을 권장합니다.", "citations": []},
+            {"q": "지금 바로 뭘 해야 하나요?", "a": "타겟 1개 세그먼트로 랜딩/게시글 실험을 7일 실행하세요.", "citations": []},
+        ],
+    }
 
 
 def module_template_pack(intake: Dict[str, Any], offers: Dict[str, Any], cards: List[EvidenceCard]) -> Dict[str, Any]:
@@ -1234,41 +1504,16 @@ def module_template_pack(intake: Dict[str, Any], offers: Dict[str, Any], cards: 
     schema = '{"confidence":"low|medium|high","threads_posts":[{"type":"save|recruit|repost","text":""}],"reddit_posts":[{"type":"question|feedback","title":"","body":""}],"landing_copy":[{"variant":"short|medium|strong","headline":"","subheadline":"","bullets":[""],"cta":""}],"faqs":[{"q":"","a":"","citations":[""]}]}'
     out = llm_json_call("Create copy-paste template pack", schema, payload) or {"confidence": "low", "threads_posts": [], "reddit_posts": [], "landing_copy": [], "faqs": []}
 
-    # enforce minimum deliverables for paid UX
+    # enforce minimum deliverables using intake-based defaults
+    defaults = default_template_pack(intake)
     if len(out.get("threads_posts", [])) < 3:
-        out["threads_posts"] = out.get("threads_posts", []) + [
-            {"type": "save", "text": "트레이더분들 매매일지 엑셀/노션으로 관리할 때 가장 불편한 점 1가지만 알려주세요."},
-            {"type": "repost", "text": "매매복기 자동화가 되면 실제로 어떤 지표를 가장 먼저 보고 싶으신가요?"},
-            {"type": "recruit", "text": "매매일지 웹서비스 유료베타 10명 모집합니다. 가장 필요한 기능 댓글로 주세요."},
-        ]
-        out["threads_posts"] = out["threads_posts"][:3]
+        out["threads_posts"] = (out.get("threads_posts", []) + defaults["threads_posts"])[:3]
     if len(out.get("reddit_posts", [])) < 2:
-        out["reddit_posts"] = out.get("reddit_posts", []) + [
-            {"type": "question", "title": "트레이딩 저널을 엑셀/노션 대신 웹으로 쓰면 어떤 점이 가장 중요할까요?", "body": "동기화/복기/대시보드/리스크관리 중 우선순위를 알고 싶습니다."},
-            {"type": "feedback", "title": "매매일지 유료베타 오퍼 피드백 부탁드립니다", "body": "48시간 리포트 + 규칙위반 체크 오퍼가 실제로 결제할 가치가 있는지 의견 부탁드립니다."},
-        ]
-        out["reddit_posts"] = out["reddit_posts"][:2]
+        out["reddit_posts"] = (out.get("reddit_posts", []) + defaults["reddit_posts"])[:2]
     if len(out.get("landing_copy", [])) < 3:
-        out["landing_copy"] = out.get("landing_copy", []) + [
-            {"variant": "short", "headline": "엑셀 대신 자동 동기화 매매일지", "subheadline": "복기와 대시보드를 한 화면에서", "bullets": ["자동 기록", "주간 리포트", "리스크 신호"], "cta": "유료베타 신청"},
-            {"variant": "medium", "headline": "흩어진 매매기록을 하나의 웹서비스로", "subheadline": "노션/엑셀보다 빠른 복기", "bullets": ["검색 가능한 일지", "대시보드", "실수 패턴 추적"], "cta": "지금 검증하기"},
-            {"variant": "strong", "headline": "트레이더를 위한 실행형 매매일지", "subheadline": "기록이 아니라 의사결정을 돕는 저널", "bullets": ["손실원인 분석", "규칙 위반 감지", "다음 액션 추천"], "cta": "48시간 리포트 받기"},
-        ]
-        out["landing_copy"] = out["landing_copy"][:3]
+        out["landing_copy"] = (out.get("landing_copy", []) + defaults["landing_copy"])[:3]
     if len(out.get("faqs", [])) < 10:
-        defaults = [
-            {"q": "엑셀과 뭐가 다른가요?", "a": "자동 동기화와 대시보드로 복기 시간을 줄입니다.", "citations": []},
-            {"q": "누구에게 맞나요?", "a": "반복 매매복기와 성과 추적이 필요한 트레이더에게 적합합니다.", "citations": []},
-            {"q": "유료 전환 기준은요?", "a": "시간 절감/리스크 감소 체감이 명확할 때 전환 가능성이 높습니다.", "citations": []},
-            {"q": "데이터는 안전한가요?", "a": "민감정보 최소 수집과 접근제어를 적용합니다.", "citations": []},
-            {"q": "모바일도 되나요?", "a": "핵심 기능은 모바일에서도 확인 가능하도록 설계합니다.", "citations": []},
-            {"q": "초보자도 쓸 수 있나요?", "a": "템플릿 기반 입력으로 시작 장벽을 낮춥니다.", "citations": []},
-            {"q": "기존 노션 템플릿과 병행 가능한가요?", "a": "초기에는 병행 사용 후 점진 전환을 권장합니다.", "citations": []},
-            {"q": "리포트는 얼마나 자주 받나요?", "a": "주간 리포트 기본, 필요시 일간 요약 확장 가능합니다.", "citations": []},
-            {"q": "환불/보장 정책은?", "a": "유료베타는 재분석 1회 제공 같은 리스크 완화 정책을 권장합니다.", "citations": []},
-            {"q": "지금 바로 뭘 해야 하나요?", "a": "타겟 1개 세그먼트로 랜딩/게시글 실험을 7일 실행하세요.", "citations": []},
-        ]
-        out["faqs"] = (out.get("faqs", []) + defaults)[:10]
+        out["faqs"] = (out.get("faqs", []) + defaults["faqs"])[:10]
     return out
 
 
@@ -1284,11 +1529,11 @@ def module_pivot_map(intake: Dict[str, Any], score: Dict[str, Any], replacement_
     if not out:
         out = {
             "confidence": "medium",
-            "why_not_now": [{"reason": "WTP 강신호 부족", "citations": []}],
+            "why_not_now": [{"reason": "돈 낼 의사 강신호 부족", "citations": []}],
             "pivot_candidates": [
-                {"pivot_title": "문제 피봇", "what_changes": "problem", "new_angle": "기록 도구 -> 규칙 위반 경고", "why_this_might_work": "리스크 pain 강함", "supporting_evidence": [], "next_test": "규칙위반 알림 오퍼 게시"},
-                {"pivot_title": "타겟 피봇", "what_changes": "target", "new_angle": "전체 트레이더 -> 겸업 초보 트레이더", "why_this_might_work": "복기 루틴 니즈 집중", "supporting_evidence": [], "next_test": "초보 세그먼트 전용 랜딩"},
-                {"pivot_title": "오퍼 피봇", "what_changes": "offer", "new_angle": "일지 SaaS -> 월말 리포트 자동생성", "why_this_might_work": "돈/시간 절감 가치 명확", "supporting_evidence": [], "next_test": "1회성 리포트 결제 실험"},
+                {"pivot_title": "문제 피봇", "what_changes": "problem", "new_angle": "현재 문제 정의를 더 구체적인 페인 포인트로 재설정", "why_this_might_work": "구체적 문제일수록 결제 의향 높음", "supporting_evidence": [], "next_test": "재정의된 문제 기반 오퍼 게시"},
+                {"pivot_title": "타겟 피봇", "what_changes": "target", "new_angle": "타겟 세그먼트를 더 좋첨", "why_this_might_work": "좋은 세그먼트일수록 전환률 높음", "supporting_evidence": [], "next_test": "좋은 세그먼트 전용 랜딩"},
+                {"pivot_title": "오퍼 피봇", "what_changes": "offer", "new_angle": "지속 구독 대신 1회성 결과물 중심 패키지", "why_this_might_work": "돈/시간 절감 가치 명확", "supporting_evidence": [], "next_test": "1회성 결과물 결제 실험"},
             ],
             "keep_doing": ["증거 기반 의사결정"],
             "stop_doing": ["근거 없는 강한 결론"],
@@ -1379,7 +1624,7 @@ def build_self_checklist(insight: Dict[str, Any]) -> Dict[str, Any]:
             "threshold": "<=0.35",
         },
         {
-            "name": "WTP 직접 문장 비율 5% 이상",
+            "name": "돈 낼 의사 직접 문장 비율 5% 이상",
             "pass": insight.get("wtp_direct_ratio", 0.0) >= 0.05,
             "value": insight.get("wtp_direct_ratio", 0.0),
             "threshold": ">=0.05",
@@ -1400,7 +1645,81 @@ def build_self_checklist(insight: Dict[str, Any]) -> Dict[str, Any]:
     }
 
 
-def build_decision_evidence(cards: List[EvidenceCard], limit: int = 10) -> List[Dict[str, Any]]:
+def quick_translate_en_to_ko(text: str) -> str:
+    api_key = os.getenv("OPEN_AI_API_KEY") or os.getenv("OPENAI_API_KEY")
+    if not api_key or OpenAI is None:
+        return text
+    try:
+        client = OpenAI(api_key=api_key)
+        resp = client.chat.completions.create(
+            model=os.getenv("OPENAI_MODEL", "gpt-4o-mini"),
+            temperature=0.1,
+            max_tokens=220,
+            messages=[
+                {"role": "system", "content": "Translate concise EN->KO. Keep meaning, no extra commentary."},
+                {"role": "user", "content": text[:500]},
+            ],
+        )
+        out = (resp.choices[0].message.content or "").strip()
+        return out or text
+    except Exception:
+        return text
+
+
+def build_global_signals(cards: List[EvidenceCard], limit: int = 5) -> List[Dict[str, Any]]:
+    en_sources = {"hackernews", "duckduckgo", "reddit", "reddit-web", "apify-reddit"}
+    candidates: List[EvidenceCard] = []
+    seen = set()
+    for c in cards:
+        # accept explicit EN-heavy cards regardless of source
+        blob = f"{c.title} {c.quote}".strip()
+        en_heavy = (sum(1 for ch in blob if ('a' <= ch.lower() <= 'z')) / max(1, len(blob))) > 0.35
+        if c.source not in en_sources and not c.source.startswith("apify-reddit") and not en_heavy:
+            continue
+        blob = f"{c.title} {c.quote}".strip()
+        if not re.search(r"[a-zA-Z]", blob):
+            continue
+        if c.source_url in seen:
+            continue
+        seen.add(c.source_url)
+        candidates.append(c)
+
+    # prioritize WTP/workaround/pain bearing signals
+    def _score(c: EvidenceCard) -> float:
+        s = 0.0
+        if c.wtp >= 2:
+            s += 4
+        elif c.wtp == 1:
+            s += 2
+        if c.workaround_tags:
+            s += 1.5
+        if c.pain_tags:
+            s += 1.0
+        return s
+
+    candidates.sort(key=_score, reverse=True)
+    out: List[Dict[str, Any]] = []
+    for c in candidates[:limit]:
+        en_quote = compact_text(c.quote, 260)
+        ko_quote = quick_translate_en_to_ko(en_quote)
+        signal = "문제 공감"
+        if c.wtp > 0:
+            signal = "결제 의향"
+        elif c.workaround_tags:
+            signal = "대안 한계"
+        out.append({
+            "source": c.source,
+            "url": c.source_url,
+            "quote_en": en_quote,
+            "quote_ko": ko_quote,
+            "signal": signal,
+        })
+    return out
+
+
+def build_decision_evidence(cards: List[EvidenceCard], intake: Optional[Dict[str, Any]] = None, limit: int = 10) -> List[Dict[str, Any]]:
+    intake = intake or {}
+
     def recency_bonus(meta: Dict[str, Any]) -> float:
         raw = str((meta or {}).get("publishedAt") or (meta or {}).get("pubDate") or (meta or {}).get("created_at") or "")
         m = re.search(r"(20\d{2})", raw)
@@ -1413,10 +1732,30 @@ def build_decision_evidence(cards: List[EvidenceCard], limit: int = 10) -> List[
             return 0.5
         return 0.0
 
+    focus_terms = build_dynamic_terms(intake)
+    required_intent_terms = [
+        "idea validation", "market need", "willingness to pay", "startup validation", "mvp", "pmf",
+        "시장성", "검증", "고객 인터뷰", "유료 베타", "수요", "니즈", "수익화", "가격 실험",
+    ]
+    negative_noise = ["주식 추천", "종목", "수익 인증", "코인 시황", "급등", "테마주", "리딩방", "밈주식", "공매도"]
+    strict_offtopic_terms = ["코스닥", "코스피", "공매", "아파트", "부동산", "2차전지", "현대차", "lg전자", "dc-link", "capex"]
+    strict_mode = is_idea_validation_context(intake)
+
     scored: List[Tuple[float, EvidenceCard]] = []
     for c in cards:
         text = f"{c.title} {c.quote}".lower()
         score = 0.0
+
+        # hard reject noisy market commentary not tied to user problem
+        if any(n in text for n in [n.lower() for n in negative_noise]):
+            continue
+        if strict_mode and any(n in text for n in [n.lower() for n in strict_offtopic_terms]):
+            continue
+
+        # require at least one clear intent term for this service type
+        if not any(t in text for t in [t.lower() for t in required_intent_terms]):
+            continue
+
         # decision contribution: WTP > workaround-gap > pain > momentum
         if c.wtp >= 2:
             score += 5.0
@@ -1428,14 +1767,28 @@ def build_decision_evidence(cards: List[EvidenceCard], limit: int = 10) -> List[
             score += 1.5
         if c.source in {"naver-news", "naver-blog", "youtube-comment", "youtube-video", "appstore-review", "googleplay-review"}:
             score += 1.2
-        if any(k in text for k in ["가격", "유료", "결제", "구독", "price", "pay", "pricing"]):
-            score += 1.5
-        if any(k in text for k in ["엑셀", "노션", "hts", "excel", "notion", "manual"]):
-            score += 0.8
+
+        # explicit buying language
+        if any(k in text for k in ["가격", "유료", "결제", "구독", "price", "pay", "pricing", "돈 내", "willingness to pay"]):
+            score += 1.8
+
+        # explicit alternative/switching signal
+        if any(k in text for k in ["엑셀", "노션", "hts", "excel", "notion", "manual", "대안", "alternatives"]):
+            score += 1.0
+
+        # service-fit: must overlap with user focus terms
+        fit = relevance_score(text, extra_terms=focus_terms)
+        score += min(3.0, fit * 0.4)
+
         score += recency_bonus(c.meta)
 
-        if len((c.quote or "").strip()) < 40:
-            score -= 1.0
+        if len((c.quote or "").strip()) < 50:
+            score -= 1.2
+
+        # minimum bar to avoid vague/irrelevant cards
+        if score < 2.4:
+            continue
+
         scored.append((score, c))
 
     scored.sort(key=lambda x: x[0], reverse=True)
@@ -1481,30 +1834,56 @@ def build_decision_evidence(cards: List[EvidenceCard], limit: int = 10) -> List[
 
 
 def build_segment_posts(intake: Dict[str, Any]) -> Dict[str, Any]:
-    segments = intake.get("segments") or [
-        "전업/고빈도 트레이더",
-        "직장인 겸업 트레이더",
-        "초보 트레이더",
-    ]
+    idea_mode = is_idea_validation_context(intake)
+    if idea_mode:
+        segments = intake.get("segments") or [
+            "1인사업가",
+            "초기 스타트업 대표",
+            "예비창업자",
+        ]
+    else:
+        target = str(intake.get("target") or "핵심 타겟")
+        problem = str(intake.get("problem") or "핵심 문제")
+        outcome = str(intake.get("promised_outcome") or "문제 해결")
+        segments = intake.get("segments") or [
+            target,
+            f"{target} (초보)",
+            f"{target} (고도 사용자)",
+        ]
+
     out = []
     for seg in segments[:3]:
-        out.append({
-            "segment": seg,
-            "posts": [
+        if idea_mode:
+            posts = [
                 {
                     "type": "공감형",
-                    "text": f"{seg}분들, 매매일지 기록은 하는데 주간 복기에서 가장 시간을 잡아먹는 구간이 어디인가요? (입력/정리/패턴분석 중 1개)",
+                    "text": f"{seg}분들, 아이디어 시장성을 지금 어떻게 검증하고 계신가요? 가장 막히는 1가지만 알려주세요.",
                 },
                 {
                     "type": "인사이트형",
-                    "text": f"{seg} 기준으로 보면 문제 체감은 높은데 지불 의향은 낮습니다. '자동기록+주간리포트'에서 꼭 필요한 지표 3개만 알려주세요.",
+                    "text": f"{seg} 기준으로 문제 공감은 높은데 돈 낼 의사 문장은 부족합니다. 지금 당장 유료 검증에 필요한 질문 3개를 댓글로 받을게요.",
                 },
                 {
                     "type": "모집형",
-                    "text": f"{seg} 대상 유료베타 10명 모집: 자동기록+주간 성과리포트 테스트. 관심 있으면 DM에 BETA 남겨주세요.",
+                    "text": f"{seg} 대상 유료베타 검증 10명 모집: 48시간 내 Go/Iterate/Pivot 판단 리포트. 관심 있으면 DM에 BETA 남겨주세요.",
                 },
-            ],
-        })
+            ]
+        else:
+            posts = [
+                {
+                    "type": "공감형",
+                    "text": f"{seg}분들, {problem} 해결할 때 가장 시간을 잡아먹는 구간이 어디인가요?",
+                },
+                {
+                    "type": "인사이트형",
+                    "text": f"{seg} 기준으로 보면 문제 체감은 높은데 지불 의향은 낮습니다. {outcome}에서 꼭 필요한 기능 3개만 알려주세요.",
+                },
+                {
+                    "type": "모집형",
+                    "text": f"{seg} 대상 유료베타 10명 모집. 관심 있으면 DM에 BETA 남겨주세요.",
+                },
+            ]
+        out.append({"segment": seg, "posts": posts})
     return {"segments": out}
 
 
@@ -1548,6 +1927,21 @@ def tag_interview_answers(intake: Dict[str, Any]) -> Dict[str, Any]:
 
 def rejudge_sprint(intake: Dict[str, Any], base_decision: str) -> Dict[str, Any]:
     m = intake.get("sprint_metrics") or {}
+    # sprint_metrics가 없거나 데이터가 모두 0이면 재판정 생략
+    has_data = any(int(m.get(k, 0) or 0) > 0 for k in ["landing_visits", "cta_clicks", "applications", "interviews", "dm_comments"])
+    if not m or not has_data:
+        return {
+            "base_decision": base_decision,
+            "rejudged_decision": base_decision,
+            "status": "not_run",
+            "reason": "스프린트 실험 데이터가 없어 재판정을 실행하지 않았습니다.",
+            "pass_count": 0,
+            "total_checks": 0,
+            "weighted_pass_ratio": 0.0,
+            "hard_go_conditions": {},
+            "metrics": {},
+            "checks": [],
+        }
     visits = int(m.get("landing_visits", 0) or 0)
     cta_clicks = int(m.get("cta_clicks", 0) or 0)
     saves = int(m.get("saves_likes", 0) or 0)
@@ -1570,7 +1964,7 @@ def rejudge_sprint(intake: Dict[str, Any], base_decision: str) -> Dict[str, Any]
         {"name": "가격 언급>=3", "pass": price_mentions >= 3, "value": price_mentions, "weight": 1.3},
         {"name": "신청률>=2%(신청/랜딩방문)", "pass": apply_rate >= 0.02, "value": round(apply_rate, 4), "weight": 1.6},
         {"name": "반복 Pain>=3", "pass": repeated_pain_count >= 3, "value": repeated_pain_count, "weight": 0.9},
-        {"name": "WTP 문장>=3", "pass": wtp_sentences >= 3, "value": wtp_sentences, "weight": 1.5},
+        {"name": "돈 낼 의사 문장>=3", "pass": wtp_sentences >= 3, "value": wtp_sentences, "weight": 1.5},
     ]
     pass_count = sum(1 for c in checks if c["pass"])
     weighted_total = sum(c["weight"] for c in checks)
@@ -1614,9 +2008,29 @@ def rejudge_sprint(intake: Dict[str, Any], base_decision: str) -> Dict[str, Any]
     }
 
 
-def build_execution_pack(intake: Dict[str, Any], score: Dict[str, Any], insight: Dict[str, Any], sprint_rejudge: Dict[str, Any], top_pains: List[Tuple[str, int]]) -> Dict[str, Any]:
+def sanitize_domain_terms(text: str, intake: Dict[str, Any], cards: List[EvidenceCard]) -> str:
+    """intake에 등장하지 않는 도메인 전문용어를 제거한다. blocked 리스트를 동적으로 구성."""
+    low_intake = " ".join([
+        str(intake.get("target") or ""), str(intake.get("problem") or ""),
+        str(intake.get("current_alternative") or ""), " ".join(intake.get("keywords") or []),
+    ]).lower()
+    low_ev = " ".join((c.title + " " + c.quote) for c in cards[:50]).lower()
+    allow_blob = low_intake + " " + low_ev
+    # 동적 blocked: intake에 없는 도메인 특화 용어만 차단
+    blocked: List[str] = []
+    out = text
+    for b in blocked:
+        if b not in allow_blob:
+            out = re.sub(re.escape(b), "", out, flags=re.IGNORECASE)
+    return re.sub(r"\s+", " ", out).strip()
+
+
+def build_execution_pack(intake: Dict[str, Any], score: Dict[str, Any], insight: Dict[str, Any], sprint_rejudge: Dict[str, Any], top_pains: List[Tuple[str, int]], cards: Optional[List[EvidenceCard]] = None) -> Dict[str, Any]:
     target = intake.get("target") or "핵심 타겟"
-    top_pain = top_pains[0][0] if top_pains else "기록/복기"
+    idea_mode = is_idea_validation_context(intake)
+    top_pain = top_pains[0][0] if top_pains else ("시장성/수익화 판단" if idea_mode else "기록/복기")
+    if idea_mode and (not top_pain or top_pain.lower() in {"time", "pain", "problem"}):
+        top_pain = "시장성/수익화 판단"
     decision = sprint_rejudge.get("rejudged_decision") or score.get("decision", "iterate")
     apply_rate = (sprint_rejudge.get("metrics") or {}).get("application_rate", 0.0)
     wtp_ratio = insight.get("wtp_direct_ratio", 0.0)
@@ -1628,16 +2042,37 @@ def build_execution_pack(intake: Dict[str, Any], score: Dict[str, Any], insight:
     else:
         tone = "오퍼 피벗 권장. 결과물 중심 패키지로 재실험합니다."
 
-    post = (
-        f"[{target}] 지금 {top_pain} 문제를 해결할 '자동기록+주간리포트' 유료베타를 검증 중입니다. "
-        f"신청률 {apply_rate:.2%}, WTP비율 {wtp_ratio:.2%}. 관심 있으면 DM에 BETA 남겨주세요."
-    )
-    dm_script = [
-        "문의 감사합니다. 15분만 인터뷰하고 베타 우선 초대 드릴게요.",
-        "현재 기록 도구(엑셀/노션/앱)와 가장 큰 불편 1가지를 알려주세요.",
-        "자동기록+주간리포트가 해결된다면 월 얼마가 적정한지 알려주세요.",
-    ]
-    tweak_rule = "신청률<2%면 혜택문구 2줄 교체, WTP문장<3이면 가격 질문 문구를 전면에 배치"
+    measured = any((sprint_rejudge.get("metrics") or {}).get(k, 0) > 0 for k in ["landing_visits", "cta_clicks", "applications", "interviews"])
+
+    if idea_mode:
+        if measured:
+            post = (
+                f"[{target}] 지금 '{top_pain}' 문제를 해결할 아이디어 시장성 검증 유료베타를 테스트 중입니다. "
+                f"신청률 {apply_rate:.2%}, 돈 낼 의사 문장 비율 {wtp_ratio:.2%}. 관심 있으면 DM에 BETA 남겨주세요."
+            )
+        else:
+            post = f"[{target}] 지금 '{top_pain}' 관련 사용자 인터뷰를 모집 중입니다. 실제 불편/대안/가격 인식 확인을 위해 DM 참여 부탁드려요."
+        dm_script = [
+            "문의 감사합니다. 15분만 인터뷰하고 베타 우선 초대 드릴게요.",
+            "지금 아이디어 검증에서 가장 막히는 1가지를 알려주세요.",
+            "이 문제가 해결된다면 실제로 지불 가능한 가격대를 알려주세요.",
+        ]
+        tweak_rule = "신청률<2%면 타겟 문구를 더 좁히고, 돈 낼 의사 문장<3이면 가격 질문을 첫 문장으로 이동"
+    else:
+        problem = str(intake.get("problem") or top_pain)
+        outcome = str(intake.get("promised_outcome") or "문제 해결")
+        post = (
+            f"[{target}] 지금 {top_pain} 문제를 해결할 유료베타를 검증 중입니다. "
+            f"신청률 {apply_rate:.2%}, 돈 낼 의사 비율 {wtp_ratio:.2%}. 관심 있으면 DM에 BETA 남겨주세요."
+        )
+        dm_script = [
+            "문의 감사합니다. 15분만 인터뷰하고 베타 우선 초대 드릴게요.",
+            f"현재 {problem} 해결에서 가장 큰 불편 1가지를 알려주세요.",
+            f"{outcome}이 해결된다면 월 얼마가 적정한지 알려주세요.",
+        ]
+        tweak_rule = "신청률<2%면 혜택문구 2줄 교체, 돈 낼 의사 문장<3이면 가격 질문 문구를 전면에 배치"
+
+    post = sanitize_domain_terms(post, intake, cards or [])
 
     return {
         "status_tone": tone,
@@ -1657,6 +2092,37 @@ def build_execution_pack(intake: Dict[str, Any], score: Dict[str, Any], insight:
     }
 
 
+def heuristic_summary(intake: Dict[str, Any], score: Dict[str, Any], stats: Dict[str, Any]) -> Tuple[str, str]:
+    """LLM 없이도 why_this_score / actionable_next_step을 채우는 fallback."""
+    evidence_count = stats.get("evidence_count", 0)
+    fit_rate = stats.get("fit_rate", 0.0)
+    wtp_count = stats.get("wtp_level1_plus", 0)
+    source_count = stats.get("source_count", 0)
+    decision = score.get("decision", "iterate")
+
+    if evidence_count < 20 or fit_rate < 0.4:
+        why = "데이터가 충분하지 않거나 주제와 직접 관련된 근거 비율이 낮아서 결론을 강하게 내리기 어렵습니다."
+        next_step = "커뮤니티/리뷰/댓글에서 '문제+대안+가격'이 같이 언급된 근거를 30개 이상 모은 뒤 재판정하세요."
+        return why, next_step
+
+    if wtp_count == 0:
+        why = "문제 공감은 일부 확인되지만, '이걸 위해 돈을 내겠다'는 문장이 거의 없어 유료 서비스로는 근거가 약합니다."
+        next_step = "가격 질문이 포함된 모집글/랜딩(A/B)로 '돈 낼 의사' 문장을 3개 이상 확보하세요."
+        return why, next_step
+
+    if decision == "go":
+        why = f"근거 {evidence_count}건, 적합도 {fit_rate:.0%}, 돈 낼 의사 신호 {wtp_count}건으로 양호한 수준입니다."
+        next_step = "결제 의향 검증용 스모크 테스트 랜딩(가격 3안) + 72시간 트래픽 테스트를 실행하세요."
+    elif decision == "iterate":
+        why = f"근거의 질과 양은 확인되지만 (적합도 {fit_rate:.0%}, 돈 낼 의사 {wtp_count}건), 결제 전환 근거가 부족해 오퍼/타겟 재정의가 필요합니다."
+        next_step = "가장 반응이 강한 세그먼트 1개로 좁혀 7일 스프린트를 실행하세요."
+    else:
+        why = f"적합도 {fit_rate:.0%}, 돈 낼 의사 신호 {wtp_count}건으로 현 가설의 시장 수요 근거가 약합니다."
+        next_step = "핵심 문제 가설을 재정의하고 다른 세그먼트(타겟)로 쿼리를 재수집하세요."
+
+    return why, next_step
+
+
 def build_report(intake: Dict[str, Any], cards: List[EvidenceCard], score: Dict[str, Any]) -> Dict[str, Any]:
     top_pains = top_tags(cards, "pain_tags", 3)
     top_workarounds = top_tags(cards, "workaround_tags", 3)
@@ -1664,17 +2130,54 @@ def build_report(intake: Dict[str, Any], cards: List[EvidenceCard], score: Dict[
 
     llm = llm_upgrade_summary(intake, score, cards)
 
+    # LLM이 비었을 때 heuristic fallback
+    if not llm.get("why_this_score") or not llm.get("actionable_next_step"):
+        h_why, h_next = heuristic_summary(intake, score, score.get("stats", {}))
+        if not llm.get("why_this_score"):
+            llm["why_this_score"] = h_why
+        if not llm.get("actionable_next_step"):
+            llm["actionable_next_step"] = h_next
+        if not llm.get("executive_one_liner"):
+            decision = score.get("decision", "iterate")
+            if decision == "go":
+                llm["executive_one_liner"] = "핵심 가설이 검증되어 실행 단계로 진입할 수 있습니다."
+            elif decision == "iterate":
+                llm["executive_one_liner"] = "가설 유지, 오퍼/타겟 문구 조정 후 재검증이 필요합니다."
+            else:
+                llm["executive_one_liner"] = "현재 근거로는 피벗이 권장됩니다. 문제/타겟 재정의를 검토하세요."
+
     # Cost optimization: run fewer LLM modules when evidence is sparse or budget mode is on.
     budget_mode = os.getenv("COST_OPTIMIZED", "1") == "1"
     enough_evidence = len(cards) >= int(os.getenv("MIN_EVIDENCE_FOR_FULL_LLM", "25"))
 
     replacement_map = module_replacement_map(intake, cards)
     quality = module_quality_explainer(intake, score, cards)
+    # hard guardrail override
+    st0 = score.get("stats", {})
+    wtp_direct = sum(1 for c in cards if c.wtp > 0)
+    allow_strong = (st0.get("evidence_count", 0) >= 30) and (st0.get("source_count", 0) >= 4) and (wtp_direct >= 3) and (score.get("confidence") != "low")
+    quality.setdefault("conclusion_guardrail", {})
+    quality["conclusion_guardrail"]["allow_strong_conclusion"] = bool(allow_strong)
+    if not allow_strong:
+        quality["conclusion_guardrail"]["reason"] = "증거 수/소스/돈 낼 의사 문장 기준 미달"
 
     if budget_mode and not enough_evidence:
         offers = {"confidence": "low", "offers": [], "risk_reversal": [], "pricing_experiments": []}
         plan_7d = {"confidence": "low", "experiment_goal": "", "kpi_cutlines": [], "day_by_day_plan": [], "pivot_rules": [], "templates": {}}
-        template_pack = {"confidence": "low", "threads_posts": [], "reddit_posts": [], "landing_copy": [], "faqs": []}
+        if is_idea_validation_context(intake):
+            template_pack = {
+                "confidence": "medium",
+                "threads_posts": [
+                    {"type": "question", "text": "아이디어 시장성 검증, 다들 지금 어떻게 하고 계세요? 감/지인 피드백 말고 실제로 통했던 방식 1개만 알려주세요."},
+                    {"type": "recruit", "text": "1인사업가/초기팀 대상 아이디어 검증 인터뷰 10명 모집합니다. 15분 인터뷰 참여 가능하면 DM 주세요."},
+                    {"type": "pricing", "text": "‘48시간 시장성 검증 리포트’가 있다면 얼마까지 지불 의향 있으세요? (무료/1만원대/3만원대/5만원+)"},
+                ],
+                "reddit_posts": [],
+                "landing_copy": [],
+                "faqs": [],
+            }
+        else:
+            template_pack = {"confidence": "low", "threads_posts": [], "reddit_posts": [], "landing_copy": [], "faqs": []}
         pivot_map = {"confidence": "low", "why_not_now": [], "pivot_candidates": [], "keep_doing": [], "stop_doing": []}
     else:
         offers = module_offer_generator(intake, replacement_map, cards)
@@ -1697,7 +2200,7 @@ def build_report(intake: Dict[str, Any], cards: List[EvidenceCard], score: Dict[
         "momentum": momentum_component,
         "total": round(pain_component + wallet_component + workaround_component + momentum_component, 1),
         "unlock_conditions": [
-            "WTP 강신호(유료/가격) 증거를 추가 확보",
+            "돈 낼 의사 강신호(유료/가격) 증거를 추가 확보",
             "예약금/유료베타 전환 지표 확보",
             "핵심 세그먼트 1개에서 반복 반응 확인",
         ],
@@ -1707,19 +2210,33 @@ def build_report(intake: Dict[str, Any], cards: List[EvidenceCard], score: Dict[
     segment_posts = build_segment_posts(intake)
     interview_tagging = tag_interview_answers(intake)
     sprint_rejudge = rejudge_sprint(intake, score.get("decision", "iterate"))
-    execution_pack = build_execution_pack(intake, score, insight_metrics, sprint_rejudge, top_pains)
-    decision_evidence = build_decision_evidence(cards, limit=10)
+    execution_pack = build_execution_pack(intake, score, insight_metrics, sprint_rejudge, top_pains, cards)
+    decision_evidence = build_decision_evidence(cards, intake=intake, limit=10)
+    global_signals = build_global_signals(cards, limit=5)
+
+    # guardrail: when data is too thin, avoid strong conclusion language
+    min_evidence = int(os.getenv("MIN_EVIDENCE_GATE", "30"))
+    min_sources = int(os.getenv("MIN_SOURCES_GATE", "4"))
+    insufficient_data = (stats.get("evidence_count", 0) < min_evidence) or (stats.get("source_count", 0) < min_sources)
+    gated_decision = score["decision"]
+    gated_next_step = llm.get("actionable_next_step", "")
+    gated_why = llm.get("why_this_score", "")
+    if insufficient_data:
+        gated_decision = "collect_more"
+        gated_why = gated_why or "현재 근거 수/소스 다양성이 기준 미달이라 판정을 보류하고 추가 수집이 필요합니다."
+        gated_next_step = "타겟 적합 증거 30건, 소스 4개 이상 확보 후 재판정"
 
     return {
         "generated_at": datetime.now(timezone.utc).isoformat(),
+        "project_id": build_project_id(intake),
         "intake": intake,
         "summary": {
             "demand_score": score["demand_score"],
             "confidence": score["confidence"],
-            "decision": score["decision"],
+            "decision": gated_decision,
             "one_liner": llm.get("executive_one_liner") or f"수요 신호 {('강' if score['demand_score'] >= 70 else '중' if score['demand_score'] >=45 else '약')} / confidence {score['confidence']}",
-            "why_this_score": llm.get("why_this_score", ""),
-            "actionable_next_step": llm.get("actionable_next_step", ""),
+            "why_this_score": gated_why,
+            "actionable_next_step": gated_next_step,
         },
         "stats": score.get("stats", {}),
         "score_breakdown": score_breakdown,
@@ -1730,6 +2247,7 @@ def build_report(intake: Dict[str, Any], cards: List[EvidenceCard], score: Dict[
         "sprint_rejudge": sprint_rejudge,
         "execution_pack": execution_pack,
         "decision_evidence": decision_evidence,
+        "global_signals": global_signals,
         "top_pains": [{"tag": t, "count": c} for t, c in top_pains],
         "top_workarounds": [{"tag": t, "count": c} for t, c in top_workarounds],
         "wtp_quotes": top_wtp_quotes,
@@ -1773,8 +2291,8 @@ def render_markdown(report: Dict[str, Any]) -> str:
     lines.append("\n## 2) 왜 이런 결과가 나왔나 (Score Breakdown)")
     lines.append(f"- 증거 수: **{stats.get('evidence_count', 0)}**")
     lines.append(f"- Pain 신호: **{stats.get('pain_hits', 0)}**")
-    lines.append(f"- WTP(가격/유료) 신호: **{stats.get('wtp_level1_plus', 0)}**")
-    lines.append(f"- 강한 WTP 신호: **{stats.get('wtp_level2', 0)}**")
+    lines.append(f"- 돈 낼 의사(가격/유료) 신호: **{stats.get('wtp_level1_plus', 0)}**")
+    lines.append(f"- 강한 돈 낼 의사 신호: **{stats.get('wtp_level2', 0)}**")
     lines.append(f"- 기존 대안 언급: **{stats.get('workaround_hits', 0)}**")
     lines.append(f"- 소스 다양성: **{stats.get('source_count', 0)}**")
     sb = report.get("score_breakdown", {})
@@ -1788,7 +2306,7 @@ def render_markdown(report: Dict[str, Any]) -> str:
     if im:
         lines.append("- 정량 검증 지표:")
         lines.append(f"  - Raw/Adjusted: {im.get('raw_score')} / {im.get('adjusted_score')} (gap {im.get('score_gap')})")
-        lines.append(f"  - WTP 문장 비율: {im.get('wtp_direct_count')}/{im.get('evidence_count')} = {im.get('wtp_direct_ratio')}")
+        lines.append(f"  - 돈 낼 의사 문장 비율: {im.get('wtp_direct_count')}/{im.get('evidence_count')} = {im.get('wtp_direct_ratio')}")
         lines.append(f"  - 중복률: {im.get('duplicate_ratio')} / 소스 다양성: {im.get('unique_sources')}")
 
     sc = report.get("self_checklist", {})
@@ -1812,11 +2330,11 @@ def render_markdown(report: Dict[str, Any]) -> str:
 
     wtp_quotes = report.get("wtp_quotes", [])
     if wtp_quotes:
-        lines.append("- WTP(가격/유료) 관련 근거 문장:")
+        lines.append("- 돈 낼 의사(가격/유료) 관련 근거 문장:")
         for q in wtp_quotes[:3]:
             lines.append(f"  - \"{q}\"")
     else:
-        lines.append("- WTP 신호가 약합니다. 가격 검증 질문을 포함한 추가 탐색이 필요합니다.")
+        lines.append("- 돈 낼 의사 신호가 약합니다. 가격 검증 질문을 포함한 추가 탐색이 필요합니다.")
 
     lines.append("\n## 4) 바로 실행할 다음 실험 (48시간)")
     lines.append(f"- 권장 실험: **{report.get('next_experiment', '')}**")
@@ -1836,8 +2354,8 @@ def render_markdown(report: Dict[str, Any]) -> str:
     lines.append("\n## 6) 인터뷰 자동 태깅")
     lines.append(f"- 인터뷰 답변 수: {it.get('count', 0)}")
     tc = it.get("tag_counts", {})
-    lines.append(f"- 태깅 집계: Pain {tc.get('pain',0)} / WTP {tc.get('wtp',0)} / Workaround {tc.get('workaround',0)}")
-    lines.append(f"- WTP 비율: {it.get('wtp_ratio',0.0)}")
+    lines.append(f"- 태깅 집계: Pain {tc.get('pain',0)} / 돈 낼 의사 {tc.get('wtp',0)} / Workaround {tc.get('workaround',0)}")
+    lines.append(f"- 돈 낼 의사 비율: {it.get('wtp_ratio',0.0)}")
 
     sr = report.get("sprint_rejudge", {})
     lines.append("\n## 7) 스프린트 자동 재판정")
@@ -1855,7 +2373,7 @@ def render_markdown(report: Dict[str, Any]) -> str:
             lines.append(f"- 오늘 액션: {ta.get('channel','threads')} / 타겟: {ta.get('target','')}")
             lines.append(f"- 복붙 포스트: {ta.get('post_copy','')}")
             k = ta.get("kpi", {})
-            lines.append(f"- KPI: 신청률>={k.get('apply_rate_target',0)} / DM>={k.get('dm_target',0)} / WTP문장>={k.get('wtp_sentence_target',0)}")
+            lines.append(f"- KPI: 신청률>={k.get('apply_rate_target',0)} / DM>={k.get('dm_target',0)} / 돈 낼 의사 문장>={k.get('wtp_sentence_target',0)}")
             lines.append(f"- 실패 규칙: {ta.get('failure_rule','')}")
 
     # Replacement map
@@ -1921,7 +2439,7 @@ def render_markdown(report: Dict[str, Any]) -> str:
 
     lines.append("\n## 16) 신뢰도 안내")
     lines.append("- 이 리포트는 커뮤니티 신호 기반 분석입니다. 예측이 아니라 현재 관측된 근거의 요약입니다.")
-    lines.append("- 신뢰도를 올리려면: 소스 다양성 확대 + WTP 문장 추가 수집이 필요합니다.")
+    lines.append("- 신뢰도를 올리려면: 소스 다양성 확대 + 돈 낼 의사 문장 추가 수집이 필요합니다.")
 
     return "\n".join(lines) + "\n"
 
@@ -2026,8 +2544,11 @@ def main() -> int:
         except Exception as e:
             print(f"[warn] hackernews failed for '{q}': {e}", file=sys.stderr)
 
-    # Reddit
-    if not args.no_reddit:
+    # Reddit (temporarily disabled by default for quality control)
+    disable_reddit = os.getenv("DISABLE_REDDIT", "1") == "1"
+    if disable_reddit:
+        print("[info] Reddit disabled by DISABLE_REDDIT=1", file=sys.stderr)
+    elif not args.no_reddit:
         reddit_token = os.getenv("REDDIT_ACCESS_TOKEN")
         if reddit_token:
             for q in plan["reddit_queries"][:6]:
@@ -2041,12 +2562,13 @@ def main() -> int:
     # Apify collectors (task or actor, optional high-quality boost)
     apify_token = os.getenv("APIFY_TOKEN")
     if apify_token:
+        apify_reddit_enabled = os.getenv("DISABLE_REDDIT", "1") != "1"
         apify_task_map = [
-            ("reddit", os.getenv("APIFY_TASK_REDDIT")),
+            ("reddit", os.getenv("APIFY_TASK_REDDIT") if apify_reddit_enabled else None),
             ("naver", os.getenv("APIFY_TASK_NAVER")),
             ("youtube", os.getenv("APIFY_TASK_YOUTUBE")),
         ]
-        use_actor_reddit = os.getenv("APIFY_USE_ACTOR_REDDIT", "0") == "1"
+        use_actor_reddit = (os.getenv("APIFY_USE_ACTOR_REDDIT", "0") == "1") and apify_reddit_enabled
         apify_actor_map = [
             ("reddit", os.getenv("APIFY_ACTOR_REDDIT") if use_actor_reddit else None),
             ("naver", os.getenv("APIFY_ACTOR_NAVER")),
@@ -2152,6 +2674,9 @@ def main() -> int:
 
     # Keyword gate: keep only relevant evidence
     dynamic_terms = build_dynamic_terms(intake)
+    rel_terms = build_relevance_terms(intake)
+    prob_terms = build_problem_terms(intake)
+    idea_mode = is_idea_validation_context(intake)
     filtered: List[EvidenceCard] = []
     dropped = 0
     for c in cards:
@@ -2162,15 +2687,15 @@ def main() -> int:
 
         blob = f"{c.title} {c.quote}".strip()
 
-        # stricter for generic DDG sources to reduce noise
-        th = 2
+        # stricter base threshold to reduce noise
+        th = int(os.getenv("RELEVANCE_MIN", "3"))
         if c.source in {"duckduckgo", "reddit-web", "threads"}:
-            th = 3
+            th = max(th, 4)
 
-        # reddit source quality filter
+        # reddit source quality filter (idea_mode일 때는 서브레딧 필터 비활성화)
         if c.source.startswith("apify-reddit") or c.source in {"reddit", "reddit-web"}:
             u = (c.source_url or "").lower()
-            if "/r/" in u and not any(f"/r/{sub}" in u for sub in REDDIT_ALLOWED_SUBS):
+            if not idea_mode and "/r/" in u and not any(f"/r/{sub}" in u for sub in REDDIT_ALLOWED_SUBS):
                 dropped += 1
                 continue
 
@@ -2178,7 +2703,8 @@ def main() -> int:
         if dynamic_terms and c.source.startswith("apify-"):
             th = max(1, th - 1)
 
-        if is_relevant_text(blob, threshold=th, extra_terms=dynamic_terms):
+        if is_relevant_text(blob, threshold=th, extra_terms=dynamic_terms,
+                            relevance_terms=rel_terms, problem_terms=prob_terms):
             filtered.append(c)
         else:
             dropped += 1
@@ -2195,7 +2721,19 @@ def main() -> int:
             uniq[key] = c
     cards = list(uniq.values())
 
-    score = score_report(cards)
+    # WTP 재태깅: intake의 topic_terms 기반으로 모든 카드의 WTP를 다시 판정
+    topic_terms = extract_topic_terms(intake)
+    retag_count = 0
+    for c in cards:
+        blob = f"{c.title} {c.quote}".strip()
+        new_wtp = infer_wtp(blob, topic_terms=topic_terms)
+        if new_wtp != c.wtp:
+            retag_count += 1
+            c.wtp = new_wtp
+    if retag_count:
+        print(f"[info] WTP re-tagged {retag_count} card(s) with topic context", file=sys.stderr)
+
+    score = score_report(cards, intake=intake)
     report = build_report(intake, cards, score)
 
     with open(os.path.join(args.outdir, "query_plan.json"), "w", encoding="utf-8") as f:
