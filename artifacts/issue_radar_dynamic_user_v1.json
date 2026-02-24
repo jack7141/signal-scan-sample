@@ -1,0 +1,23 @@
+{
+  "input": {
+    "category": "마케팅",
+    "keywords": [
+      "솔로 창업",
+      "솔로 개발",
+      "노마드",
+      "solopreneur",
+      "indie hacker",
+      "digital nomad"
+    ],
+    "sources": [
+      "reddit",
+      "threads"
+    ]
+  },
+  "generated_at": "2026-02-24T04:48:41.959233+00:00",
+  "tabs": {
+    "today": [],
+    "week": [],
+    "month": []
+  }
+}
