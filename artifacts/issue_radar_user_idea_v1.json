@@ -1,0 +1,20 @@
+{
+  "input": {
+    "category": "마케팅",
+    "keywords": [
+      "솔로 창업",
+      "솔로 개발",
+      "노마드"
+    ],
+    "sources": [
+      "reddit",
+      "threads"
+    ]
+  },
+  "generated_at": "2026-02-24T01:06:24.685804+00:00",
+  "tabs": {
+    "today": [],
+    "week": [],
+    "month": []
+  }
+}
