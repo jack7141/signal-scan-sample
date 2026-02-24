@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "IssueRadarOutput",
+  "type": "object",
+  "required": ["input", "generated_at", "tabs"],
+  "properties": {
+    "input": {
+      "type": "object",
+      "required": ["category", "keywords", "sources"],
+      "properties": {
+        "category": { "type": "string" },
+        "keywords": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 1
+        },
+        "sources": {
+          "type": "array",
+          "items": { "type": "string", "enum": ["reddit", "threads"] },
+          "minItems": 1
+        }
+      }
+    },
+    "generated_at": { "type": "string" },
+    "tabs": {
+      "type": "object",
+      "required": ["today", "week", "month"],
+      "properties": {
+        "today": { "$ref": "#/$defs/tabCards" },
+        "week": { "$ref": "#/$defs/tabCards" },
+        "month": { "$ref": "#/$defs/tabCards" }
+      }
+    }
+  },
+  "$defs": {
+    "tabCards": {
+      "type": "array",
+      "maxItems": 5,
+      "items": { "$ref": "#/$defs/card" }
+    },
+    "card": {
+      "type": "object",
+      "required": ["title", "why_trending", "top_links", "what_to_do", "score"],
+      "properties": {
+        "title": { "type": "string" },
+        "why_trending": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 1
+        },
+        "top_links": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["url", "source"],
+            "properties": {
+              "url": { "type": "string" },
+              "source": { "type": "string" },
+              "title": { "type": "string" }
+            }
+          },
+          "maxItems": 3
+        },
+        "what_to_do": {
+          "type": "object",
+          "required": ["content", "product", "comment"],
+          "properties": {
+            "content": { "type": "string" },
+            "product": { "type": "string" },
+            "comment": { "type": "string" }
+          }
+        },
+        "score": { "type": "number" },
+        "evidence_count": { "type": "integer" }
+      }
+    }
+  }
+}
